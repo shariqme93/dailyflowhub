@@ -114,8 +114,32 @@
     .section { padding: 50px 20px; }
   }
 </style>
+  <style>
+    /* Premium navbar shadow */
+    header { box-shadow: 0 1px 4px rgba(0,0,0,0.05); }
+
+    /* Premium card hover */
+    .card { transition: 0.25s ease; }
+    .card:hover { transform: translateY(-4px); box-shadow: 0 6px 18px rgba(0,0,0,0.12); }
+
+    /* Hero spacing */
+    .hero { padding: 120px 40px 100px 40px; }
+
+    /* Dark mode card border softening */
+    body.dark .card { border-color: rgba(255,255,255,0.12); }
+
+    /* Icon theme toggle button */
+    #theme-toggle { position: fixed; bottom: 20px; right: 20px; background:#222; border:none; border-radius:50%; width:46px; height:46px; display:flex; align-items:center; justify-content:center; cursor:pointer; color:#fff; font-size:20px; box-shadow:0 2px 8px rgba(0,0,0,0.25); }
+    body.dark #theme-toggle { background:#fff; color:#000; }
+  </style>
 </head>
 <body>
+  <button id="theme-toggle">☀️</button>
+  <script>
+    const toggle = document.getElementById('theme-toggle');
+    function applyTheme(){ document.body.classList.toggle('dark'); toggle.textContent = document.body.classList.contains('dark') ? '🌙' : '☀️'; }
+    toggle.addEventListener('click', applyTheme);
+  </script>
   <header>
     <h1>Daily Flow Hub</h1>
     <nav>
