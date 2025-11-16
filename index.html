@@ -29,13 +29,17 @@
       --hero-bottom: #1b1c1e;
     }
 
+    * { box-sizing: border-box; }
+
     body {
       margin: 0;
       background: var(--bg);
       color: var(--text);
       font-family: 'Inter', sans-serif;
-      transition: 0.3s;
+      transition: background 0.3s ease, color 0.3s ease;
     }
+
+    /* Header */
 
     header {
       display: flex;
@@ -66,6 +70,10 @@
       color: var(--text);
       font-size: 15px;
     }
+
+    nav a:hover { color: var(--primary); }
+
+    /* Hero */
 
     .hero {
       padding: 140px 40px 120px;
@@ -106,7 +114,13 @@
     .primary { background: var(--primary); color: #fff; }
     .secondary { border: 1px solid var(--border); background: transparent; color: var(--text); }
 
-    .section { max-width: 1150px; margin: 0 auto; padding: 80px 40px; }
+    /* Sections */
+
+    .section {
+      max-width: 1150px;
+      margin: 0 auto;
+      padding: 80px 40px;
+    }
 
     .section h2 {
       font-size: 36px;
@@ -114,11 +128,14 @@
       font-weight: 700;
     }
 
-    .section p { color: var(--sub); max-width: 650px; }
+    .section p {
+      color: var(--sub);
+      max-width: 650px;
+    }
 
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 22px;
       margin-top: 40px;
     }
@@ -131,60 +148,189 @@
       transition: 0.25s ease;
     }
 
-    .card:hover { transform: translateY(-4px); box-shadow: 0 6px 20px rgba(0,0,0,0.08); }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+      background: var(--bg);
+    }
 
-    #theme-toggle {
+    /* Settings dock (theme) */
+
+    .settings-dock {
       position: fixed;
-      bottom: 100px;
+      bottom: 24px;
       right: 24px;
-      padding: 10px 18px;
-      height: auto;
-      width: auto;
+      z-index: 600;
+      font-size: 14px;
+      font-weight: 500;
+    }
+
+    .settings-trigger {
+      width: 44px;
+      height: 44px;
       border-radius: 999px;
-      font-size: 15px;
-      font-weight: 600;
-      background: var(--card);
-      color: var(--text);
       border: 1px solid var(--border);
-      cursor: pointer;
-      box-shadow: 0 4px 18px rgba(0,0,0,0.12);
+      background: var(--card);
       display: flex;
       align-items: center;
-      gap: 8px;
-      z-index: 500;
-      transition: 0.3s ease;
+      justify-content: center;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+      transition: 0.25s ease;
+      color: var(--text);
     }
 
-    #theme-toggle:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 6px 22px rgba(0,0,0,0.18);
+    .settings-trigger:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(0,0,0,0.22);
     }
 
-    body.dark #theme-toggle {
-      background: #ffffff;
-      color: #000000;
-      border: 1px solid #333;
+    .settings-panel {
+      position: absolute;
+      bottom: 56px;
+      right: 0;
+      background: var(--card);
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+      padding: 12px 14px;
+      min-width: 170px;
+      display: none;
     }
-    body.dark #theme-toggle { background:#fff; color:#000; }
 
-    body.dark #theme-toggle { background:#fff; color:#000; }
+    .settings-panel.open {
+      display: block;
+    }
+
+    .settings-panel p {
+      margin: 0 0 8px;
+      font-size: 13px;
+      color: var(--sub);
+    }
+
+    .theme-option {
+      width: 100%;
+      padding: 8px 10px;
+      border-radius: 9px;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 13px;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .theme-option span {
+      opacity: 0.7;
+      font-size: 12px;
+    }
+
+    .theme-option.active {
+      background: rgba(42,124,247,0.08);
+      color: var(--primary);
+    }
+
+    /* Popup: bottom-left to avoid dock */
+
+    #popup {
+      position: fixed;
+      bottom: 40px;
+      left: 40px;
+      background: var(--card);
+      padding: 20px;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+      max-width: 280px;
+      z-index: 200;
+      display: none;
+    }
+
+    #popup h3 {
+      margin-top: 0;
+      margin-bottom: 8px;
+    }
+
+    #popup p {
+      font-size: 14px;
+      color: var(--sub);
+      margin-bottom: 15px;
+    }
+
+    #popup input {
+      width: 100%;
+      padding: 10px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      margin-bottom: 10px;
+      font-size: 14px;
+    }
+
+    #popup button {
+      width: 100%;
+      padding: 10px;
+      border-radius: 10px;
+      border: none;
+      background: var(--primary);
+      color: #fff;
+      font-weight: 600;
+      cursor: pointer;
+    }
 
     footer {
-      padding: 40px; text-align:center;
-      border-top:1px solid var(--border);
-      margin-top:80px;
-      font-size:14px;
-      color:var(--sub);
+      padding: 40px;
+      text-align: center;
+      border-top: 1px solid var(--border);
+      margin-top: 80px;
+      font-size: 14px;
+      color: var(--sub);
+    }
+
+    @media (max-width: 768px) {
+      header {
+        padding: 16px 20px;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .hero {
+        padding: 100px 20px 90px;
+      }
+
+      .hero h1 {
+        font-size: 38px;
+      }
+
+      .section {
+        padding: 60px 20px;
+      }
+
+      #popup {
+        left: 20px;
+        right: 20px;
+        max-width: none;
+      }
+
+      .settings-dock {
+        bottom: 18px;
+        right: 18px;
+      }
     }
   </style>
-  <!-- ANIMATION LIBRARY -->
+
+  <!-- ScrollReveal for soft animations -->
   <script src="https://unpkg.com/scrollreveal"></script>
 </head>
 <body>
 
 <header>
   <a href="/" class="logo">
-    <svg width="34" height="34" viewBox="0 0 100 50"><path d="M0 25 Q25 0 50 25 T100 25" stroke="#2a7cf7" stroke-width="6" fill="none" stroke-linecap="round"/></svg>
+    <svg width="34" height="34" viewBox="0 0 100 50">
+      <path d="M0 25 Q25 0 50 25 T100 25" stroke="#2a7cf7" stroke-width="6" fill="none" stroke-linecap="round" />
+    </svg>
     Daily Flow Hub
   </a>
   <nav>
@@ -199,8 +345,12 @@
   <h1>Design Your Better Day.</h1>
   <p>Tools, systems, and AI-powered routines that help you stay organized, productive, and consistent — with zero overwhelm.</p>
   <div class="hero-actions">
-    <button class="button primary" onclick="document.getElementById('starter').scrollIntoView({behavior:'smooth'})">Get Starter Pack</button>
-    <button class="button secondary" onclick="document.getElementById('ai-tools').scrollIntoView({behavior:'smooth'})">Explore AI Tools</button>
+    <button class="button primary" onclick="document.getElementById('starter').scrollIntoView({behavior:'smooth'})">
+      Get Starter Pack
+    </button>
+    <button class="button secondary" onclick="document.getElementById('ai-tools').scrollIntoView({behavior:'smooth'})">
+      Explore AI Tools
+    </button>
   </div>
 </div>
 
@@ -209,9 +359,18 @@
   <p>Simple frameworks designed to reduce stress and improve your daily flow.</p>
 
   <div class="grid">
-    <div class="card"><h3>🌞 Daily Flow Routine</h3><p>Simple structure for consistent energy and clarity.</p></div>
-    <div class="card"><h3>📘 Weekly Review</h3><p>Stay aligned with your goals with a 10-minute check-in.</p></div>
-    <div class="card"><h3>💬 AI Life Prompts</h3><p>Prompts to help you think, plan, and act better.</p></div>
+    <div class="card">
+      <h3>🌞 Daily Flow Routine</h3>
+      <p>Simple structure for consistent energy and clarity.</p>
+    </div>
+    <div class="card">
+      <h3>📘 Weekly Review</h3>
+      <p>Stay aligned with your goals with a 10-minute check-in.</p>
+    </div>
+    <div class="card">
+      <h3>💬 AI Life Prompts</h3>
+      <p>Prompts to help you think, plan, and act better.</p>
+    </div>
   </div>
 </section>
 
@@ -220,9 +379,18 @@
   <p>Practical, real-world AI helpers. Not hype. Not fluff. Just tools that actually save time.</p>
 
   <div class="grid">
-    <div class="card"><h3>🤖 Personal Assistant</h3><p>Ask, plan, schedule, and automate.</p></div>
-    <div class="card"><h3>✍️ Writing Helper</h3><p>Emails, ideas, summaries, outlines — done fast.</p></div>
-    <div class="card"><h3>⚡ Task Automator</h3><p>Turn routines into one-click workflows.</p></div>
+    <div class="card">
+      <h3>🤖 Personal Assistant</h3>
+      <p>Ask, plan, schedule, and automate.</p>
+    </div>
+    <div class="card">
+      <h3>✍️ Writing Helper</h3>
+      <p>Emails, ideas, summaries, outlines — done fast.</p>
+    </div>
+    <div class="card">
+      <h3>⚡ Task Automator</h3>
+      <p>Turn routines into one-click workflows.</p>
+    </div>
   </div>
 </section>
 
@@ -231,9 +399,18 @@
   <p>Your full system for organized, calm, consistent days.</p>
 
   <div class="grid">
-    <div class="card"><h3>📘 Planner</h3><p>Plan your day in 5 minutes.</p></div>
-    <div class="card"><h3>🔄 Reset Guide</h3><p>Refresh your habits in 30 days.</p></div>
-    <div class="card"><h3>📓 Workbook</h3><p>Goals, reflection, structure.</p></div>
+    <div class="card">
+      <h3>📘 Planner</h3>
+      <p>Plan your day in 5 minutes.</p>
+    </div>
+    <div class="card">
+      <h3>🔄 Reset Guide</h3>
+      <p>Refresh your habits in 30 days.</p>
+    </div>
+    <div class="card">
+      <h3>📓 Workbook</h3>
+      <p>Goals, reflection, structure.</p>
+    </div>
   </div>
 </section>
 
@@ -242,7 +419,6 @@
   <p>A calm, practical platform built to help people structure their day, improve habits, and use AI the smart way — without overwhelm.</p>
 </section>
 
-<!-- LEVEL 3 – REALISTIC MOCKUP SECTION -->
 <section class="section" id="mockups">
   <h2>What You Get</h2>
   <p>Clean, modern tools displayed inside realistic device mockups.</p>
@@ -257,7 +433,6 @@
   </div>
 </section>
 
-<!-- LEVEL 3 – PRICING SECTION -->
 <section class="section" id="pricing">
   <h2>Starter Pack Pricing</h2>
   <p>One simple bundle with everything you need to build better days.</p>
@@ -272,52 +447,130 @@
   </div>
 </section>
 
-<!-- LEVEL 3 – TESTIMONIALS -->
 <section class="section" id="testimonials">
   <h2>What People Say</h2>
   <p>Real feedback from early users testing the Daily Flow system.</p>
 
   <div class="grid" style="margin-top:40px;">
-    <div class="card"><h3>⭐⭐⭐⭐⭐</h3><p>“This planner made my mornings so much easier. Simple and effective.”</p><small>- Sarah M.</small></div>
-    <div class="card"><h3>⭐⭐⭐⭐⭐</h3><p>“The 30-day reset actually helped me build discipline without stress.”</p><small>- Daniel K.</small></div>
-    <div class="card"><h3>⭐⭐⭐⭐⭐</h3><p>“Clean design, easy habits, perfect for busy people like me.”</p><small>- Ayesha R.</small></div>
+    <div class="card">
+      <h3>⭐⭐⭐⭐⭐</h3>
+      <p>“This planner made my mornings so much easier. Simple and effective.”</p>
+      <small>- Sarah M.</small>
+    </div>
+    <div class="card">
+      <h3>⭐⭐⭐⭐⭐</h3>
+      <p>“The 30-day reset actually helped me build discipline without stress.”</p>
+      <small>- Daniel K.</small>
+    </div>
+    <div class="card">
+      <h3>⭐⭐⭐⭐⭐</h3>
+      <p>“Clean design, easy habits, perfect for busy people like me.”</p>
+      <small>- Ayesha R.</small>
+    </div>
   </div>
 </section>
 
-<!-- POPUP -->
-<div id="popup" style="display:none;position:fixed;bottom:40px;right:40px;background:var(--card);padding:20px;border-radius:var(--radius);border:1px solid var(--border);box-shadow:0 4px 20px rgba(0,0,0,0.2);max-width:280px;z-index:200;">
-  <h3 style="margin-top:0;margin-bottom:8px;">Stay Updated</h3>
-  <p style="font-size:14px;color:var(--sub);margin-bottom:15px;">Get weekly routines and tools in your inbox.</p>
-  <input type="email" placeholder="Your email" style="width:100%;padding:10px;border-radius:10px;border:1px solid var(--border);margin-bottom:10px;">
-  <button onclick="document.getElementById('popup').style.display='none'" class="button primary" style="width:100%;padding:10px;border-radius:10px;">Join Free</button>
+<!-- Newsletter popup (bottom-left) -->
+<div id="popup">
+  <h3>Stay Updated</h3>
+  <p>Get weekly routines and tools in your inbox.</p>
+  <input type="email" placeholder="Your email" />
+  <button onclick="document.getElementById('popup').style.display='none'">Join Free</button>
 </div>
-
-<script>
-  setTimeout(()=>{
-    document.getElementById('popup').style.display='block';
-  }, 6000);
-</script>
 
 <footer>
   © 2025 Daily Flow Hub — Build Better Days.
 </footer>
 
-<button id="theme-toggle">☀️</button>
+<!-- Theme settings dock -->
+<div class="settings-dock">
+  <button class="settings-trigger" id="settings-trigger" aria-label="Theme settings">
+    ⚙️
+  </button>
+  <div class="settings-panel" id="settings-panel">
+    <p>Theme</p>
+    <button class="theme-option" data-theme="light">Light <span>Always</span></button>
+    <button class="theme-option" data-theme="dark">Dark <span>Always</span></button>
+    <button class="theme-option" data-theme="auto">Auto <span>Follow system</span></button>
+  </div>
+</div>
+
 <script>
-  const toggle = document.getElementById('theme-toggle');
-  const setTheme = (t)=>{document.body.classList.toggle('dark',t==='dark'); toggle.textContent=t==='dark'?'🌙':'☀️'; localStorage.setItem('dfh-theme',t);} 
-  let saved = localStorage.getItem('dfh-theme');
-  setTheme(saved || (window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'));
-  toggle.onclick=()=>{setTheme(document.body.classList.contains('dark')?'light':'dark');}
+  // Newsletter popup after 6 seconds
+  setTimeout(() => {
+    const el = document.getElementById('popup');
+    if (el) el.style.display = 'block';
+  }, 6000);
 </script>
 
 <script>
-  /* Reveal Animations */
+  // Theme + settings dock logic
+  const body = document.body;
+  const trigger = document.getElementById('settings-trigger');
+  const panel = document.getElementById('settings-panel');
+  const options = panel.querySelectorAll('.theme-option');
+  const STORAGE_KEY = 'dfh-theme-mode';
+
+  function applyTheme(mode) {
+    let finalMode = mode;
+
+    if (mode === 'auto') {
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      finalMode = prefersDark ? 'dark' : 'light';
+    }
+
+    body.classList.toggle('dark', finalMode === 'dark');
+
+    options.forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.theme === mode);
+    });
+  }
+
+  function setMode(mode) {
+    localStorage.setItem(STORAGE_KEY, mode);
+    applyTheme(mode);
+  }
+
+  // Load initial theme
+  (function initTheme(){
+    const saved = localStorage.getItem(STORAGE_KEY) || 'auto';
+    setMode(saved);
+  })();
+
+  // System theme change listener for "auto"
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
+    const saved = localStorage.getItem(STORAGE_KEY) || 'auto';
+    if (saved === 'auto') applyTheme('auto');
+  });
+
+  // Click handlers
+  trigger.addEventListener('click', () => {
+    panel.classList.toggle('open');
+  });
+
+  options.forEach(btn => {
+    btn.addEventListener('click', () => {
+      setMode(btn.dataset.theme);
+      panel.classList.remove('open');
+    });
+  });
+
+  // Close panel when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!panel.contains(e.target) && !trigger.contains(e.target)) {
+      panel.classList.remove('open');
+    }
+  });
+</script>
+
+<script>
+  // Reveal animations
   ScrollReveal().reveal('.hero h1', { distance:'40px', origin:'bottom', duration:800 });
   ScrollReveal().reveal('.hero p', { delay:150, distance:'40px', origin:'bottom', duration:800 });
   ScrollReveal().reveal('.hero-actions', { delay:300, distance:'40px', origin:'bottom', duration:800 });
   ScrollReveal().reveal('.section h2', { distance:'30px', origin:'bottom', duration:700, interval:100 });
   ScrollReveal().reveal('.card', { distance:'40px', origin:'bottom', duration:700, interval:120 });
 </script>
+
 </body>
 </html>
