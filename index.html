@@ -43,6 +43,8 @@
     </nav>
   </header>
 
+<button id="theme-toggle" style="position:fixed; bottom:20px; right:20px; padding:10px 14px; border:none; background:#222; color:#fff; border-radius:8px; cursor:pointer; z-index:999; font-size:14px;">Toggle Theme</button>
+
   <div class="hero">
     <h2>Upgrade Your Daily Life</h2>
     <p>Smart routines, life tools, productivity hacks, and AI-powered solutions designed to make every day smoother.</p>
@@ -122,5 +124,30 @@
     <p>© 2025 Daily Flow Hub — Designed for a better daily life.</p>
   </footer>
 
+<script>
+  function applyTheme(theme){
+    if(theme === 'dark'){
+      document.documentElement.style.setProperty('--bg', '#111');
+      document.documentElement.style.setProperty('--text', '#f5f5f5');
+      document.documentElement.style.setProperty('--card', '#1a1a1a');
+      document.body.classList.add('dark-mode');
+    } else {
+      document.documentElement.style.setProperty('--bg', '#ffffff');
+      document.documentElement.style.setProperty('--text', '#222');
+      document.documentElement.style.setProperty('--card', '#fafafa');
+      document.body.classList.remove('dark-mode');
+    }
+  }
+
+  const userPref = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+  const savedTheme = localStorage.getItem('theme') || userPref;
+  applyTheme(savedTheme);
+
+  document.getElementById('theme-toggle').addEventListener('click', function(){
+    const newTheme = document.body.classList.contains('dark-mode') ? 'light' : 'dark';
+    localStorage.setItem('theme', newTheme);
+    applyTheme(newTheme);
+  });
+</script>
 </body>
 </html>
