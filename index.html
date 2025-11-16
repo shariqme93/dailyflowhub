@@ -11,6 +11,16 @@
     --card: #fafafa;
     --border: #e5e5e5;
     --primary: #2a7cf7;
+    --hero-top: #ffffff;
+    --hero-bottom: #f4f8ff; /* premium soft-light blue */
+  }
+  body.dark-mode {
+    --bg: #121212;
+    --text: #eeeeee;
+    --card: #1e1e1e;
+    --border: #2a2a2a;
+    --hero-top: #181818; /* premium matte dark */
+    --hero-bottom: #202020; /* smooth gradient ending */
   }
   body {
     font-family: Arial, sans-serif;
@@ -50,7 +60,7 @@
   .hero {
     padding: 90px 40px;
     text-align: center;
-    background: linear-gradient(to bottom, var(--bg), #f7f7f7);
+    background: linear-gradient(to bottom, var(--hero-top), var(--hero-bottom));
     transition: background 0.3s ease;
   }
   .hero h2 { font-size: 40px; margin-bottom: 12px; font-weight: 700; }
