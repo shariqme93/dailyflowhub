@@ -7,19 +7,26 @@
 
   <style>
     :root {
-      --text: #222;
       --bg: #ffffff;
-      --card-bg: #fafafa;
-      --card-border: #e1e1e1;
-      --hero-gradient: linear-gradient(to bottom, #ffffff, #f3f6ff);
+      --text: #222222;
+      --card: #fafafa;
+      --border: #e5e5e5;
+      --primary: #2a7cf7;
+      --hero-top: #ffffff;
+      --hero-bottom: #f4f8ff; /* soft blue */
     }
 
-    body.dark-mode {
-      --text: #f1f1f1;
-      --bg: #000000;
-      --card-bg: #111111;
-      --card-border: rgba(255,255,255,0.12);
-      --hero-gradient: linear-gradient(to bottom, #000000, #1a1a1a);
+    body.dark {
+      --bg: #121212;
+      --text: #eeeeee;
+      --card: #1e1e1e;
+      --border: #2a2a2a;
+      --hero-top: #181818;
+      --hero-bottom: #202020;
+    }
+
+    * {
+      box-sizing: border-box;
     }
 
     body {
@@ -28,14 +35,13 @@
       padding: 0;
       background: var(--bg);
       color: var(--text);
-      transition: 0.25s ease;
+      transition: background 0.3s ease, color 0.3s ease;
     }
 
-    /* Navbar */
     header {
       background: var(--bg);
       padding: 20px 40px;
-      border-bottom: 1px solid #e5e5e5;
+      border-bottom: 1px solid var(--border);
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -50,6 +56,7 @@
       font-size: 26px;
       font-weight: bold;
       letter-spacing: 0.5px;
+      color: var(--text);
     }
 
     nav a {
@@ -58,45 +65,86 @@
       color: var(--text);
       font-weight: 600;
       transition: 0.2s ease;
+      font-size: 15px;
     }
 
-    nav a:hover { color: #0e63d9; }
+    nav a:hover {
+      color: #000;
+    }
 
-    /* Hero */
     .hero {
       padding: 120px 40px 100px 40px;
       text-align: center;
-      background: var(--hero-gradient);
-      transition: 0.25s ease;
+      background: linear-gradient(to bottom, var(--hero-top), var(--hero-bottom));
+      transition: background 0.3s ease;
     }
 
     .hero h2 {
-      font-size: 42px;
-      margin-bottom: 12px;
+      font-size: 40px;
+      margin-bottom: 16px;
       font-weight: 700;
     }
 
     .hero p {
       font-size: 18px;
-      max-width: 640px;
-      margin: 0 auto;
+      max-width: 650px;
+      margin: 0 auto 30px auto;
       line-height: 1.6;
-      opacity: 0.85;
+      color: var(--text);
     }
 
-    /* Sections */
+    .hero-actions {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      margin-top: 10px;
+    }
+
+    .btn-primary {
+      padding: 12px 22px;
+      background: var(--primary);
+      color: #fff;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 15px;
+      box-shadow: 0 4px 12px rgba(42,124,247,0.35);
+    }
+
+    .btn-secondary {
+      padding: 12px 22px;
+      background: transparent;
+      color: var(--text);
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 15px;
+    }
+
     .section {
       padding: 70px 40px;
       background: var(--bg);
       margin-top: 20px;
       border-radius: 8px;
-      transition: 0.25s ease;
+      transition: background 0.3s ease;
+      max-width: 1100px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .section h3 {
-      font-size: 30px;
-      margin-bottom: 10px;
+      font-size: 28px;
+      margin-bottom: 6px;
       font-weight: 700;
+      color: var(--text);
+    }
+
+    .section > p {
+      margin: 0;
+      color: #666;
+      font-size: 15px;
     }
 
     .cards {
@@ -107,11 +155,12 @@
     }
 
     .card {
-      background: var(--card-bg);
+      background: var(--card);
       padding: 20px;
-      border: 1px solid var(--card-border);
-      border-radius: 10px;
-      transition: 0.25s ease;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      transition: 0.25s ease, background 0.3s ease, color 0.3s ease, box-shadow 0.25s ease, transform 0.25s ease;
+      color: var(--text);
     }
 
     .card:hover {
@@ -122,88 +171,327 @@
 
     .card h4 {
       margin-top: 0;
-      font-size: 20px;
+      font-size: 18px;
       font-weight: 600;
+      color: var(--text);
     }
 
-    /* Theme toggle button */
+    .card p {
+      margin: 6px 0 0 0;
+      font-size: 14px;
+      color: #777;
+    }
+
+    body.dark .card {
+      border-color: rgba(255,255,255,0.12);
+    }
+
+    #store-full .card-main {
+      padding: 26px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    #store-full ul {
+      margin-left: 18px;
+      line-height: 1.6;
+      color: #666;
+      padding-left: 0;
+    }
+
+    #store-full li {
+      margin-bottom: 4px;
+    }
+
+    #store-full .price {
+      font-weight: bold;
+      color: var(--primary);
+      font-size: 18px;
+      margin-top: 4px;
+    }
+
+    #store-full small {
+      font-size: 12px;
+    }
+
+    .newsletter-form {
+      margin-top: 22px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      max-width: 450px;
+    }
+
+    .newsletter-form input {
+      flex: 1;
+      min-width: 0;
+      padding: 10px 12px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      font-size: 14px;
+    }
+
+    .newsletter-form button {
+      padding: 10px 18px;
+      background: var(--primary);
+      color: #fff;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 14px;
+    }
+
+    footer {
+      background: var(--bg);
+      padding: 20px 40px;
+      text-align: center;
+      border-top: 1px solid var(--border);
+      margin-top: 40px;
+      font-size: 13px;
+      color: var(--text);
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
     #theme-toggle {
       position: fixed;
       bottom: 20px;
       right: 20px;
-      background: #222;
-      border: none;
+      width: 46px;
+      height: 46px;
       border-radius: 50%;
-      width: 48px;
-      height: 48px;
+      border: none;
+      background: #222;
+      color: #fff;
       display: flex;
       align-items: center;
       justify-content: center;
-      cursor: pointer;
-      color: #fff;
       font-size: 22px;
+      cursor: pointer;
       box-shadow: 0 2px 8px rgba(0,0,0,0.25);
-      transition: 0.25s ease;
-      z-index: 200;
+      z-index: 999;
     }
 
-    body.dark-mode #theme-toggle {
-      background: #fff;
-      color: #000;
+    body.dark #theme-toggle {
+      background: #ffffff;
+      color: #000000;
     }
 
     @media(max-width: 600px) {
-      header { flex-direction: column; gap: 10px; }
-      nav a { margin: 0 10px; }
-      .hero h2 { font-size: 32px; }
-      .section { padding: 50px 20px; }
+      header {
+        padding: 14px 18px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+      }
+      nav a {
+        margin-left: 0;
+        margin-right: 14px;
+        font-size: 14px;
+      }
+      .hero {
+        padding: 90px 20px 70px 20px;
+      }
+      .hero h2 {
+        font-size: 32px;
+      }
+      .section {
+        padding: 50px 20px;
+      }
+      .hero-actions {
+        flex-direction: column;
+      }
     }
   </style>
 </head>
-
 <body>
-
-  <!-- THEME TOGGLE BUTTON -->
-  <button id="theme-toggle">☀️</button>
-
-  <script>
-    const toggle = document.getElementById('theme-toggle');
-
-    function applyTheme() {
-      document.body.classList.toggle('dark-mode');
-      toggle.textContent = document.body.classList.contains('dark-mode') ? '🌙' : '☀️';
-    }
-
-    toggle.addEventListener('click', applyTheme);
-  </script>
-
-  <!-- HEADER -->
   <header>
     <h1>Daily Flow Hub</h1>
     <nav>
       <a href="#smart-living">Smart Living</a>
       <a href="#productivity">Productivity</a>
       <a href="#ai-tools">AI Tools</a>
-      <a href="#store">Store</a>
+      <a href="#store-full">Store</a>
+      <a href="#blog">Blog</a>
+      <a href="#about">About</a>
     </nav>
   </header>
 
-  <!-- HERO -->
+  <button id="theme-toggle" aria-label="Toggle theme">☀️</button>
+
   <div class="hero">
     <h2>Upgrade Your Daily Life</h2>
-    <p>Smart routines, life tools, productivity hacks, and AI-powered solutions designed to make every day smoother.</p>
-  </div>
-
-  <!-- SECTIONS -->
-  <div class="section" id="smart-living">
-    <h3>Smart Living</h3>
-    <p>Simple tools and daily habits to live better with less stress.</p>
-    <div class="cards">
-      <div class="card"><h4>🌞 10 Habits For a Better Day</h4><p>Small changes that create big impact.</p></div>
-      <div class="card"><h4>🧹 Minimalist Living Basics</h4><p>Declutter your space and mind.</p></div>
-      <div class="card"><h4>😴 Sleep Optimization</h4><p>Improve your rest with easy adjustments.</p></div>
+    <p>Smart routines, life tools, productivity hacks, and AI-powered systems designed to make every day smoother and more focused.</p>
+    <div class="hero-actions">
+      <button class="btn-primary" onclick="document.getElementById('store-full').scrollIntoView({behavior:'smooth'})">
+        Get the Starter Pack
+      </button>
+      <button class="btn-secondary" onclick="document.getElementById('ai-tools').scrollIntoView({behavior:'smooth'})">
+        Explore AI Tools
+      </button>
     </div>
   </div>
 
+  <section class="section" id="smart-living">
+    <h3>Smart Living</h3>
+    <p>Simple tools and daily habits to live better with less stress.</p>
+    <div class="cards">
+      <div class="card">
+        <h4>🌞 10 Habits For a Better Day</h4>
+        <p>Small changes that create big impact.</p>
+      </div>
+      <div class="card">
+        <h4>🧹 Minimalist Living Basics</h4>
+        <p>Declutter your space and mind.</p>
+      </div>
+      <div class="card">
+        <h4>😴 Sleep Optimization</h4>
+        <p>Improve your rest with easy adjustments.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="productivity">
+    <h3>Productivity</h3>
+    <p>Work smarter with clean systems and focused routines.</p>
+    <div class="cards">
+      <div class="card">
+        <h4>🔥 Deep Work Guide</h4>
+        <p>Master distraction-free focus.</p>
+      </div>
+      <div class="card">
+        <h4>⏰ Morning Routine Templates</h4>
+        <p>Start your day with clarity.</p>
+      </div>
+      <div class="card">
+        <h4>📅 Time-Blocking System</h4>
+        <p>Plan your day in minutes.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="ai-tools">
+    <h3>AI Tools For Daily Life</h3>
+    <p>Unlock simple AI shortcuts that save time every day.</p>
+    <div class="cards">
+      <div class="card">
+        <h4>🤖 AI Personal Assistant</h4>
+        <p>Use AI to manage your tasks and schedule.</p>
+      </div>
+      <div class="card">
+        <h4>✍️ AI Writing Helpers</h4>
+        <p>Write faster with smarter tools.</p>
+      </div>
+      <div class="card">
+        <h4>⚡ AI Life Automation</h4>
+        <p>Automate routines with simple prompts.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="store-full">
+    <h3>Daily Flow Starter Pack</h3>
+    <p>A simple, AI-assisted system to organize your day, reset your habits in 30 days, and stay consistent.</p>
+
+    <div class="cards" style="margin-top:30px;">
+      <div class="card card-main">
+        <h4>🎯 Daily Flow Starter Pack</h4>
+        <p>Everything you need to design better days and build strong habits with simple structure.</p>
+        <ul>
+          <li>Daily Flow Planner (printable)</li>
+          <li>30-Day Life Reset Guide</li>
+          <li>Productivity Workbook</li>
+          <li>AI Prompts Pack</li>
+          <li>Monthly Habit Tracker</li>
+        </ul>
+        <p class="price">$17 – $27 (launch price TBD)</p>
+        <button class="btn-primary" style="align-self:flex-start; box-shadow:none;">Coming Soon</button>
+      </div>
+
+      <div class="card">
+        <h4>📘 Daily Flow Planner</h4>
+        <p>Plan your day in 5 minutes with a clean, minimal layout.</p>
+        <small>Included in the Starter Pack</small>
+      </div>
+
+      <div class="card">
+        <h4>🔄 30-Day Life Reset</h4>
+        <p>Reset your habits, routines, and mindset with daily guidance.</p>
+        <small>Included in the Starter Pack</small>
+      </div>
+
+      <div class="card">
+        <h4>📓 Productivity Workbook</h4>
+        <p>Goal-setting, weekly review, and reflection pages.</p>
+        <small>Included in the Starter Pack</small>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="newsletter">
+    <h3>Stay Updated</h3>
+    <p>Get weekly smart-living tips, productivity hacks, and AI tools in your inbox.</p>
+    <form class="newsletter-form" onsubmit="event.preventDefault(); alert('This is a demo. Email capture will be wired later.');">
+      <input type="email" placeholder="Your email" required />
+      <button type="submit">Join Free</button>
+    </form>
+  </section>
+
+  <section class="section" id="blog">
+    <h3>Blog</h3>
+    <p>Explore articles, insights, and daily improvement ideas.</p>
+    <div class="cards">
+      <div class="card">
+        <h4>How to Build a 5-Minute Daily Planning Habit</h4>
+        <p>Simple steps to start planning without overcomplicating it.</p>
+      </div>
+      <div class="card">
+        <h4>Top 5 AI Apps for Everyday Life</h4>
+        <p>Use AI to save time on routine tasks.</p>
+      </div>
+      <div class="card">
+        <h4>Minimalist Habits That Actually Stick</h4>
+        <p>Keep what matters, remove the noise.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="about">
+    <h3>About Daily Flow Hub</h3>
+    <p>Daily Flow Hub is built to help you design better days with simple systems, smart routines, and AI-enhanced tools. No fluff, just practical structure you can actually use.</p>
+  </section>
+
+  <footer>
+    <p>© 2025 Daily Flow Hub — Designed for a better daily life.</p>
+  </footer>
+
+  <script>
+    (function() {
+      const toggle = document.getElementById('theme-toggle');
+
+      function setTheme(theme) {
+        if (theme === 'dark') {
+          document.body.classList.add('dark');
+          toggle.textContent = '🌙';
+        } else {
+          document.body.classList.remove('dark');
+          toggle.textContent = '☀️';
+        }
+        localStorage.setItem('dfh-theme', theme);
+      }
+
+      const stored = localStorage.getItem('dfh-theme');
+      const prefersDark = window.matchMedia &&
+        window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+      setTheme(stored || (prefersDark ? 'dark' : 'light'));
+
+      toggle.addEventListener('click', () => {
+        const nextTheme = document.body.classList.contains('dark') ? 'light' : 'dark';
+        setTheme(nextTheme);
+      });
+    })();
+  </script>
 </body>
 </html>
