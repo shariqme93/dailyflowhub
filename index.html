@@ -4,159 +4,197 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Daily Flow Hub</title>
+
   <style>
-  :root {
-    --bg: #ffffff;
-    --text: #222222;
-    --card: #fafafa;
-    --border: #e5e5e5;
-    --primary: #2a7cf7;
-    --hero-top: #ffffff;
-    --hero-bottom: #f4f8ff; /* premium soft-light blue */
-  }
-  body.dark-mode {
-    --bg: #121212;
-    --text: #eeeeee;
-    --card: #1e1e1e;
-    --border: #2a2a2a;
-    --hero-top: #181818; /* premium matte dark */
-    --hero-bottom: #202020; /* smooth gradient ending */
-  }
-  body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background: var(--bg);
-    color: var(--text);
-    transition: background 0.3s ease, color 0.3s ease;
-  }
-  header {
-    background: var(--bg);
-    padding: 20px 40px;
-    border-bottom: 1px solid var(--border);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: sticky;
-    top: 0;
-    z-index: 100;
-  }
-  header h1 {
-    margin: 0;
-    font-size: 26px;
-    font-weight: bold;
-    letter-spacing: 0.5px;
-    color: var(--text);
-  }
-  nav a {
-    margin-left: 20px;
-    text-decoration: none;
-    color: var(--text);
-    font-weight: 600;
-    transition: 0.2s ease;
-  }
-  nav a:hover { color: #000; }
+    :root {
+      --text: #222;
+      --bg: #ffffff;
+      --card-bg: #fafafa;
+      --card-border: #e1e1e1;
+      --hero-gradient: linear-gradient(to bottom, #ffffff, #f3f6ff);
+    }
 
-  .hero {
-    padding: 90px 40px;
-    text-align: center;
-    background: linear-gradient(to bottom, var(--hero-top), var(--hero-bottom));
-    transition: background 0.3s ease;
-  }
-  .hero h2 { font-size: 40px; margin-bottom: 12px; font-weight: 700; }
-  .hero p { font-size: 18px; max-width: 600px; margin: 0 auto; line-height: 1.6; color: var(--text); }
+    body.dark-mode {
+      --text: #f1f1f1;
+      --bg: #000000;
+      --card-bg: #111111;
+      --card-border: rgba(255,255,255,0.12);
+      --hero-gradient: linear-gradient(to bottom, #000000, #1a1a1a);
+    }
 
-  .section {
-    padding: 70px 40px;
-    background: var(--bg);
-    margin-top: 20px;
-    border-radius: 8px;
-    transition: background 0.3s ease;
-  }
-  .section h3 { font-size: 30px; margin-bottom: 10px; font-weight: 700; color: var(--text); }
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: var(--bg);
+      color: var(--text);
+      transition: 0.25s ease;
+    }
 
-  .cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 20px;
-    margin-top: 25px;
-  }
-  .card {
-    background: var(--card);
-    padding: 20px;
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    transition: 0.2s ease, background 0.3s ease, color 0.3s ease;
-    color: var(--text);
-  }
-  .card:hover {
-    background: var(--bg);
-    transform: translateY(-3px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-  }
-  .card h4 { margin-top: 0; font-size: 20px; font-weight: 600; color: var(--text); }
+    /* Navbar */
+    header {
+      background: var(--bg);
+      padding: 20px 40px;
+      border-bottom: 1px solid #e5e5e5;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
 
-  footer {
-    background: var(--bg);
-    padding: 20px 40px;
-    text-align: center;
-    border-top: 1px solid var(--border);
-    margin-top: 40px;
-    font-size: 14px;
-    color: var(--text);
-    transition: background 0.3s ease, color 0.3s ease;
-  }
+    header h1 {
+      margin: 0;
+      font-size: 26px;
+      font-weight: bold;
+      letter-spacing: 0.5px;
+    }
 
-  @media(max-width: 600px) {
-    header { flex-direction: column; gap: 10px; }
-    nav a { margin: 0 10px; }
-    .hero h2 { font-size: 32px; }
-    .section { padding: 50px 20px; }
-  }
-</style>
-  <style>
-    /* Premium navbar shadow */
-    header { box-shadow: 0 1px 4px rgba(0,0,0,0.05); }
+    nav a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 600;
+      transition: 0.2s ease;
+    }
 
-    /* Premium card hover */
-    .card { transition: 0.25s ease; }
-    .card:hover { transform: translateY(-4px); box-shadow: 0 6px 18px rgba(0,0,0,0.12); }
+    nav a:hover { color: #0e63d9; }
 
-    /* Hero spacing */
-    .hero { padding: 120px 40px 100px 40px; }
+    /* Hero */
+    .hero {
+      padding: 120px 40px 100px 40px;
+      text-align: center;
+      background: var(--hero-gradient);
+      transition: 0.25s ease;
+    }
 
-    /* Dark mode card border softening */
-    body.dark .card { border-color: rgba(255,255,255,0.12); }
+    .hero h2 {
+      font-size: 42px;
+      margin-bottom: 12px;
+      font-weight: 700;
+    }
 
-    /* Icon theme toggle button */
-    #theme-toggle { position: fixed; bottom: 20px; right: 20px; background:#222; border:none; border-radius:50%; width:46px; height:46px; display:flex; align-items:center; justify-content:center; cursor:pointer; color:#fff; font-size:20px; box-shadow:0 2px 8px rgba(0,0,0,0.25); }
-    body.dark #theme-toggle { background:#fff; color:#000; }
+    .hero p {
+      font-size: 18px;
+      max-width: 640px;
+      margin: 0 auto;
+      line-height: 1.6;
+      opacity: 0.85;
+    }
+
+    /* Sections */
+    .section {
+      padding: 70px 40px;
+      background: var(--bg);
+      margin-top: 20px;
+      border-radius: 8px;
+      transition: 0.25s ease;
+    }
+
+    .section h3 {
+      font-size: 30px;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+      margin-top: 25px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      padding: 20px;
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+      transition: 0.25s ease;
+    }
+
+    .card:hover {
+      background: var(--bg);
+      transform: translateY(-4px);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+    }
+
+    .card h4 {
+      margin-top: 0;
+      font-size: 20px;
+      font-weight: 600;
+    }
+
+    /* Theme toggle button */
+    #theme-toggle {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #222;
+      border: none;
+      border-radius: 50%;
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      color: #fff;
+      font-size: 22px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+      transition: 0.25s ease;
+      z-index: 200;
+    }
+
+    body.dark-mode #theme-toggle {
+      background: #fff;
+      color: #000;
+    }
+
+    @media(max-width: 600px) {
+      header { flex-direction: column; gap: 10px; }
+      nav a { margin: 0 10px; }
+      .hero h2 { font-size: 32px; }
+      .section { padding: 50px 20px; }
+    }
   </style>
 </head>
+
 <body>
+
+  <!-- THEME TOGGLE BUTTON -->
   <button id="theme-toggle">☀️</button>
+
   <script>
     const toggle = document.getElementById('theme-toggle');
-    function applyTheme(){ document.body.classList.toggle('dark'); toggle.textContent = document.body.classList.contains('dark') ? '🌙' : '☀️'; }
+
+    function applyTheme() {
+      document.body.classList.toggle('dark-mode');
+      toggle.textContent = document.body.classList.contains('dark-mode') ? '🌙' : '☀️';
+    }
+
     toggle.addEventListener('click', applyTheme);
   </script>
+
+  <!-- HEADER -->
   <header>
     <h1>Daily Flow Hub</h1>
     <nav>
       <a href="#smart-living">Smart Living</a>
       <a href="#productivity">Productivity</a>
       <a href="#ai-tools">AI Tools</a>
-      <a href="#store-full">Store</a>
+      <a href="#store">Store</a>
     </nav>
   </header>
 
-<button id="theme-toggle" style="position:fixed; bottom:20px; right:20px; padding:10px 14px; border:none; background:#222; color:#fff; border-radius:8px; cursor:pointer; z-index:999; font-size:14px;">Toggle Theme</button>
-
+  <!-- HERO -->
   <div class="hero">
     <h2>Upgrade Your Daily Life</h2>
     <p>Smart routines, life tools, productivity hacks, and AI-powered solutions designed to make every day smoother.</p>
   </div>
 
+  <!-- SECTIONS -->
   <div class="section" id="smart-living">
     <h3>Smart Living</h3>
     <p>Simple tools and daily habits to live better with less stress.</p>
@@ -167,94 +205,5 @@
     </div>
   </div>
 
-  <div class="section" id="productivity">
-    <h3>Productivity</h3>
-    <p>Work smarter with clean systems and focused routines.</p>
-    <div class="cards">
-      <div class="card"><h4>🔥 Deep Work Guide</h4><p>Master distraction-free focus.</p></div>
-      <div class="card"><h4>⏰ Morning Routine Templates</h4><p>Start your day with clarity.</p></div>
-      <div class="card"><h4>📅 Time-Blocking System</h4><p>Plan your day in minutes.</p></div>
-    </div>
-  </div>
-
-  <div class="section" id="ai-tools">
-    <h3>AI Tools For Daily Life</h3>
-    <p>Unlock simple AI shortcuts that save time every day.</p>
-    <div class="cards">
-      <div class="card"><h4>🤖 AI Personal Assistant</h4><p>Use AI to manage your tasks and schedule.</p></div>
-      <div class="card"><h4>✍️ AI Writing Helpers</h4><p>Write faster with smarter tools.</p></div>
-      <div class="card"><h4>⚡ AI Life Automation</h4><p>Automate routines with simple prompts.</p></div>
-    </div>
-  </div>
-
-  <!-- UPDATED STORE SECTION -->
-  <div class="section" id="store-full">
-    <h3>Daily Flow Starter Pack</h3>
-    <p>A simple, AI-assisted system to organize your day, reset your habits in 30 days, and stay consistent.</p>
-
-    <div class="cards" style="margin-top:30px;">
-      <div class="card" style="padding:25px; display:flex; flex-direction:column; gap:12px;">
-        <h4>🎯 Daily Flow Starter Pack</h4>
-        <p>Everything you need to design better days and build strong habits with simple structure.</p>
-        <ul style="margin-left:18px; line-height:1.6; color:#555;">
-          <li>Daily Flow Planner (printable)</li>
-          <li>30-Day Life Reset Guide</li>
-          <li>Productivity Workbook</li>
-          <li>AI Prompts Pack</li>
-          <li>Monthly Habit Tracker</li>
-        </ul>
-        <p style="font-weight:bold; color:#2a7cf7; font-size:18px; margin-top:5px;">$17 – $27 (launch price TBD)</p>
-        <button style="padding:10px; border:none; background:#2a7cf7; color:#fff; border-radius:6px; cursor:pointer; font-weight:600;">Coming Soon</button>
-      </div>
-
-      <div class="card" style="padding:20px; display:flex; flex-direction:column; gap:8px;">
-        <h4>📘 Daily Flow Planner</h4>
-        <p>Plan your day in 5 minutes with a clean, minimal layout.</p>
-        <small style="color:#777;">Included in Starter Pack</small>
-      </div>
-
-      <div class="card" style="padding:20px; display:flex; flex-direction:column; gap:8px;">
-        <h4>🔄 30-Day Life Reset</h4>
-        <p>Reset your habits, routines, and mindset with daily guidance.</p>
-        <small style="color:#777;">Included in Starter Pack</small>
-      </div>
-
-      <div class="card" style="padding:20px; display:flex; flex-direction:column; gap:8px;">
-        <h4>📓 Productivity Workbook</h4>
-        <p>Goal-setting, weekly review, and reflection pages.</p>
-        <small style="color:#777;">Included in Starter Pack</small>
-      </div>
-    </div>
-  </div>
-
-  <footer>
-    <p>© 2025 Daily Flow Hub — Designed for a better daily life.</p>
-  </footer>
-
-<script>
-  function applyTheme(theme){
-    if(theme === 'dark'){
-      document.documentElement.style.setProperty('--bg', '#111');
-      document.documentElement.style.setProperty('--text', '#f5f5f5');
-      document.documentElement.style.setProperty('--card', '#1a1a1a');
-      document.body.classList.add('dark-mode');
-    } else {
-      document.documentElement.style.setProperty('--bg', '#ffffff');
-      document.documentElement.style.setProperty('--text', '#222');
-      document.documentElement.style.setProperty('--card', '#fafafa');
-      document.body.classList.remove('dark-mode');
-    }
-  }
-
-  const userPref = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-  const savedTheme = localStorage.getItem('theme') || userPref;
-  applyTheme(savedTheme);
-
-  document.getElementById('theme-toggle').addEventListener('click', function(){
-    const newTheme = document.body.classList.contains('dark-mode') ? 'light' : 'dark';
-    localStorage.setItem('theme', newTheme);
-    applyTheme(newTheme);
-  });
-</script>
 </body>
 </html>
