@@ -17,17 +17,22 @@
       --accent-soft: #e5f6fb;
     }
 
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
     body {
       margin: 0;
-      font-family: system-ui, sans-serif;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
       background: var(--bg-page);
       color: var(--text-main);
       font-size: 15px;
     }
 
-    a { text-decoration: none; color: inherit; }
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
 
     .page-shell {
       width: 94%;
@@ -51,11 +56,31 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 12px;
     }
 
-    .brand { display: flex; flex-direction: column; cursor: pointer; }
-    .brand-name { font-size: 22px; font-weight: 700; color: var(--accent-dark); }
-    .brand-sub { font-size: 11px; color: var(--text-muted); }
+    .brand {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      cursor: pointer;
+    }
+
+    .brand-name {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--accent-dark);
+      letter-spacing: 0.03em;
+    }
+
+    .brand-sub {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+
+    .top-cta {
+      display: none;
+    }
 
     .top-cta a {
       font-size: 12px;
@@ -65,23 +90,36 @@
       color: var(--accent-dark);
       font-weight: 600;
       border: 1px solid #c3e7f4;
+      white-space: nowrap;
     }
 
     /* LAYOUT */
     .main-layout {
       display: grid;
-      grid-template-columns: minmax(0, 2.3fr) minmax(0, 1.4fr);
+      grid-template-columns: minmax(0, 2fr);
       gap: 18px;
       margin-top: 14px;
+    }
+
+    @media (min-width: 880px) {
+      .main-layout {
+        grid-template-columns: minmax(0, 2.3fr) minmax(0, 1.4fr);
+        align-items: flex-start;
+      }
+      .top-cta {
+        display: block;
+      }
     }
 
     /* HERO */
     .hero {
       background: var(--bg-card);
       border-radius: 16px;
-      padding: 20px;
-      box-shadow: 0 16px 40px rgba(15,23,42,0.12);
+      padding: 20px 20px 18px;
+      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.12);
       border: 1px solid #d1e4f4;
+      position: relative;
+      overflow: hidden;
     }
 
     .hero-pill {
@@ -96,88 +134,349 @@
       margin-bottom: 8px;
     }
 
-    .hero h1 { font-size: 24px; margin: 6px 0; }
-    .hero-activity { font-size: 13px; color: var(--accent-dark); margin-top: 4px; }
-    .hero-description { color: #667085; font-size: 14px; line-height: 1.6; margin-top: 12px; }
+    .hero-pill-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #12b981;
+    }
 
-    .btn-row { margin-top: 14px; }
+    .hero h1 {
+      font-size: 22px;
+      margin: 0 0 6px 0;
+      line-height: 1.3;
+      color: var(--text-main);
+    }
+
+    .hero-activity {
+      font-size: 12px;
+      color: var(--accent-dark);
+      margin: 0 0 10px 0;
+      font-weight: 500;
+    }
+
+    .hero-description {
+      font-size: 13px;
+      margin: 0 0 12px 0;
+      line-height: 1.6;
+      color: var(--text-muted);
+    }
+
+    .hero-info-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 12px;
+    }
+
+    .hero-info-tag {
+      font-size: 11px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: #f2f4f7;
+      color: #475467;
+    }
+
+    .btn-row {
+      margin-top: 4px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
     .btn {
-      padding: 12px 20px;
+      padding: 10px 18px;
       border-radius: 999px;
       border: none;
       cursor: pointer;
-      font-size: 15px;
+      color: #ffffff;
+      font-size: 14px;
       font-weight: 600;
-      background: var(--accent-dark);
-      color: #fff;
+      min-width: 160px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
     }
 
-    /* SIDE CARD */
+    .btn.call-btn {
+      background: var(--accent-dark);
+    }
+
+    .btn.call-btn:hover {
+      background: #01516b;
+    }
+
+    .btn-icon {
+      font-size: 15px;
+    }
+
+    .hero-note {
+      margin-top: 10px;
+      font-size: 11px;
+      color: #667085;
+    }
+
+    /* SIDE CARD - QUICK FACTS */
     .side-card {
       background: var(--bg-card);
       border-radius: 16px;
-      padding: 20px;
-      box-shadow: 0 10px 30px rgba(15,23,42,0.10);
+      padding: 16px 18px 14px;
+      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.10);
       border: 1px solid var(--border-soft);
-      font-size: 14px;
-      line-height: 1.7;
+    }
+
+    .side-title {
+      font-size: 15px;
+      font-weight: 600;
+      margin-bottom: 8px;
+    }
+
+    .side-line {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+
+    .side-highlight {
+      font-size: 12px;
+      margin-top: 10px;
+      padding: 8px 10px;
+      border-radius: 10px;
+      background: var(--accent-soft);
+      color: var(--accent-dark);
+      border: 1px solid #c3e7f4;
+    }
+
+    /* SECTIONS */
+    .section-title {
+      font-size: 18px;
+      font-weight: 700;
+      margin: 26px 0 10px;
+      color: var(--text-main);
     }
 
     /* SERVICES */
-    .service-card {
-      background:#fff;
-      border:1px solid #dde3ee;
-      border-radius:12px;
-      padding:14px;
-      cursor:pointer;
+    .services-wrap {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 10px;
     }
 
-    .service-arrow { transition: transform 0.2s ease; }
+    .service-card {
+      background: var(--bg-card);
+      border-radius: 12px;
+      border: 1px solid var(--border-soft);
+      box-shadow: 0 1px 3px rgba(15, 23, 42, 0.06);
+      padding: 11px 14px;
+      cursor: pointer;
+      position: relative;
+      transition: box-shadow 0.15s ease, transform 0.15s ease, border-color 0.15s ease, background 0.15s ease;
+    }
+
+    .service-card:hover {
+      box-shadow: 0 4px 14px rgba(15, 23, 42, 0.12);
+      transform: translateY(-1px);
+      border-color: var(--accent);
+      background: #fafbfd;
+    }
+
+    .service-card.open {
+      border-color: var(--accent);
+      box-shadow: 0 4px 14px rgba(15, 23, 42, 0.12);
+      background: #f9fdff;
+    }
+
+    .service-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .service-main {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .service-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      background: var(--accent-soft);
+      color: var(--accent-dark);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      flex-shrink: 0;
+    }
+
+    .service-title {
+      font-weight: 600;
+      font-size: 14px;
+      color: var(--text-main);
+    }
+
+    .service-sub {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-top: 3px;
+    }
+
+    .service-arrow {
+      font-size: 18px;
+      color: var(--accent-dark);
+      flex-shrink: 0;
+      transition: transform 0.15s ease;
+    }
+
+    .service-card.open .service-arrow {
+      transform: rotate(90deg);
+    }
 
     .dropdown-content {
-      display:none;
-      margin-top:10px;
-      background:#f5fbff;
-      padding:10px;
-      border-left:3px solid #026887;
-      border-radius:10px;
-      color:#475467;
-      font-size:14px;
-      line-height:1.6;
+      display: none;
+      margin-top: 10px;
+      padding: 10px 11px 4px;
+      background: #f5fbff;
+      border-radius: 10px;
+      border-left: 3px solid var(--accent);
+      font-size: 13px;
+      line-height: 1.6;
+      color: #475467;
+    }
+
+    .dropdown-content b {
+      font-size: 13px;
+      color: var(--accent-dark);
+    }
+
+    /* WHY CHOOSE US */
+    .why-box {
+      background: var(--bg-card);
+      padding: 16px 18px;
+      border-radius: 16px;
+      box-shadow: 0 3px 12px rgba(15, 23, 42, 0.08);
+      border: 1px solid var(--border-soft);
+      margin-top: 8px;
+    }
+
+    .why-intro {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+    }
+
+    .why-list {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 6px;
+    }
+
+    @media (min-width: 720px) {
+      .why-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    .why-item {
+      font-size: 13px;
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+      color: var(--text-main);
+    }
+
+    .why-bullet {
+      font-size: 14px;
+      color: #16a34a;
+      margin-top: 1px;
+      flex-shrink: 0;
     }
 
     /* FOOTER */
     footer {
-      text-align:center;
-      font-size:12px;
-      padding:18px;
-      background:#0b1727;
-      color:#fff;
-      border-radius:12px;
-      margin-top:40px;
+      text-align: center;
+      font-size: 11px;
+      padding: 16px 10px;
+      background: #0b1727;
+      color: #e5e7eb;
+      margin-top: 30px;
+      line-height: 1.6;
+      border-top: 1px solid #111827;
     }
 
-    /* FLOATING WHATSAPP BUTTON */
+    /* FLOATING WHATSAPP (ROUND) */
     .wa-float {
-      position:fixed;
-      right:16px;
-      bottom:20px;
-      width:52px;
-      height:52px;
-      background:#25D366;
-      border-radius:50%;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      box-shadow:0 4px 14px rgba(15,23,42,0.4);
-      z-index:999;
+      position: fixed;
+      right: 16px;
+      bottom: 20px;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: #25D366; /* official WhatsApp green tone */
+      color: #ffffff;
+      font-weight: 700;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 14px rgba(15, 23, 42, 0.45);
+      z-index: 50;
+    }
+
+    @media (max-width: 600px) {
+      .hero {
+        padding: 16px 14px 14px;
+      }
+
+      .hero h1 {
+        font-size: 19px;
+      }
+
+      .hero-activity {
+        font-size: 11px;
+      }
+
+      .hero-description {
+        font-size: 13px;
+      }
+
+      .btn-row {
+        flex-direction: column;
+      }
+
+      .btn {
+        width: 100%;
+        text-align: center;
+      }
+
+      .section-title {
+        font-size: 17px;
+      }
+
+      .service-title {
+        font-size: 13px;
+      }
+
+      .service-sub {
+        font-size: 10px;
+      }
+
+      .dropdown-content {
+        font-size: 12px;
+      }
+
+      .top-cta {
+        display: none;
+      }
     }
   </style>
 </head>
 
 <body>
-
-  <!-- TOP BAR -->
   <div class="top-bar-wrap">
     <div class="top-bar">
       <div class="brand" onclick="window.location.href='/'">
@@ -191,13 +490,11 @@
   </div>
 
   <div class="page-shell">
-
     <div class="main-layout">
-
-      <!-- HERO -->
+      <!-- HERO SIDE -->
       <section class="hero">
         <div class="hero-pill">
-          <span style="width:6px;height:6px;border-radius:50%;background:#12b981;"></span>
+          <span class="hero-pill-dot"></span>
           24/7 Maintenance Support in Dubai
         </div>
 
@@ -208,148 +505,366 @@
         </p>
 
         <p class="hero-description">
-          Professional home and shop maintenance across Dubai. Same-day response for urgent calls, clear communication and clean, reliable work every visit.
+          Professional home and shop maintenance across Dubai. Same-day response for urgent calls,
+          clear communication and clean, reliable work every visit.
         </p>
 
-        <div class="btn-row">
-          <a href="tel:0527546880"><button class="btn">📞 Call Us: 052 754 6880</button></a>
+        <div class="hero-info-row">
+          <div class="hero-info-tag">Same-day service (subject to schedule)</div>
+          <div class="hero-info-tag">Serving apartments, villas &amp; retail</div>
+          <div class="hero-info-tag">No hidden charges</div>
         </div>
 
-        <p style="font-size:11px;color:#667085;margin-top:10px;">
-          We cover JVC, Marina, Business Bay, JLT, Downtown and more.
-        </p>
+        <div class="btn-row">
+          <a href="tel:0527546880">
+            <button class="btn call-btn">
+              <span class="btn-icon">📞</span>
+              Call Us: 052 754 6880
+            </button>
+          </a>
+        </div>
+
+        <div class="hero-note">
+          We cover most Dubai areas including JVC, Marina, Business Bay, JLT, Downtown and nearby communities.
+        </div>
       </section>
 
       <!-- SIDE CARD -->
       <aside class="side-card">
-        <div style="font-weight:700;margin-bottom:8px;">Fast help when something breaks</div>
-        • AC not cooling, water leakage or smell<br>
-        • Plumbing leaks or blockages<br>
-        • Power tripping & socket problems<br>
-        • Door, lock and hinge issues<br>
+        <div class="side-title">Fast help when something breaks</div>
+        <div class="side-line">• AC not cooling, water leakage or bad smell</div>
+        <div class="side-line">• Sudden plumbing leaks or blockages</div>
+        <div class="side-line">• Power tripping, light or socket issues</div>
+        <div class="side-line">• Urgent door, lock or glass problems</div>
 
-        <div style="margin-top:12px;background:#e5f6fb;padding:10px;border-radius:10px;color:#026887;">
-          Send photos or videos on WhatsApp for quick guidance.
+        <div class="side-highlight">
+          Share your issue on WhatsApp with photos or video. We review and guide you with the next steps.
         </div>
       </aside>
-
     </div>
 
     <!-- SERVICES -->
-    <h2 style="margin-top:40px;font-size:20px;font-weight:700;">Our Services</h2>
+    <h2 class="section-title">Our Services</h2>
 
-    <div class="services-wrap" style="display:grid;gap:12px;">
+    <div class="services-wrap">
 
       <!-- AC -->
       <div class="service-card" onclick="toggleDropdown('ac')">
-        <div style="display:flex;justify-content:space-between;">
-          <div style="display:flex;align-items:center;gap:12px;">
-            <div style="width:36px;height:36px;background:#e5f6fb;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;color:#026887;">❄️</div>
+        <div class="service-header">
+          <div class="service-main">
+            <div class="service-icon">❄️</div>
             <div>
-              <div style="font-weight:600;">AC Repair &amp; Service</div>
-              <div style="font-size:12px;color:#667085;">Cooling · Gas · Leakage</div>
+              <div class="service-title">AC Repair &amp; Service</div>
+              <div class="service-sub">Not cooling · Gas issues · Leakage</div>
             </div>
           </div>
-          <div id="ac-arrow" class="service-arrow">›</div>
+          <div class="service-arrow" id="ac-arrow">›</div>
         </div>
         <div id="ac" class="dropdown-content">
           • AC not cooling<br>
-          • Gas refill<br>
-          • Water leakage<br>
-          • Breaker tripping<br><br>
-          <b style="color:#026887;">We fix all AC issues.</b>
+          • Gas refilling &amp; leakage<br>
+          • Weak or uneven airflow<br>
+          • AC not turning on<br>
+          • Bad smell from vents<br>
+          • AC tripping / breaker issues<br>
+          • Water leakage from indoor or outdoor unit<br>
+          • Thermostat problems<br>
+          • Compressor issues<br><br>
+          <b>We handle all AC-related works professionally.</b>
         </div>
       </div>
 
       <!-- PLUMBING -->
       <div class="service-card" onclick="toggleDropdown('plumbing')">
-        <div style="display:flex;justify-content:space-between;">
-          <div style="display:flex;align-items:center;gap:12px;">
-            <div style="width:36px;height:36px;background:#e5f6fb;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;color:#026887;">🚿</div>
+        <div class="service-header">
+          <div class="service-main">
+            <div class="service-icon">🚿</div>
             <div>
-              <div style="font-weight:600;">Plumbing Services</div>
-              <div style="font-size:12px;color:#667085;">Leaks · Blockage · Heater</div>
+              <div class="service-title">Plumbing Services</div>
+              <div class="service-sub">Leaks · Blockages · Water heater</div>
             </div>
           </div>
-          <div id="plumbing-arrow" class="service-arrow">›</div>
+          <div class="service-arrow" id="plumbing-arrow">›</div>
         </div>
         <div id="plumbing" class="dropdown-content">
-          • Pipe leaks<br>
-          • Kitchen/washroom blockage<br>
-          • Water heater repair<br><br>
-          <b style="color:#026887;">Full plumbing support.</b>
+          • Pipe and fitting leaks<br>
+          • Kitchen &amp; washroom blockages<br>
+          • Water heater repair &amp; replacement<br>
+          • Low water pressure issues<br>
+          • Tap / mixer / valve replacement<br><br>
+          <b>We handle all plumbing-related works professionally.</b>
         </div>
       </div>
 
       <!-- ELECTRICAL -->
       <div class="service-card" onclick="toggleDropdown('electrical')">
-        <div style="display:flex;justify-content:space-between;">
-          <div style="display:flex;align-items:center;gap:12px;">
-            <div style="width:36px;height:36px;background:#e5f6fb;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;color:#026887;">💡</div>
+        <div class="service-header">
+          <div class="service-main">
+            <div class="service-icon">💡</div>
             <div>
-              <div style="font-weight:600;">Electrical Services</div>
-              <div style="font-size:12px;color:#667085;">Sockets · Lights · Wiring</div>
+              <div class="service-title">Electrical Services</div>
+              <div class="service-sub">Sockets · Lights · Wiring faults</div>
             </div>
           </div>
-          <div id="electrical-arrow" class="service-arrow">›</div>
+          <div class="service-arrow" id="electrical-arrow">›</div>
         </div>
         <div id="electrical" class="dropdown-content">
-          • Socket repair<br>
-          • Light fixtures<br>
-          • Short circuit issues<br><br>
-          <b style="color:#026887;">Electrical specialists.</b>
+          • Socket repair &amp; installation<br>
+          • Light fixtures and spotlights<br>
+          • Wiring and short-circuit issues<br>
+          • Fuse &amp; DB problems<br><br>
+          <b>We handle all electrical-related works professionally.</b>
+        </div>
+      </div>
+
+      <!-- HANDYMAN -->
+      <div class="service-card" onclick="toggleDropdown('handyman')">
+        <div class="service-header">
+          <div class="service-main">
+            <div class="service-icon">🛠️</div>
+            <div>
+              <div class="service-title">Handyman Services</div>
+              <div class="service-sub">TVs · Shelves · Curtains</div>
+            </div>
+          </div>
+          <div class="service-arrow" id="handyman-arrow">›</div>
+        </div>
+        <div id="handyman" class="dropdown-content">
+          • TV wall mounting<br>
+          • Shelf and cabinet installation<br>
+          • Curtain &amp; blind fixing<br>
+          • Small home repair works<br><br>
+          <b>We handle all handyman-related works professionally.</b>
+        </div>
+      </div>
+
+      <!-- APPLIANCE -->
+      <div class="service-card" onclick="toggleDropdown('appliance')">
+        <div class="service-header">
+          <div class="service-main">
+            <div class="service-icon">🔌</div>
+            <div>
+              <div class="service-title">Appliance Repair</div>
+              <div class="service-sub">Fridge · Washer · Cooker</div>
+            </div>
+          </div>
+          <div class="service-arrow" id="appliance-arrow">›</div>
+        </div>
+        <div id="appliance" class="dropdown-content">
+          • Fridge not cooling or over-freezing<br>
+          • Washing machine repair<br>
+          • Dishwasher repair<br>
+          • Cooker &amp; oven repair<br><br>
+          <b>We repair all major home appliances professionally.</b>
+        </div>
+      </div>
+
+      <!-- MASON -->
+      <div class="service-card" onclick="toggleDropdown('mason')">
+        <div class="service-header">
+          <div class="service-main">
+            <div class="service-icon">🧱</div>
+            <div>
+              <div class="service-title">Mason Work</div>
+              <div class="service-sub">Tiles · Blocks · Repairs</div>
+            </div>
+          </div>
+          <div class="service-arrow" id="mason-arrow">›</div>
+        </div>
+        <div id="mason" class="dropdown-content">
+          • Tile installation<br>
+          • Tile &amp; grout repair<br>
+          • Block work &amp; minor civil repairs<br><br>
+          <b>We handle all masonry-related works professionally.</b>
+        </div>
+      </div>
+
+      <!-- PAINTING -->
+      <div class="service-card" onclick="toggleDropdown('paint')">
+        <div class="service-header">
+          <div class="service-main">
+            <div class="service-icon">🎨</div>
+            <div>
+              <div class="service-title">Painting Work</div>
+              <div class="service-sub">Villas · Apartments</div>
+            </div>
+          </div>
+          <div class="service-arrow" id="paint-arrow">›</div>
+        </div>
+        <div id="paint" class="dropdown-content">
+          • Full villa painting<br>
+          • Room and feature-wall painting<br>
+          • Touch-ups and maintenance painting<br><br>
+          <b>We handle all painting-related works professionally.</b>
+        </div>
+      </div>
+
+      <!-- ALUMINUM -->
+      <div class="service-card" onclick="toggleDropdown('aluminum')">
+        <div class="service-header">
+          <div class="service-main">
+            <div class="service-icon">🪟</div>
+            <div>
+              <div class="service-title">Aluminum Work</div>
+              <div class="service-sub">Doors · Frames · Partitions</div>
+            </div>
+          </div>
+          <div class="service-arrow" id="aluminum-arrow">›</div>
+        </div>
+        <div id="aluminum" class="dropdown-content">
+          • Aluminum doors &amp; frames<br>
+          • Aluminum partitions<br>
+          • Window &amp; slider adjustments<br><br>
+          <b>We handle all aluminum-related works professionally.</b>
+        </div>
+      </div>
+
+      <!-- DOOR -->
+      <div class="service-card" onclick="toggleDropdown('door')">
+        <div class="service-header">
+          <div class="service-main">
+            <div class="service-icon">🚪</div>
+            <div>
+              <div class="service-title">Door Work</div>
+              <div class="service-sub">Wooden · Aluminum · Glass doors</div>
+            </div>
+          </div>
+          <div class="service-arrow" id="door-arrow">›</div>
+        </div>
+        <div id="door" class="dropdown-content">
+          • Wooden door repair<br>
+          • Aluminum door repair<br>
+          • Glass door repair &amp; installation<br>
+          • Door alignment &amp; lock repair<br><br>
+          <b>We handle all door-related works professionally.</b>
+        </div>
+      </div>
+
+      <!-- CARPENTRY -->
+      <div class="service-card" onclick="toggleDropdown('carpentry')">
+        <div class="service-header">
+          <div class="service-main">
+            <div class="service-icon">🪚</div>
+            <div>
+              <div class="service-title">Carpentry Work</div>
+              <div class="service-sub">Doors · Cabinets · Shelves</div>
+            </div>
+          </div>
+          <div class="service-arrow" id="carpentry-arrow">›</div>
+        </div>
+        <div id="carpentry" class="dropdown-content">
+          • Door and frame adjustment<br>
+          • Cabinet and wardrobe repair<br>
+          • Custom shelves and minor wood works<br><br>
+          <b>We handle all carpentry-related works professionally.</b>
+        </div>
+      </div>
+
+      <!-- TILES & MARBLE -->
+      <div class="service-card" onclick="toggleDropdown('tiles')">
+        <div class="service-header">
+          <div class="service-main">
+            <div class="service-icon">🪨</div>
+            <div>
+              <div class="service-title">Tiles &amp; Marble Work</div>
+              <div class="service-sub">Flooring · Cladding · Repairs</div>
+            </div>
+          </div>
+          <div class="service-arrow" id="tiles-arrow">›</div>
+        </div>
+        <div id="tiles" class="dropdown-content">
+          • Floor and wall tile fixing<br>
+          • Marble installation &amp; patch repair<br>
+          • Grout repair and re-grouting<br><br>
+          <b>We handle all tile and marble-related works professionally.</b>
+        </div>
+      </div>
+
+      <!-- RENOVATION -->
+      <div class="service-card" onclick="toggleDropdown('renovation')">
+        <div class="service-header">
+          <div class="service-main">
+            <div class="service-icon">🏠</div>
+            <div>
+              <div class="service-title">Renovation Services</div>
+              <div class="service-sub">Rooms · Kitchens · Shops</div>
+            </div>
+          </div>
+          <div class="service-arrow" id="renovation-arrow">›</div>
+        </div>
+        <div id="renovation" class="dropdown-content">
+          • Minor renovation and makeovers<br>
+          • Kitchen and bathroom upgrades<br>
+          • Retail and small shop fit-out touch-ups<br><br>
+          <b>We handle small to medium renovation-related works professionally.</b>
         </div>
       </div>
 
     </div>
 
     <!-- WHY CHOOSE US -->
-    <h2 style="margin-top:40px;font-size:20px;font-weight:700;">Why People Choose Daily Fix Hub</h2>
-
-    <div style="background:#fff;border:1px solid #dde3ee;padding:18px;border-radius:16px;box-shadow:0 3px 12px rgba(15,23,42,0.08);">
-      <ul style="padding-left:20px;font-size:14px;line-height:1.8;">
-        <li>Experienced technicians</li>
-        <li>Same-day response available</li>
-        <li>Clear explanation before work</li>
-        <li>No hidden charges</li>
-        <li>Clean and reliable service</li>
-      </ul>
+    <h2 class="section-title">Why Homeowners Choose Daily Fix Hub</h2>
+    <div class="why-box">
+      <div class="why-intro">
+        Simple, clear and reliable maintenance support when you need it the most.
+      </div>
+      <div class="why-list">
+        <div class="why-item">
+          <span class="why-bullet">✔</span>
+          <span>Experienced technicians for AC, plumbing, electrical and more.</span>
+        </div>
+        <div class="why-item">
+          <span class="why-bullet">✔</span>
+          <span>Same-day response for most urgent issues, subject to schedule.</span>
+        </div>
+        <div class="why-item">
+          <span class="why-bullet">✔</span>
+          <span>Clear explanation of work before starting – no surprises.</span>
+        </div>
+        <div class="why-item">
+          <span class="why-bullet">✔</span>
+          <span>Clean, respectful work in your home or shop.</span>
+        </div>
+        <div class="why-item">
+          <span class="why-bullet">✔</span>
+          <span>Easy communication on WhatsApp with photos and videos.</span>
+        </div>
+      </div>
     </div>
 
     <!-- FOOTER -->
     <footer>
-      Daily Fix Hub — Home &amp; Shop Maintenance in Dubai<br>
+      Daily Fix Hub — Home &amp; Shop Maintenance in Dubai<br />
       24/7 Support · Call / WhatsApp: 052 754 6880
     </footer>
+  </div>
 
-  </div> <!-- END page-shell -->
-
-  <!-- FLOATING WHATSAPP BUTTON -->
+  <!-- FLOATING WHATSAPP BUTTON (ROUND) -->
   <a class="wa-float" href="https://wa.me/971527546880">
-    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="#fff" viewBox="0 0 32 32">
-      <path d="M16.027 3C9.4 3 4 8.4 4 15.027c0 2.637.872 5.082 2.348 7.06L4 29l7.113-2.317A11.86 11.86 0 0 0 16.027 27C22.654 27 28 21.6 28 14.973 28 8.4 22.654 3 16.027 3zm6.955 16.79c-.293.82-1.693 1.553-2.33 1.65-.62.093-1.412.133-2.278-.143-.526-.167-1.2-.39-2.06-.763-3.626-1.57-5.984-5.22-6.165-5.47-.18-.247-1.47-1.957-1.47-3.737 0-1.78.93-2.652 1.263-3.01.333-.357.73-.446.973-.446.24 0 .487.007.7.013.226.007.53-.086.83.63.293.713.987 2.457 1.074 2.64.086.183.14.4.027.647-.107.247-.16.4-.313.613-.167.226-.353.507-.5.68-.167.2-.34.417-.147.81.193.393.86 1.422 1.848 2.3 1.267 1.13 2.34 1.48 2.733 1.646.393.167.62.14.853-.086.233-.227.987-1.146 1.253-1.54.267-.393.52-.327.86-.193.34.133 2.147 1.013 2.517 1.2.367.187.607.28.7.44.093.16.093.913-.2 1.733z"/>
-    </svg>
+    WA
   </a>
 
   <script>
     function toggleDropdown(id) {
-      const all = document.querySelectorAll('.dropdown-content');
-      const arrows = document.querySelectorAll('.service-arrow');
-      all.forEach(el => el.style.display = 'none');
-      arrows.forEach(a => a.style.transform = 'none');
+      const allCards = document.querySelectorAll('.service-card');
+      const allContents = document.querySelectorAll('.dropdown-content');
+      const allArrows = document.querySelectorAll('.service-arrow');
 
-      const box = document.getElementById(id);
+      const current = document.getElementById(id);
       const arrow = document.getElementById(id + '-arrow');
+      const card = arrow ? arrow.closest('.service-card') : null;
+      const isOpen = current.style.display === 'block';
 
-      if (box.style.display === 'block') {
-        box.style.display = 'none';
-        arrow.style.transform = 'none';
-      } else {
-        box.style.display = 'block';
-        arrow.style.transform = 'rotate(90deg)';
+      allContents.forEach(c => c.style.display = 'none');
+      allArrows.forEach(a => a.textContent = '›');
+      allCards.forEach(c => c.classList.remove('open'));
+
+      if (!isOpen) {
+        current.style.display = 'block';
+        if (arrow) arrow.textContent = '›';
+        if (card) card.classList.add('open');
       }
     }
   </script>
-
 </body>
 </html>
