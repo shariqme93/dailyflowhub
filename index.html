@@ -14,19 +14,21 @@
         box-sizing: border-box;
       }
       :root {
-        --bg: #f5f5f7;
-        --card: #ffffff;
+        --bg-page: #f3f4f6;
+        --bg-card: #ffffff;
+        --bg-soft: #f9fafb;
         --text-main: #111827;
         --text-muted: #6b7280;
         --border-soft: #e5e7eb;
         --accent: #059669;
         --accent-soft: #ecfdf5;
+        --shadow-soft: 0 18px 45px rgba(15, 23, 42, 0.12);
       }
       body {
         margin: 0;
         font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
           sans-serif;
-        background: var(--bg);
+        background: radial-gradient(circle at top, #e5f9f4, #f3f4f6 52%);
         color: var(--text-main);
       }
       a {
@@ -34,78 +36,82 @@
         text-decoration: none;
       }
 
-      .shell {
-        max-width: 960px;
-        margin: 24px auto 32px;
-        padding: 0 16px;
+      .page-shell {
+        max-width: 1040px;
+        margin: 28px auto 40px;
+        padding: 0 18px;
       }
 
-      .card {
-        background: var(--card);
-        border-radius: 16px;
-        box-shadow: 0 12px 30px rgba(15, 23, 42, 0.06);
-        overflow: hidden;
-        border: 1px solid #e5e7eb;
-      }
-
-      header {
-        padding: 14px 20px 10px;
-        border-bottom: 1px solid var(--border-soft);
+      .site-header {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        gap: 12px;
+        margin-bottom: 18px;
       }
-      .brand-block {
-        display: flex;
+      .site-brand {
+        display: inline-flex;
         flex-direction: column;
         gap: 2px;
       }
-      .logo-title {
+      .site-brand-title {
         font-size: 18px;
         font-weight: 700;
-        letter-spacing: 0.01em;
+        letter-spacing: 0.02em;
       }
-      .logo-sub {
+      .site-brand-sub {
         font-size: 11px;
         color: var(--text-muted);
       }
-      .header-call {
+      .site-header-call {
         text-align: right;
         font-size: 11px;
       }
-      .header-call-label {
+      .site-header-call-label {
         font-weight: 600;
         color: var(--text-muted);
       }
-      .header-call-number {
+      .site-header-call-number {
         display: block;
         font-size: 16px;
         font-weight: 700;
         color: var(--accent);
       }
 
+      .card-main {
+        background: var(--bg-card);
+        border-radius: 24px;
+        box-shadow: var(--shadow-soft);
+        border: 1px solid rgba(148, 163, 184, 0.22);
+        overflow: hidden;
+      }
+
+      /* HERO */
       .hero {
-        padding: 22px 20px 20px;
+        padding: 26px 26px 22px;
         border-bottom: 1px solid var(--border-soft);
+      }
+      .hero-top {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
       }
       .hero-heading {
         font-size: 24px;
         font-weight: 700;
         line-height: 1.3;
-        margin: 0 0 6px;
+        margin: 0;
       }
       .hero-sub {
         font-size: 13px;
         color: var(--text-muted);
-        margin: 0 0 12px;
+        margin: 0;
         max-width: 640px;
       }
+
       .hero-badges {
         display: flex;
         flex-wrap: wrap;
         gap: 6px;
-        margin-bottom: 14px;
       }
       .badge {
         padding: 4px 10px;
@@ -115,14 +121,15 @@
         font-size: 11px;
         color: #047857;
       }
+
       .hero-actions {
         display: flex;
         flex-wrap: wrap;
         gap: 8px;
-        margin-bottom: 4px;
+        align-items: center;
       }
       .btn-primary {
-        padding: 8px 14px;
+        padding: 8px 16px;
         border-radius: 999px;
         border: none;
         background: var(--accent);
@@ -146,12 +153,14 @@
         color: var(--text-muted);
       }
 
+      /* TRUST STRIP */
       .strip {
-        padding: 10px 20px;
+        padding: 10px 26px;
+        border-top: 1px solid var(--border-soft);
         border-bottom: 1px solid var(--border-soft);
-        background: #f9fafb;
+        background: var(--bg-soft);
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
         gap: 6px;
         font-size: 12px;
         color: var(--text-muted);
@@ -168,21 +177,30 @@
         background: var(--accent);
       }
 
+      /* SECTIONS */
       section {
         border-bottom: 1px solid var(--border-soft);
       }
       .section-inner {
-        padding: 18px 20px 20px;
+        padding: 20px 26px 22px;
+      }
+      .pill-heading {
+        font-size: 11px;
+        font-weight: 600;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--text-muted);
+        margin-bottom: 4px;
       }
       .section-title {
-        font-size: 16px;
+        font-size: 17px;
         font-weight: 600;
-        margin: 0 0 8px;
+        margin: 0 0 10px;
       }
       .section-text {
         font-size: 13px;
         color: var(--text-main);
-        margin: 0 0 8px;
+        margin: 0 0 10px;
       }
       ul {
         margin: 0;
@@ -194,23 +212,31 @@
         margin-bottom: 4px;
       }
 
+      /* WHY CHOOSE / SERVICES LAYOUT */
+      .two-column {
+        display: grid;
+        grid-template-columns: 1.1fr 1fr;
+        gap: 22px;
+      }
+
       .services-grid {
         display: grid;
         grid-template-columns: 1fr;
         gap: 8px;
-        margin-top: 6px;
+        margin-top: 4px;
       }
       .service-card {
         background: #f9fafb;
-        border-radius: 10px;
+        border-radius: 14px;
         border: 1px solid #e5e7eb;
-        padding: 9px 12px;
+        padding: 10px 12px;
         font-size: 13px;
         font-weight: 500;
         display: flex;
-        justify-content: space-between;
-        align-items: center;
-        transition: border 0.15s ease, background 0.15s ease, transform 0.12s;
+        flex-direction: column;
+        gap: 2px;
+        transition: border 0.15s ease, background 0.15s ease,
+          transform 0.12s ease;
       }
       .service-card span {
         font-size: 11px;
@@ -223,15 +249,34 @@
         transform: translateY(-1px);
       }
 
-      .pill-heading {
+      /* SERVICE DETAIL BLOCKS */
+      .service-detail-grid {
+        display: grid;
+        gap: 18px;
+      }
+      .service-detail {
+        border-radius: 16px;
+        background: var(--bg-soft);
+        border: 1px solid #e5e7eb;
+        padding: 14px 14px 12px;
+      }
+      .service-detail-title {
+        font-size: 15px;
+        font-weight: 600;
+        margin: 0 0 6px;
+      }
+      .service-detail-sub {
+        font-size: 12px;
+        color: var(--text-muted);
+        margin: 0 0 8px;
+      }
+      .service-detail h3 {
         font-size: 13px;
         font-weight: 600;
-        text-transform: uppercase;
-        letter-spacing: 0.08em;
-        color: var(--text-muted);
-        margin-bottom: 6px;
+        margin: 8px 0 4px;
       }
 
+      /* REVIEWS */
       .reviews {
         list-style: none;
         padding-left: 0;
@@ -239,8 +284,8 @@
         gap: 8px;
       }
       .review-item {
-        border-radius: 10px;
-        background: #f9fafb;
+        border-radius: 12px;
+        background: var(--bg-soft);
         border: 1px solid #e5e7eb;
         padding: 8px 10px;
         font-size: 12px;
@@ -251,8 +296,9 @@
         color: var(--text-muted);
       }
 
+      /* CTA BAR + FOOTER */
       .cta-bar {
-        padding: 12px 20px 14px;
+        padding: 12px 26px 14px;
         background: #0f172a;
         color: #e5e7eb;
         display: flex;
@@ -285,97 +331,129 @@
       }
 
       footer {
-        padding: 10px 20px 12px;
+        padding: 10px 26px 12px;
         font-size: 11px;
         color: var(--text-muted);
-        background: var(--card);
-        text-align: left;
+        background: var(--bg-card);
       }
 
-      @media (min-width: 720px) {
-        .hero-heading {
-          font-size: 26px;
+      @media (max-width: 720px) {
+        .hero {
+          padding: 20px 18px 18px;
         }
-        .hero-sub {
-          font-size: 14px;
+        .strip {
+          padding: 10px 18px;
         }
         .section-inner {
-          padding: 22px 20px 22px;
+          padding: 18px 18px 20px;
+        }
+        .cta-bar {
+          padding: 10px 18px 12px;
+        }
+        .two-column {
+          grid-template-columns: 1fr;
         }
         .services-grid {
-          grid-template-columns: repeat(3, minmax(0, 1fr));
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+
+      @media (min-width: 860px) {
+        .hero-top {
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: flex-start;
+        }
+        .hero-main {
+          max-width: 620px;
+        }
+        .hero-side {
+          text-align: right;
+          font-size: 12px;
+          color: var(--text-muted);
         }
       }
     </style>
   </head>
 
   <body>
-    <div class="shell">
-      <div class="card">
-        <header>
-          <div class="brand-block">
-            <div class="logo-title">Daily Fix Hub</div>
-            <div class="logo-sub">Dubai’s Trusted Maintenance Hub</div>
-          </div>
-          <div class="header-call">
-            <div class="header-call-label">Call Now</div>
-            <a href="tel:+971527546880" class="header-call-number">
-              052 754 6880
-            </a>
-          </div>
-        </header>
+    <div class="page-shell">
+      <header class="site-header">
+        <!-- Clicking this name reloads home -->
+        <a href="/" class="site-brand">
+          <span class="site-brand-title">Daily Fix Hub</span>
+          <span class="site-brand-sub">Dubai’s Trusted Maintenance Hub</span>
+        </a>
+        <div class="site-header-call">
+          <span class="site-header-call-label">Call Now</span>
+          <a href="tel:+971527546880" class="site-header-call-number">
+            052 754 6880
+          </a>
+        </div>
+      </header>
 
-        <main>
-          <!-- HERO -->
-          <section class="hero">
-            <h1 class="hero-heading">
-              Maintenance Services in Dubai – 24/7 Professional Technicians
-            </h1>
-            <p class="hero-sub">
-              AC repair, plumbing, electrical, handyman, appliance repair and
-              home maintenance services across Dubai.
-            </p>
+      <div class="card-main">
+        <!-- HERO -->
+        <section class="hero">
+          <div class="hero-top">
+            <div class="hero-main">
+              <h1 class="hero-heading">
+                Maintenance Services in Dubai – 24/7 Professional Technicians
+              </h1>
+              <p class="hero-sub">
+                AC repair, plumbing, electrical, handyman, appliance repair and
+                home maintenance services across Dubai.
+              </p>
 
-            <div class="hero-badges">
-              <span class="badge">Same-day service</span>
-              <span class="badge">Certified technicians</span>
-              <span class="badge">No hidden charges</span>
+              <div class="hero-badges">
+                <span class="badge">Same-day service</span>
+                <span class="badge">Certified technicians</span>
+                <span class="badge">No hidden charges</span>
+              </div>
+
+              <div class="hero-actions">
+                <a href="tel:+971527546880">
+                  <button class="btn-primary">Call: 052 754 6880</button>
+                </a>
+                <a href="https://wa.me/971527546880">
+                  <button class="btn-outline">WhatsApp Us</button>
+                </a>
+              </div>
+
+              <p class="hero-note">
+                Fast response across Dubai. Clear communication, clean and
+                professional work.
+              </p>
             </div>
 
-            <div class="hero-actions">
-              <a href="tel:+971527546880">
-                <button class="btn-primary">Call: 052 754 6880</button>
-              </a>
-              <a href="https://wa.me/971527546880">
-                <button class="btn-outline">WhatsApp Us</button>
-              </a>
-            </div>
-
-            <p class="hero-note">
-              Fast response across Dubai. Clear communication, clean and
-              professional work.
-            </p>
-          </section>
-
-          <!-- QUICK TRUST STRIP -->
-          <div class="strip">
-            <div class="strip-item">
-              <div class="dot"></div>
-              <span>24/7 emergency support</span>
-            </div>
-            <div class="strip-item">
-              <div class="dot"></div>
-              <span>Same-day visits in most Dubai areas</span>
-            </div>
-            <div class="strip-item">
-              <div class="dot"></div>
-              <span>Licensed &amp; vetted technicians</span>
+            <div class="hero-side">
+              <div>✓ Apartments, villas and offices</div>
+              <div>✓ Transparent work, no surprises</div>
+              <div>✓ Single hub for all home services</div>
             </div>
           </div>
+        </section>
 
-          <!-- WHY CHOOSE US -->
-          <section>
-            <div class="section-inner">
+        <!-- TRUST STRIP -->
+        <div class="strip">
+          <div class="strip-item">
+            <div class="dot"></div>
+            <span>24/7 emergency support</span>
+          </div>
+          <div class="strip-item">
+            <div class="dot"></div>
+            <span>Same-day visits in most Dubai areas</span>
+          </div>
+          <div class="strip-item">
+            <div class="dot"></div>
+            <span>Licensed &amp; vetted technicians</span>
+          </div>
+        </div>
+
+        <!-- WHY + SERVICES SUMMARY -->
+        <section>
+          <div class="section-inner two-column">
+            <div>
               <div class="pill-heading">Why homeowners choose us</div>
               <h2 class="section-title">Why Choose Daily Fix Hub</h2>
               <ul>
@@ -387,13 +465,12 @@
                 <li>Customer-first attitude on every job.</li>
               </ul>
             </div>
-          </section>
 
-          <!-- SERVICES -->
-          <section>
-            <div class="section-inner">
+            <div>
               <div class="pill-heading">All in one place</div>
-              <h2 class="section-title">Our Services</h2>
+              <h2 class="section-title" style="margin-bottom: 6px">
+                Our Services
+              </h2>
               <div class="services-grid">
                 <a class="service-card" href="#ac-repair">
                   <div>AC Repair &amp; AC Service</div>
@@ -421,212 +498,191 @@
                 </a>
               </div>
             </div>
-          </section>
+          </div>
+        </section>
 
-          <!-- AC REPAIR -->
-          <section id="ac-repair">
-            <div class="section-inner">
-              <div class="pill-heading">Cooling, sorted</div>
-              <h2 class="section-title">AC Repair Dubai – Fast &amp; Reliable</h2>
-              <p class="section-text">
-                We handle all types of AC issues across Dubai, from basic
-                servicing to major repairs.
-              </p>
-              <h3
-                class="section-title"
-                style="font-size: 14px; margin-top: 10px"
-              >
-                Common AC Problems We Fix
-              </h3>
-              <ul>
-                <li>AC not cooling or weak cooling.</li>
-                <li>Water leakage from the indoor unit.</li>
-                <li>Unusual noise from indoor or outdoor unit.</li>
-                <li>Bad smell from vents.</li>
-                <li>AC not turning on or tripping the breaker.</li>
-                <li>Gas refill and cooling issues.</li>
-                <li>Compressor and thermostat problems.</li>
-              </ul>
-              <p class="section-text" style="margin-top: 6px">
-                And anything else related to your AC — if it’s not working
-                properly, we’ll inspect it and fix the issue.
-              </p>
-            </div>
-          </section>
+        <!-- SERVICE DETAILS BLOCKS -->
+        <section>
+          <div class="section-inner">
+            <div class="service-detail-grid">
+              <!-- AC -->
+              <div class="service-detail" id="ac-repair">
+                <div class="pill-heading">Cooling, sorted</div>
+                <h2 class="service-detail-title">
+                  AC Repair Dubai – Fast &amp; Reliable
+                </h2>
+                <p class="service-detail-sub">
+                  We handle all types of AC issues across Dubai, from basic
+                  servicing to major repairs.
+                </p>
+                <h3>Common AC Problems We Fix</h3>
+                <ul>
+                  <li>AC not cooling or weak cooling.</li>
+                  <li>Water leakage from the indoor unit.</li>
+                  <li>Unusual noise from indoor or outdoor unit.</li>
+                  <li>Bad smell from vents.</li>
+                  <li>AC not turning on or tripping the breaker.</li>
+                  <li>Gas refill and cooling issues.</li>
+                  <li>Compressor and thermostat problems.</li>
+                </ul>
+                <p class="section-text" style="margin-top: 6px">
+                  And anything else related to your AC — if it’s not working
+                  properly, we’ll inspect it and fix the issue.
+                </p>
+              </div>
 
-          <!-- PLUMBING -->
-          <section id="plumbing">
-            <div class="section-inner">
-              <div class="pill-heading">Water under control</div>
-              <h2 class="section-title">Plumbing Services in Dubai</h2>
-              <p class="section-text">
-                From small leaks to emergency pipe problems, our plumbers handle
-                all types of work in kitchens, bathrooms and service areas.
-              </p>
-              <h3
-                class="section-title"
-                style="font-size: 14px; margin-top: 10px"
-              >
-                Common Plumbing Issues We Fix
-              </h3>
-              <ul>
-                <li>Water leakage in kitchen or bathroom.</li>
-                <li>Blocked sink, floor drain or toilet.</li>
-                <li>Shower mixer and tap problems.</li>
-                <li>Water heater issues.</li>
-                <li>Pipe bursts and joint leaks.</li>
-                <li>Low water pressure problems.</li>
-              </ul>
-              <p class="section-text" style="margin-top: 6px">
-                And every other plumbing issue in your home — we handle all
-                types of repairs.
-              </p>
-            </div>
-          </section>
+              <!-- Plumbing -->
+              <div class="service-detail" id="plumbing">
+                <div class="pill-heading">Water under control</div>
+                <h2 class="service-detail-title">Plumbing Services in Dubai</h2>
+                <p class="service-detail-sub">
+                  From small leaks to emergency pipe problems, our plumbers
+                  handle all types of work in kitchens, bathrooms and service
+                  areas.
+                </p>
+                <h3>Common Plumbing Issues We Fix</h3>
+                <ul>
+                  <li>Water leakage in kitchen or bathroom.</li>
+                  <li>Blocked sink, floor drain or toilet.</li>
+                  <li>Shower mixer and tap problems.</li>
+                  <li>Water heater issues.</li>
+                  <li>Pipe bursts and joint leaks.</li>
+                  <li>Low water pressure problems.</li>
+                </ul>
+                <p class="section-text" style="margin-top: 6px">
+                  And every other plumbing issue in your home — we handle all
+                  types of repairs.
+                </p>
+              </div>
 
-          <!-- ELECTRICAL -->
-          <section id="electrical">
-            <div class="section-inner">
-              <div class="pill-heading">Safe &amp; compliant</div>
-              <h2 class="section-title">Electrician Services Dubai</h2>
-              <p class="section-text">
-                Safe and professional electrical work for apartments, villas and
-                offices.
-              </p>
-              <h3
-                class="section-title"
-                style="font-size: 14px; margin-top: 10px"
-              >
-                Common Electrical Issues We Fix
-              </h3>
-              <ul>
-                <li>Short circuits and power failures.</li>
-                <li>MCB tripping and fuse issues.</li>
-                <li>Socket and switch problems.</li>
-                <li>Ceiling light and chandelier installation.</li>
-                <li>Wiring faults and loose connections.</li>
-              </ul>
-              <p class="section-text" style="margin-top: 6px">
-                And any other electrical fault — our electricians handle all
-                home issues safely.
-              </p>
-            </div>
-          </section>
+              <!-- Electrical -->
+              <div class="service-detail" id="electrical">
+                <div class="pill-heading">Safe &amp; compliant</div>
+                <h2 class="service-detail-title">
+                  Electrician Services Dubai
+                </h2>
+                <p class="service-detail-sub">
+                  Safe and professional electrical work for apartments, villas
+                  and offices.
+                </p>
+                <h3>Common Electrical Issues We Fix</h3>
+                <ul>
+                  <li>Short circuits and power failures.</li>
+                  <li>MCB tripping and fuse issues.</li>
+                  <li>Socket and switch problems.</li>
+                  <li>Ceiling light and chandelier installation.</li>
+                  <li>Wiring faults and loose connections.</li>
+                </ul>
+                <p class="section-text" style="margin-top: 6px">
+                  And any other electrical fault — our electricians handle all
+                  home issues safely.
+                </p>
+              </div>
 
-          <!-- HANDYMAN -->
-          <section id="handyman">
-            <div class="section-inner">
-              <div class="pill-heading">Fix the small things</div>
-              <h2 class="section-title">Handyman Services Dubai</h2>
-              <p class="section-text">
-                For small fixing jobs and installations that make your home more
-                comfortable.
-              </p>
-              <h3
-                class="section-title"
-                style="font-size: 14px; margin-top: 10px"
-              >
-                Common Handyman Tasks We Handle
-              </h3>
-              <ul>
-                <li>TV mounting and bracket fixing.</li>
-                <li>Curtain and blinds installation.</li>
-                <li>Furniture assembly and repair.</li>
-                <li>Wall shelves and picture hanging.</li>
-                <li>Door lock and handle fixing.</li>
-                <li>Small repair work around the house.</li>
-              </ul>
-              <p class="section-text" style="margin-top: 6px">
-                And all small household fixing jobs — if you need something
-                installed or repaired, we’ll do it.
-              </p>
-            </div>
-          </section>
+              <!-- Handyman -->
+              <div class="service-detail" id="handyman">
+                <div class="pill-heading">Fix the small things</div>
+                <h2 class="service-detail-title">
+                  Handyman Services Dubai
+                </h2>
+                <p class="service-detail-sub">
+                  For small fixing jobs and installations that make your home
+                  more comfortable.
+                </p>
+                <h3>Common Handyman Tasks We Handle</h3>
+                <ul>
+                  <li>TV mounting and bracket fixing.</li>
+                  <li>Curtain and blinds installation.</li>
+                  <li>Furniture assembly and repair.</li>
+                  <li>Wall shelves and picture hanging.</li>
+                  <li>Door lock and handle fixing.</li>
+                  <li>Small repair work around the house.</li>
+                </ul>
+                <p class="section-text" style="margin-top: 6px">
+                  And all small household fixing jobs — if you need something
+                  installed or repaired, we’ll do it.
+                </p>
+              </div>
 
-          <!-- APPLIANCES -->
-          <section id="appliances">
-            <div class="section-inner">
-              <div class="pill-heading">Appliances working right</div>
-              <h2 class="section-title">Home Appliance Repair Dubai</h2>
-              <p class="section-text">
-                We repair most major home appliances from leading brands.
-              </p>
-              <h3
-                class="section-title"
-                style="font-size: 14px; margin-top: 10px"
-              >
-                Appliances We Commonly Repair
-              </h3>
-              <ul>
-                <li>Refrigerator / fridge.</li>
-                <li>Washing machine and dryer.</li>
-                <li>Dishwasher.</li>
-                <li>Cooking range and oven.</li>
-                <li>Microwave and small kitchen appliances.</li>
-              </ul>
-              <p class="section-text" style="margin-top: 6px">
-                And any other issue with your appliance — we repair all major
-                brands in Dubai.
-              </p>
-            </div>
-          </section>
+              <!-- Appliances -->
+              <div class="service-detail" id="appliances">
+                <div class="pill-heading">Appliances working right</div>
+                <h2 class="service-detail-title">
+                  Home Appliance Repair Dubai
+                </h2>
+                <p class="service-detail-sub">
+                  We repair most major home appliances from leading brands.
+                </p>
+                <h3>Appliances We Commonly Repair</h3>
+                <ul>
+                  <li>Refrigerator / fridge.</li>
+                  <li>Washing machine and dryer.</li>
+                  <li>Dishwasher.</li>
+                  <li>Cooking range and oven.</li>
+                  <li>Microwave and small kitchen appliances.</li>
+                </ul>
+                <p class="section-text" style="margin-top: 6px">
+                  And any other issue with your appliance — we repair all major
+                  brands in Dubai.
+                </p>
+              </div>
 
-          <!-- AMC -->
-          <section id="amc">
-            <div class="section-inner">
-              <div class="pill-heading">Year-round coverage</div>
-              <h2 class="section-title">
-                Annual Maintenance Contracts (AMC)
-              </h2>
-              <p class="section-text">
-                Keep your home in good condition all year with planned
-                maintenance for AC, plumbing, electrical and handyman work.
-              </p>
-              <p class="section-text" style="margin-top: 4px">
-                We offer flexible packages for apartments and villas in Dubai.
-                Call us to discuss the best option for your property.
-              </p>
+              <!-- AMC -->
+              <div class="service-detail" id="amc">
+                <div class="pill-heading">Year-round coverage</div>
+                <h2 class="service-detail-title">
+                  Annual Maintenance Contracts (AMC)
+                </h2>
+                <p class="service-detail-sub">
+                  Keep your home in good condition all year with planned
+                  maintenance for AC, plumbing, electrical and handyman work.
+                </p>
+                <p class="section-text">
+                  We offer flexible packages for apartments and villas in Dubai.
+                  Call us to discuss the best option for your property.
+                </p>
+              </div>
             </div>
-          </section>
+          </div>
+        </section>
 
-          <!-- AREAS -->
-          <section>
-            <div class="section-inner">
-              <div class="pill-heading">Dubai coverage</div>
-              <h2 class="section-title">Areas We Cover</h2>
-              <p class="section-text">
-                We serve most communities in Dubai including JVC, JLT, Dubai
-                Marina, Business Bay, Downtown, Creek Harbour, Silicon Oasis, Al
-                Barsha, Mirdif, Damac Hills, Motor City, Arabian Ranches and
-                nearby areas.
-              </p>
-            </div>
-          </section>
+        <!-- AREAS -->
+        <section>
+          <div class="section-inner">
+            <div class="pill-heading">Dubai coverage</div>
+            <h2 class="section-title">Areas We Cover</h2>
+            <p class="section-text">
+              We serve most communities in Dubai including JVC, JLT, Dubai
+              Marina, Business Bay, Downtown, Creek Harbour, Silicon Oasis, Al
+              Barsha, Mirdif, Damac Hills, Motor City, Arabian Ranches and
+              nearby areas.
+            </p>
+          </div>
+        </section>
 
-          <!-- REVIEWS -->
-          <section>
-            <div class="section-inner">
-              <div class="pill-heading">Real experiences</div>
-              <h2 class="section-title">What Customers Say</h2>
-              <ul class="reviews">
-                <li class="review-item">
-                  “AC stopped working at night. They came quickly and fixed it
-                  in one visit.”
-                  <div class="review-meta">— Imran, JVC</div>
-                </li>
-                <li class="review-item">
-                  “Professional plumber, solved my kitchen leakage without any
-                  mess.”
-                  <div class="review-meta">— Sana, Dubai Marina</div>
-                </li>
-                <li class="review-item">
-                  “Good service, polite technicians and clear communication.”
-                  <div class="review-meta">— Ahmed, Business Bay</div>
-                </li>
-              </ul>
-            </div>
-          </section>
-        </main>
+        <!-- REVIEWS -->
+        <section>
+          <div class="section-inner">
+            <div class="pill-heading">Real experiences</div>
+            <h2 class="section-title">What Customers Say</h2>
+            <ul class="reviews">
+              <li class="review-item">
+                “AC stopped working at night. They came quickly and fixed it in
+                one visit.”
+                <div class="review-meta">— Imran, JVC</div>
+              </li>
+              <li class="review-item">
+                “Professional plumber, solved my kitchen leakage without any
+                mess.”
+                <div class="review-meta">— Sana, Dubai Marina</div>
+              </li>
+              <li class="review-item">
+                “Good service, polite technicians and clear communication.”
+                <div class="review-meta">— Ahmed, Business Bay</div>
+              </li>
+            </ul>
+          </div>
+        </section>
 
         <!-- CTA BAR -->
         <div class="cta-bar">
