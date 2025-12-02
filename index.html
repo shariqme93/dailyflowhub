@@ -1,576 +1,560 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Daily Flow Hub – Premium V2</title>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Daily Fix Hub | Dubai’s Trusted Maintenance Hub</title>
+    <meta
+      name="description"
+      content="Daily Fix Hub provides AC repair, plumbing, electrical, handyman, appliance repair and home maintenance services across Dubai. Call 052 754 6880 for fast, reliable service."
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+          sans-serif;
+        background: #f8fafc;
+        color: #020617;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
 
-  <style>
-    :root {
-      --bg: #ffffff;
-      --text: #1a1a1a;
-      --sub: #555;
-      --card: #f9f9f9;
-      --border: #e5e5e5;
-      --primary: #2a7cf7;
-      --radius: 14px;
-      --hero-top: #ffffff;
-      --hero-bottom: #eef4ff;
-    }
-    body.dark {
-      --bg: #0e0e0f;
-      --text: #efefef;
-      --sub: #9a9a9a;
-      --card: #1a1a1c;
-      --border: #2a2a2a;
-      --hero-top: #141416;
-      --hero-bottom: #1b1c1e;
-    }
+      header,
+      footer {
+        background: #ffffff;
+        border-bottom: 1px solid #e2e8f0;
+      }
 
-    * { box-sizing: border-box; }
+      .header-inner,
+      .section-inner,
+      .footer-inner {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 12px 16px;
+      }
 
-    body {
-      margin: 0;
-      background: var(--bg);
-      color: var(--text);
-      font-family: 'Inter', sans-serif;
-      transition: background 0.3s ease, color 0.3s ease;
-    }
+      .header-top {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+      }
 
-    /* Header */
+      .logo-title {
+        font-size: 20px;
+        font-weight: 700;
+      }
 
-    header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 22px 42px;
-      border-bottom: 1px solid var(--border);
-      position: sticky;
-      top: 0;
-      background: var(--bg);
-      z-index: 50;
-    }
+      .logo-sub {
+        font-size: 11px;
+        color: #64748b;
+      }
 
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      text-decoration: none;
-      font-weight: 700;
-      font-size: 24px;
-      color: var(--text);
-    }
-
-    nav a {
-      margin-left: 26px;
-      text-decoration: none;
-      font-weight: 500;
-      color: var(--text);
-      font-size: 15px;
-    }
-
-    nav a:hover { color: var(--primary); }
-
-    /* Hero */
-
-    .hero {
-      padding: 140px 40px 120px;
-      text-align: center;
-      background: linear-gradient(to bottom, var(--hero-top), var(--hero-bottom));
-    }
-
-    .hero h1 {
-      font-size: 54px;
-      font-weight: 700;
-      margin-bottom: 16px;
-    }
-
-    .hero p {
-      font-size: 19px;
-      max-width: 700px;
-      margin: 0 auto;
-      color: var(--sub);
-      line-height: 1.6;
-    }
-
-    .hero-actions {
-      display: flex;
-      justify-content: center;
-      gap: 16px;
-      margin-top: 34px;
-    }
-
-    .button {
-      padding: 14px 28px;
-      border-radius: var(--radius);
-      font-weight: 600;
-      cursor: pointer;
-      border: none;
-      font-size: 16px;
-    }
-
-    .primary { background: var(--primary); color: #fff; }
-    .secondary { border: 1px solid var(--border); background: transparent; color: var(--text); }
-
-    /* Sections */
-
-    .section {
-      max-width: 1150px;
-      margin: 0 auto;
-      padding: 80px 40px;
-    }
-
-    .section h2 {
-      font-size: 36px;
-      margin-bottom: 14px;
-      font-weight: 700;
-    }
-
-    .section p {
-      color: var(--sub);
-      max-width: 650px;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 22px;
-      margin-top: 40px;
-    }
-
-    .card {
-      background: var(--card);
-      padding: 26px;
-      border-radius: var(--radius);
-      border: 1px solid var(--border);
-      transition: 0.25s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-      background: var(--bg);
-    }
-
-    /* Settings dock (theme) */
-
-    .settings-dock {
-      position: fixed;
-      bottom: 24px;
-      right: 24px;
-      z-index: 600;
-      font-size: 14px;
-      font-weight: 500;
-    }
-
-    .settings-trigger {
-      width: 44px;
-      height: 44px;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      background: var(--card);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.15);
-      transition: 0.25s ease;
-      color: var(--text);
-    }
-
-    .settings-trigger:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(0,0,0,0.22);
-    }
-
-    .settings-panel {
-      position: absolute;
-      bottom: 56px;
-      right: 0;
-      background: var(--card);
-      border-radius: 12px;
-      border: 1px solid var(--border);
-      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
-      padding: 12px 14px;
-      min-width: 170px;
-      display: none;
-    }
-
-    .settings-panel.open {
-      display: block;
-    }
-
-    .settings-panel p {
-      margin: 0 0 8px;
-      font-size: 13px;
-      color: var(--sub);
-    }
-
-    .theme-option {
-      width: 100%;
-      padding: 8px 10px;
-      border-radius: 9px;
-      border: none;
-      background: transparent;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      font-size: 13px;
-      color: var(--text);
-      margin-bottom: 4px;
-    }
-
-    .theme-option span {
-      opacity: 0.7;
-      font-size: 12px;
-    }
-
-    .theme-option.active {
-      background: rgba(42,124,247,0.08);
-      color: var(--primary);
-    }
-
-    /* Popup: bottom-left to avoid dock */
-
-    #popup {
-      position: fixed;
-      bottom: 40px;
-      left: 40px;
-      background: var(--card);
-      padding: 20px;
-      border-radius: var(--radius);
-      border: 1px solid var(--border);
-      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-      max-width: 280px;
-      z-index: 200;
-      display: none;
-    }
-
-    #popup h3 {
-      margin-top: 0;
-      margin-bottom: 8px;
-    }
-
-    #popup p {
-      font-size: 14px;
-      color: var(--sub);
-      margin-bottom: 15px;
-    }
-
-    #popup input {
-      width: 100%;
-      padding: 10px;
-      border-radius: 10px;
-      border: 1px solid var(--border);
-      margin-bottom: 10px;
-      font-size: 14px;
-    }
-
-    #popup button {
-      width: 100%;
-      padding: 10px;
-      border-radius: 10px;
-      border: none;
-      background: var(--primary);
-      color: #fff;
-      font-weight: 600;
-      cursor: pointer;
-    }
-
-    footer {
-      padding: 40px;
-      text-align: center;
-      border-top: 1px solid var(--border);
-      margin-top: 80px;
-      font-size: 14px;
-      color: var(--sub);
-    }
-
-    @media (max-width: 768px) {
-      header {
-        padding: 16px 20px;
-        flex-direction: column;
-        gap: 10px;
+      .call-box {
+        text-align: right;
+      }
+      .call-label {
+        font-size: 12px;
+        font-weight: 600;
+      }
+      .call-number {
+        font-size: 18px;
+        font-weight: 700;
+        color: #059669;
       }
 
       .hero {
-        padding: 100px 20px 90px;
+        background: #ffffff;
+        border-bottom: 1px solid #e2e8f0;
+      }
+      .hero-inner {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 20px 16px 24px;
+      }
+      .hero-title {
+        font-size: 24px;
+        font-weight: 700;
+        margin: 0 0 6px;
+      }
+      .hero-subtitle {
+        font-size: 14px;
+        color: #475569;
+        margin: 0 0 12px;
+      }
+      .hero-badges {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 14px;
+      }
+      .badge {
+        padding: 4px 10px;
+        border-radius: 999px;
+        border: 1px solid #bbf7d0;
+        background: #ecfdf5;
+        font-size: 11px;
+        color: #047857;
+      }
+      .hero-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-bottom: 6px;
+      }
+      .btn-primary {
+        padding: 9px 16px;
+        border-radius: 6px;
+        border: none;
+        background: #059669;
+        color: #ffffff;
+        font-weight: 600;
+        font-size: 14px;
+        cursor: pointer;
+      }
+      .btn-outline {
+        padding: 9px 16px;
+        border-radius: 6px;
+        border: 1px solid #059669;
+        background: transparent;
+        color: #059669;
+        font-weight: 600;
+        font-size: 14px;
+        cursor: pointer;
+      }
+      .hero-note {
+        font-size: 11px;
+        color: #64748b;
+        margin-top: 4px;
       }
 
-      .hero h1 {
-        font-size: 38px;
+      section {
+        border-bottom: 1px solid #e2e8f0;
+      }
+      .section-inner {
+        padding: 18px 16px 20px;
+      }
+      .section-title {
+        font-size: 18px;
+        font-weight: 600;
+        margin-bottom: 10px;
+      }
+      .section-text {
+        font-size: 14px;
+        color: #1f2933;
+      }
+      ul {
+        margin: 0;
+        padding-left: 18px;
+        font-size: 14px;
+      }
+      li {
+        margin-bottom: 4px;
       }
 
-      .section {
-        padding: 60px 20px;
+      .services-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+      .service-card {
+        background: #ffffff;
+        border-radius: 6px;
+        border: 1px solid #e2e8f0;
+        padding: 10px 12px;
+        font-size: 14px;
+        font-weight: 600;
+        color: #0f172a;
+        transition: border 0.15s ease, color 0.15s ease;
+      }
+      .service-card:hover {
+        border-color: #059669;
+        color: #047857;
       }
 
-      #popup {
-        left: 20px;
-        right: 20px;
-        max-width: none;
+      .reviews {
+        list-style: none;
+        padding-left: 0;
+      }
+      .review-item {
+        border-left: 4px solid #10b981;
+        background: #ffffff;
+        padding: 8px 10px;
+        font-size: 13px;
+      }
+      .review-meta {
+        margin-top: 3px;
+        font-size: 11px;
+        color: #64748b;
       }
 
-      .settings-dock {
-        bottom: 18px;
-        right: 18px;
+      .cta-bar {
+        background: #059669;
+        color: #ffffff;
       }
-    }
-  </style>
+      .cta-inner {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 14px 16px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 14px;
+      }
+      .cta-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+      .cta-btn-main {
+        background: #ffffff;
+        color: #064e3b;
+        border-radius: 6px;
+        padding: 8px 14px;
+        font-weight: 600;
+        font-size: 13px;
+      }
+      .cta-btn-outline {
+        border-radius: 6px;
+        border: 1px solid #ffffff;
+        padding: 8px 14px;
+        font-weight: 600;
+        font-size: 13px;
+      }
 
-  <!-- ScrollReveal for soft animations -->
-  <script src="https://unpkg.com/scrollreveal"></script>
-</head>
-<body>
+      footer {
+        border-top: 1px solid #e2e8f0;
+      }
+      .footer-inner {
+        font-size: 11px;
+        color: #64748b;
+        text-align: left;
+      }
 
-<header>
-  <a href="/" class="logo">
-    <svg width="34" height="34" viewBox="0 0 100 50">
-      <path d="M0 25 Q25 0 50 25 T100 25" stroke="#2a7cf7" stroke-width="6" fill="none" stroke-linecap="round" />
-    </svg>
-    Daily Flow Hub
-  </a>
-  <nav>
-    <a href="#features">Features</a>
-    <a href="#ai-tools">AI Tools</a>
-    <a href="#starter">Store</a>
-    <a href="#about">About</a>
-  </nav>
-</header>
+      @media (min-width: 720px) {
+        .hero-title {
+          font-size: 30px;
+        }
+        .hero-subtitle {
+          font-size: 15px;
+        }
+        .section-inner {
+          padding: 22px 16px 24px;
+        }
+        .services-grid {
+          grid-template-columns: repeat(3, minmax(0, 1fr));
+        }
+      }
+    </style>
+  </head>
 
-<div class="hero">
-  <h1>Design Your Better Day.</h1>
-  <p>Tools, systems, and AI-powered routines that help you stay organized, productive, and consistent — with zero overwhelm.</p>
-  <div class="hero-actions">
-    <button class="button primary" onclick="document.getElementById('starter').scrollIntoView({behavior:'smooth'})">
-      Get Starter Pack
-    </button>
-    <button class="button secondary" onclick="document.getElementById('ai-tools').scrollIntoView({behavior:'smooth'})">
-      Explore AI Tools
-    </button>
-  </div>
-</div>
+  <body>
+    <header>
+      <div class="header-inner">
+        <div class="header-top">
+          <div>
+            <div class="logo-title">Daily Fix Hub</div>
+            <div class="logo-sub">Dubai’s Trusted Maintenance Hub</div>
+          </div>
+          <div class="call-box">
+            <div class="call-label">Call Now</div>
+            <a class="call-number" href="tel:+971527546880">052 754 6880</a>
+          </div>
+        </div>
+      </div>
+    </header>
 
-<section class="section" id="features">
-  <h2>Smart Living Systems</h2>
-  <p>Simple frameworks designed to reduce stress and improve your daily flow.</p>
+    <main>
+      <!-- HERO -->
+      <section class="hero">
+        <div class="hero-inner">
+          <h1 class="hero-title">
+            Maintenance Services in Dubai – 24/7 Professional Technicians
+          </h1>
+          <p class="hero-subtitle">
+            AC repair, plumbing, electrical, handyman, appliance repair and
+            home maintenance services across Dubai.
+          </p>
 
-  <div class="grid">
-    <div class="card">
-      <h3>🌞 Daily Flow Routine</h3>
-      <p>Simple structure for consistent energy and clarity.</p>
+          <div class="hero-badges">
+            <span class="badge">Same-day service</span>
+            <span class="badge">Certified technicians</span>
+            <span class="badge">No hidden charges</span>
+          </div>
+
+          <div class="hero-actions">
+            <a href="tel:+971527546880">
+              <button class="btn-primary">Call Now: 052 754 6880</button>
+            </a>
+            <a href="https://wa.me/971527546880">
+              <button class="btn-outline">WhatsApp Now</button>
+            </a>
+          </div>
+
+          <p class="hero-note">
+            Fast response across Dubai. Clear communication, clean and
+            professional work.
+          </p>
+        </div>
+      </section>
+
+      <!-- WHY CHOOSE US -->
+      <section>
+        <div class="section-inner">
+          <h2 class="section-title">Why Choose Daily Fix Hub</h2>
+          <ul>
+            <li>Trained and verified technicians.</li>
+            <li>Fast arrival anywhere in Dubai.</li>
+            <li>Clear explanation of work before starting.</li>
+            <li>24/7 emergency support for urgent issues.</li>
+            <li>Clean and respectful work inside your home.</li>
+            <li>Customer-first attitude on every job.</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- SERVICES -->
+      <section>
+        <div class="section-inner">
+          <h2 class="section-title">Our Services</h2>
+          <div class="services-grid">
+            <a class="service-card" href="#ac-repair">
+              AC Repair &amp; AC Service
+            </a>
+            <a class="service-card" href="#plumbing">
+              Plumbing Services
+            </a>
+            <a class="service-card" href="#electrical">
+              Electrical Services
+            </a>
+            <a class="service-card" href="#handyman">
+              Handyman Services
+            </a>
+            <a class="service-card" href="#appliances">
+              Appliance Repair
+            </a>
+            <a class="service-card" href="#amc">
+              Home Maintenance Contracts (AMC)
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- AC REPAIR SECTION (SHORT VERSION, DEDICATED PAGE LATER) -->
+      <section id="ac-repair">
+        <div class="section-inner">
+          <h2 class="section-title">AC Repair Dubai – Fast &amp; Reliable</h2>
+          <p class="section-text">
+            We handle all types of AC issues across Dubai, from simple servicing
+            to major repairs.
+          </p>
+          <h3 class="section-title" style="font-size: 15px; margin-top: 14px">
+            Common AC Problems We Fix
+          </h3>
+          <ul>
+            <li>AC not cooling or weak cooling.</li>
+            <li>AC leaking water from the indoor unit.</li>
+            <li>AC making unusual noise.</li>
+            <li>AC bad smell from vents.</li>
+            <li>AC not turning on or tripping the breaker.</li>
+            <li>Gas refill and cooling issues.</li>
+            <li>Compressor and thermostat problems.</li>
+          </ul>
+          <p class="section-text" style="margin-top: 8px">
+            And anything else related to your AC — if it’s not working properly,
+            we will inspect it and fix the issue.
+          </p>
+        </div>
+      </section>
+
+      <!-- PLUMBING -->
+      <section id="plumbing">
+        <div class="section-inner">
+          <h2 class="section-title">Plumbing Services in Dubai</h2>
+          <p class="section-text">
+            From small leaks to emergency pipe problems, our plumbers handle all
+            types of work in kitchens, bathrooms and service areas.
+          </p>
+          <h3 class="section-title" style="font-size: 15px; margin-top: 14px">
+            Common Plumbing Issues We Fix
+          </h3>
+          <ul>
+            <li>Water leakage in kitchen or bathroom.</li>
+            <li>Blocked sink, floor drain or toilet.</li>
+            <li>Shower mixer and tap problems.</li>
+            <li>Water heater issues.</li>
+            <li>Pipe bursts and joint leaks.</li>
+            <li>Low water pressure problems.</li>
+          </ul>
+          <p class="section-text" style="margin-top: 8px">
+            And every other plumbing issue in your home — we handle all types of
+            repairs.
+          </p>
+        </div>
+      </section>
+
+      <!-- ELECTRICAL -->
+      <section id="electrical">
+        <div class="section-inner">
+          <h2 class="section-title">Electrician Services Dubai</h2>
+          <p class="section-text">
+            Safe and professional electrical work for apartments, villas and
+            offices.
+          </p>
+          <h3 class="section-title" style="font-size: 15px; margin-top: 14px">
+            Common Electrical Issues We Fix
+          </h3>
+          <ul>
+            <li>Short circuits and power failures.</li>
+            <li>MCB tripping and fuse issues.</li>
+            <li>Socket and switch problems.</li>
+            <li>Ceiling light and chandelier installation.</li>
+            <li>Wiring faults and loose connections.</li>
+          </ul>
+          <p class="section-text" style="margin-top: 8px">
+            And any other electrical fault — our electricians handle all home
+            issues safely.
+          </p>
+        </div>
+      </section>
+
+      <!-- HANDYMAN -->
+      <section id="handyman">
+        <div class="section-inner">
+          <h2 class="section-title">Handyman Services Dubai</h2>
+          <p class="section-text">
+            For small fixing jobs and installations that make your home more
+            comfortable.
+          </p>
+          <h3 class="section-title" style="font-size: 15px; margin-top: 14px">
+            Common Handyman Tasks We Handle
+          </h3>
+          <ul>
+            <li>TV mounting and bracket fixing.</li>
+            <li>Curtain and blinds installation.</li>
+            <li>Furniture assembly and repair.</li>
+            <li>Wall shelves and picture hanging.</li>
+            <li>Door lock and handle fixing.</li>
+            <li>Small repair work around the house.</li>
+          </ul>
+          <p class="section-text" style="margin-top: 8px">
+            And all small household fixing jobs — if you need something
+            installed or repaired, we’ll do it.
+          </p>
+        </div>
+      </section>
+
+      <!-- APPLIANCES -->
+      <section id="appliances">
+        <div class="section-inner">
+          <h2 class="section-title">Home Appliance Repair Dubai</h2>
+          <p class="section-text">
+            We repair most major home appliances from leading brands.
+          </p>
+          <h3 class="section-title" style="font-size: 15px; margin-top: 14px">
+            Appliances We Commonly Repair
+          </h3>
+          <ul>
+            <li>Refrigerator / fridge.</li>
+            <li>Washing machine and dryer.</li>
+            <li>Dishwasher.</li>
+            <li>Cooking range and oven.</li>
+            <li>Microwave and small kitchen appliances.</li>
+          </ul>
+          <p class="section-text" style="margin-top: 8px">
+            And any other issue with your appliance — we repair all major brands
+            in Dubai.
+          </p>
+        </div>
+      </section>
+
+      <!-- AMC -->
+      <section id="amc">
+        <div class="section-inner">
+          <h2 class="section-title">Annual Maintenance Contracts (AMC)</h2>
+          <p class="section-text">
+            Keep your home in good condition all year with planned maintenance
+            for AC, plumbing, electrical and handyman work.
+          </p>
+          <p class="section-text" style="margin-top: 6px">
+            We offer flexible packages for apartments and villas in Dubai. Call
+            us to discuss the best option for your property.
+          </p>
+        </div>
+      </section>
+
+      <!-- AREAS -->
+      <section>
+        <div class="section-inner">
+          <h2 class="section-title">Areas We Cover</h2>
+          <p class="section-text">
+            We serve most communities in Dubai including JVC, JLT, Dubai Marina,
+            Business Bay, Downtown, Creek Harbour, Silicon Oasis, Al Barsha,
+            Mirdif, Damac Hills, Motor City, Arabian Ranches and nearby areas.
+          </p>
+        </div>
+      </section>
+
+      <!-- REVIEWS -->
+      <section>
+        <div class="section-inner">
+          <h2 class="section-title">What Customers Say</h2>
+          <ul class="reviews">
+            <li class="review-item">
+              “AC stopped working at night. They came quickly and fixed it in
+              one visit.”
+              <div class="review-meta">— Imran, JVC</div>
+            </li>
+            <li class="review-item" style="margin-top: 8px">
+              “Professional plumber, solved my kitchen leakage without any
+              mess.”
+              <div class="review-meta">— Sana, Dubai Marina</div>
+            </li>
+            <li class="review-item" style="margin-top: 8px">
+              “Good service, polite technicians and clear communication.”
+              <div class="review-meta">— Ahmed, Business Bay</div>
+            </li>
+          </ul>
+        </div>
+      </section>
+    </main>
+
+    <!-- CTA BAR -->
+    <div class="cta-bar">
+      <div class="cta-inner">
+        <div>
+          Need maintenance help today? Call or WhatsApp us and we’ll arrange a
+          technician in Dubai.
+        </div>
+        <div class="cta-actions">
+          <a class="cta-btn-main" href="tel:+971527546880">
+            Call: 052 754 6880
+          </a>
+          <a
+            class="cta-btn-outline"
+            href="https://wa.me/971527546880"
+            target="_blank"
+            rel="noopener"
+          >
+            WhatsApp
+          </a>
+        </div>
+      </div>
     </div>
-    <div class="card">
-      <h3>📘 Weekly Review</h3>
-      <p>Stay aligned with your goals with a 10-minute check-in.</p>
-    </div>
-    <div class="card">
-      <h3>💬 AI Life Prompts</h3>
-      <p>Prompts to help you think, plan, and act better.</p>
-    </div>
-  </div>
-</section>
 
-<section class="section" id="ai-tools">
-  <h2>AI Tools</h2>
-  <p>Practical, real-world AI helpers. Not hype. Not fluff. Just tools that actually save time.</p>
-
-  <div class="grid">
-    <div class="card">
-      <h3>🤖 Personal Assistant</h3>
-      <p>Ask, plan, schedule, and automate.</p>
-    </div>
-    <div class="card">
-      <h3>✍️ Writing Helper</h3>
-      <p>Emails, ideas, summaries, outlines — done fast.</p>
-    </div>
-    <div class="card">
-      <h3>⚡ Task Automator</h3>
-      <p>Turn routines into one-click workflows.</p>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="starter">
-  <h2>The Daily Flow Starter Pack</h2>
-  <p>Your full system for organized, calm, consistent days.</p>
-
-  <div class="grid">
-    <div class="card">
-      <h3>📘 Planner</h3>
-      <p>Plan your day in 5 minutes.</p>
-    </div>
-    <div class="card">
-      <h3>🔄 Reset Guide</h3>
-      <p>Refresh your habits in 30 days.</p>
-    </div>
-    <div class="card">
-      <h3>📓 Workbook</h3>
-      <p>Goals, reflection, structure.</p>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="about">
-  <h2>About Daily Flow Hub</h2>
-  <p>A calm, practical platform built to help people structure their day, improve habits, and use AI the smart way — without overwhelm.</p>
-</section>
-
-<section class="section" id="mockups">
-  <h2>What You Get</h2>
-  <p>Clean, modern tools displayed inside realistic device mockups.</p>
-
-  <div style="display:flex;flex-wrap:wrap;gap:30px;justify-content:center;margin-top:40px;align-items:center;">
-    <div style="max-width:420px;background:var(--card);padding:20px;border-radius:var(--radius);border:1px solid var(--border);">
-      <img src="https://i.ibb.co/sbm7K0W/macbook-mockup.png" style="width:100%;border-radius:10px;" alt="Laptop Mockup" />
-    </div>
-    <div style="max-width:260px;background:var(--card);padding:20px;border-radius:var(--radius);border:1px solid var(--border);">
-      <img src="https://i.ibb.co/bNzvPnY/iphone-mockup.png" style="width:100%;border-radius:16px;" alt="Phone Mockup" />
-    </div>
-  </div>
-</section>
-
-<section class="section" id="pricing">
-  <h2>Starter Pack Pricing</h2>
-  <p>One simple bundle with everything you need to build better days.</p>
-
-  <div style="margin-top:40px;display:flex;justify-content:center;">
-    <div style="max-width:380px;background:var(--card);padding:30px;border-radius:var(--radius);border:1px solid var(--border);text-align:center;">
-      <h3 style="font-size:28px;margin-bottom:10px;">Daily Flow Starter Pack</h3>
-      <p style="font-size:16px;color:var(--sub);">Planner + Reset Guide + Workbook</p>
-      <p style="font-size:40px;font-weight:700;margin:20px 0;color:var(--primary);">$19</p>
-      <button class="button primary" style="width:100%;padding:14px 0;font-size:16px;border-radius:var(--radius);">Coming Soon</button>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="testimonials">
-  <h2>What People Say</h2>
-  <p>Real feedback from early users testing the Daily Flow system.</p>
-
-  <div class="grid" style="margin-top:40px;">
-    <div class="card">
-      <h3>⭐⭐⭐⭐⭐</h3>
-      <p>“This planner made my mornings so much easier. Simple and effective.”</p>
-      <small>- Sarah M.</small>
-    </div>
-    <div class="card">
-      <h3>⭐⭐⭐⭐⭐</h3>
-      <p>“The 30-day reset actually helped me build discipline without stress.”</p>
-      <small>- Daniel K.</small>
-    </div>
-    <div class="card">
-      <h3>⭐⭐⭐⭐⭐</h3>
-      <p>“Clean design, easy habits, perfect for busy people like me.”</p>
-      <small>- Ayesha R.</small>
-    </div>
-  </div>
-</section>
-
-<!-- Newsletter popup (bottom-left) -->
-<div id="popup">
-  <h3>Stay Updated</h3>
-  <p>Get weekly routines and tools in your inbox.</p>
-  <input type="email" placeholder="Your email" />
-  <button onclick="document.getElementById('popup').style.display='none'">Join Free</button>
-</div>
-
-<footer>
-  © 2025 Daily Flow Hub — Build Better Days.
-</footer>
-
-<!-- Theme settings dock -->
-<div class="settings-dock">
-  <button class="settings-trigger" id="settings-trigger" aria-label="Theme settings">
-    ⚙️
-  </button>
-  <div class="settings-panel" id="settings-panel">
-    <p>Theme</p>
-    <button class="theme-option" data-theme="light">Light <span>Always</span></button>
-    <button class="theme-option" data-theme="dark">Dark <span>Always</span></button>
-    <button class="theme-option" data-theme="auto">Auto <span>Follow system</span></button>
-  </div>
-</div>
-
-<script>
-  // Newsletter popup after 6 seconds
-  setTimeout(() => {
-    const el = document.getElementById('popup');
-    if (el) el.style.display = 'block';
-  }, 6000);
-</script>
-
-<script>
-  // Theme + settings dock logic
-  const body = document.body;
-  const trigger = document.getElementById('settings-trigger');
-  const panel = document.getElementById('settings-panel');
-  const options = panel.querySelectorAll('.theme-option');
-  const STORAGE_KEY = 'dfh-theme-mode';
-
-  function applyTheme(mode) {
-    let finalMode = mode;
-
-    if (mode === 'auto') {
-      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-      finalMode = prefersDark ? 'dark' : 'light';
-    }
-
-    body.classList.toggle('dark', finalMode === 'dark');
-
-    options.forEach(btn => {
-      btn.classList.toggle('active', btn.dataset.theme === mode);
-    });
-  }
-
-  function setMode(mode) {
-    localStorage.setItem(STORAGE_KEY, mode);
-    applyTheme(mode);
-  }
-
-  // Load initial theme
-  (function initTheme(){
-    const saved = localStorage.getItem(STORAGE_KEY) || 'auto';
-    setMode(saved);
-  })();
-
-  // System theme change listener for "auto"
-  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', e => {
-    const saved = localStorage.getItem(STORAGE_KEY) || 'auto';
-    if (saved === 'auto') applyTheme('auto');
-  });
-
-  // Click handlers
-  trigger.addEventListener('click', () => {
-    panel.classList.toggle('open');
-  });
-
-  options.forEach(btn => {
-    btn.addEventListener('click', () => {
-      setMode(btn.dataset.theme);
-      panel.classList.remove('open');
-    });
-  });
-
-  // Close panel when clicking outside
-  document.addEventListener('click', (e) => {
-    if (!panel.contains(e.target) && !trigger.contains(e.target)) {
-      panel.classList.remove('open');
-    }
-  });
-</script>
-
-<script>
-  // Reveal animations
-  ScrollReveal().reveal('.hero h1', { distance:'40px', origin:'bottom', duration:800 });
-  ScrollReveal().reveal('.hero p', { delay:150, distance:'40px', origin:'bottom', duration:800 });
-  ScrollReveal().reveal('.hero-actions', { delay:300, distance:'40px', origin:'bottom', duration:800 });
-  ScrollReveal().reveal('.section h2', { distance:'30px', origin:'bottom', duration:700, interval:100 });
-  ScrollReveal().reveal('.card', { distance:'40px', origin:'bottom', duration:700, interval:120 });
-</script>
-
-</body>
+    <footer>
+      <div class="footer-inner">
+        <div>Daily Fix Hub · Dubai’s Trusted Maintenance Hub</div>
+        <div>Available 24/7 · Call / WhatsApp: 052 754 6880</div>
+      </div>
+    </footer>
+  </body>
 </html>
