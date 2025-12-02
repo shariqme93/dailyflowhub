@@ -15,7 +15,6 @@
       --accent: #0794b8;
       --accent-dark: #026887;
       --accent-soft: #e5f6fb;
-      --danger: #f04438;
     }
 
     * {
@@ -208,14 +207,6 @@
       background: #01516b;
     }
 
-    .btn.wa-btn {
-      background: #22c55e;
-    }
-
-    .btn.wa-btn:hover {
-      background: #16a34a;
-    }
-
     .btn-icon {
       font-size: 15px;
     }
@@ -272,12 +263,6 @@
       gap: 10px;
     }
 
-    @media (min-width: 880px) {
-      .services-wrap {
-        grid-template-columns: minmax(0, 1fr);
-      }
-    }
-
     .service-card {
       background: var(--bg-card);
       border-radius: 12px;
@@ -324,8 +309,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 16px;
-      font-weight: 700;
+      font-size: 18px;
       flex-shrink: 0;
     }
 
@@ -424,26 +408,23 @@
       border-top: 1px solid #111827;
     }
 
-    /* FLOATING WHATSAPP */
+    /* FLOATING WHATSAPP (ROUND) */
     .wa-float {
       position: fixed;
-      right: 14px;
-      bottom: 18px;
-      background: #22c55e;
+      right: 16px;
+      bottom: 20px;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: #25D366; /* official WhatsApp green tone */
       color: #ffffff;
-      padding: 9px 16px;
-      border-radius: 999px;
-      font-size: 13px;
-      text-decoration: none;
-      box-shadow: 0 4px 14px rgba(15, 23, 42, 0.35);
-      display: inline-flex;
+      font-weight: 700;
+      font-size: 14px;
+      display: flex;
       align-items: center;
-      gap: 6px;
+      justify-content: center;
+      box-shadow: 0 4px 14px rgba(15, 23, 42, 0.45);
       z-index: 50;
-    }
-
-    .wa-float-icon {
-      font-size: 16px;
     }
 
     @media (max-width: 600px) {
@@ -520,7 +501,7 @@
         <h1>Maintenance Services in Dubai – 24/7 Professional Technicians</h1>
 
         <p class="hero-activity">
-          AC · Plumbing · Electrical · Handyman · Appliances · Mason · Painting · Aluminium · Doors
+          AC · Plumbing · Electrical · Handyman · Appliances · Mason · Painting · Aluminium · Doors · Carpentry · Tiles &amp; Marble · Renovation
         </p>
 
         <p class="hero-description">
@@ -539,12 +520,6 @@
             <button class="btn call-btn">
               <span class="btn-icon">📞</span>
               Call Us: 052 754 6880
-            </button>
-          </a>
-          <a href="https://wa.me/971527546880">
-            <button class="btn wa-btn">
-              <span class="btn-icon">🟢</span>
-              WhatsApp Us
             </button>
           </a>
         </div>
@@ -577,7 +552,7 @@
       <div class="service-card" onclick="toggleDropdown('ac')">
         <div class="service-header">
           <div class="service-main">
-            <div class="service-icon">AC</div>
+            <div class="service-icon">❄️</div>
             <div>
               <div class="service-title">AC Repair &amp; Service</div>
               <div class="service-sub">Not cooling · Gas issues · Leakage</div>
@@ -603,7 +578,7 @@
       <div class="service-card" onclick="toggleDropdown('plumbing')">
         <div class="service-header">
           <div class="service-main">
-            <div class="service-icon">PL</div>
+            <div class="service-icon">🚿</div>
             <div>
               <div class="service-title">Plumbing Services</div>
               <div class="service-sub">Leaks · Blockages · Water heater</div>
@@ -625,7 +600,7 @@
       <div class="service-card" onclick="toggleDropdown('electrical')">
         <div class="service-header">
           <div class="service-main">
-            <div class="service-icon">EL</div>
+            <div class="service-icon">💡</div>
             <div>
               <div class="service-title">Electrical Services</div>
               <div class="service-sub">Sockets · Lights · Wiring faults</div>
@@ -646,7 +621,7 @@
       <div class="service-card" onclick="toggleDropdown('handyman')">
         <div class="service-header">
           <div class="service-main">
-            <div class="service-icon">HM</div>
+            <div class="service-icon">🛠️</div>
             <div>
               <div class="service-title">Handyman Services</div>
               <div class="service-sub">TVs · Shelves · Curtains</div>
@@ -667,7 +642,7 @@
       <div class="service-card" onclick="toggleDropdown('appliance')">
         <div class="service-header">
           <div class="service-main">
-            <div class="service-icon">AP</div>
+            <div class="service-icon">🔌</div>
             <div>
               <div class="service-title">Appliance Repair</div>
               <div class="service-sub">Fridge · Washer · Cooker</div>
@@ -688,7 +663,7 @@
       <div class="service-card" onclick="toggleDropdown('mason')">
         <div class="service-header">
           <div class="service-main">
-            <div class="service-icon">MS</div>
+            <div class="service-icon">🧱</div>
             <div>
               <div class="service-title">Mason Work</div>
               <div class="service-sub">Tiles · Blocks · Repairs</div>
@@ -708,7 +683,7 @@
       <div class="service-card" onclick="toggleDropdown('paint')">
         <div class="service-header">
           <div class="service-main">
-            <div class="service-icon">PT</div>
+            <div class="service-icon">🎨</div>
             <div>
               <div class="service-title">Painting Work</div>
               <div class="service-sub">Villas · Apartments</div>
@@ -728,7 +703,7 @@
       <div class="service-card" onclick="toggleDropdown('aluminum')">
         <div class="service-header">
           <div class="service-main">
-            <div class="service-icon">AL</div>
+            <div class="service-icon">🪟</div>
             <div>
               <div class="service-title">Aluminum Work</div>
               <div class="service-sub">Doors · Frames · Partitions</div>
@@ -748,7 +723,7 @@
       <div class="service-card" onclick="toggleDropdown('door')">
         <div class="service-header">
           <div class="service-main">
-            <div class="service-icon">DR</div>
+            <div class="service-icon">🚪</div>
             <div>
               <div class="service-title">Door Work</div>
               <div class="service-sub">Wooden · Aluminum · Glass doors</div>
@@ -764,6 +739,67 @@
           <b>We handle all door-related works professionally.</b>
         </div>
       </div>
+
+      <!-- CARPENTRY -->
+      <div class="service-card" onclick="toggleDropdown('carpentry')">
+        <div class="service-header">
+          <div class="service-main">
+            <div class="service-icon">🪚</div>
+            <div>
+              <div class="service-title">Carpentry Work</div>
+              <div class="service-sub">Doors · Cabinets · Shelves</div>
+            </div>
+          </div>
+          <div class="service-arrow" id="carpentry-arrow">›</div>
+        </div>
+        <div id="carpentry" class="dropdown-content">
+          • Door and frame adjustment<br>
+          • Cabinet and wardrobe repair<br>
+          • Custom shelves and minor wood works<br><br>
+          <b>We handle all carpentry-related works professionally.</b>
+        </div>
+      </div>
+
+      <!-- TILES & MARBLE -->
+      <div class="service-card" onclick="toggleDropdown('tiles')">
+        <div class="service-header">
+          <div class="service-main">
+            <div class="service-icon">🪨</div>
+            <div>
+              <div class="service-title">Tiles &amp; Marble Work</div>
+              <div class="service-sub">Flooring · Cladding · Repairs</div>
+            </div>
+          </div>
+          <div class="service-arrow" id="tiles-arrow">›</div>
+        </div>
+        <div id="tiles" class="dropdown-content">
+          • Floor and wall tile fixing<br>
+          • Marble installation &amp; patch repair<br>
+          • Grout repair and re-grouting<br><br>
+          <b>We handle all tile and marble-related works professionally.</b>
+        </div>
+      </div>
+
+      <!-- RENOVATION -->
+      <div class="service-card" onclick="toggleDropdown('renovation')">
+        <div class="service-header">
+          <div class="service-main">
+            <div class="service-icon">🏠</div>
+            <div>
+              <div class="service-title">Renovation Services</div>
+              <div class="service-sub">Rooms · Kitchens · Shops</div>
+            </div>
+          </div>
+          <div class="service-arrow" id="renovation-arrow">›</div>
+        </div>
+        <div id="renovation" class="dropdown-content">
+          • Minor renovation and makeovers<br>
+          • Kitchen and bathroom upgrades<br>
+          • Retail and small shop fit-out touch-ups<br><br>
+          <b>We handle small to medium renovation-related works professionally.</b>
+        </div>
+      </div>
+
     </div>
 
     <!-- WHY CHOOSE US -->
@@ -803,10 +839,9 @@
     </footer>
   </div>
 
-  <!-- FLOATING WHATSAPP BUTTON -->
+  <!-- FLOATING WHATSAPP BUTTON (ROUND) -->
   <a class="wa-float" href="https://wa.me/971527546880">
-    <span class="wa-float-icon">💬</span>
-    WhatsApp
+    WA
   </a>
 
   <script>
