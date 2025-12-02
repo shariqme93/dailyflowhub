@@ -1,625 +1,629 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Daily Fix Hub – Dubai’s Trusted Maintenance Service</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Daily Fix Hub – Dubai’s Trusted Maintenance Service</title>
 
-<style>
-  body {
-    margin: 0;
-    font-family: "Inter", Arial, sans-serif;
-    background: linear-gradient(135deg, #e6f7f1 0%, #ffffff 100%);
-    color: #003f2f;
-  }
+  <style>
+    body {
+      margin: 0;
+      font-family: "Inter", Arial, sans-serif;
+      background: linear-gradient(135deg, #e6f7f1 0%, #ffffff 100%);
+      color: #003f2f;
+    }
 
-  a { text-decoration: none; }
+    a { text-decoration: none; }
 
-  .page-wrapper {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-  }
+    .page-wrapper {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
 
-  /* HEADER */
-  .header {
-    display: flex;
-    align-items: center;
-    padding: 22px 50px 14px;
-    max-width: 1250px;
-    margin: auto;
-  }
+    /* HEADER */
+    .header {
+      display: flex;
+      align-items: center;
+      padding: 26px 40px 10px;
+      max-width: 1200px;
+      margin: auto;
+    }
 
-  .logo-link {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-    color: inherit;
-    cursor: pointer;
-  }
+    .logo-link {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      color: inherit;
+      cursor: pointer;
+    }
 
-  .logo {
-    font-size: 30px;
-    font-weight: 800;
-    margin: 0;
-  }
+    .logo {
+      font-size: 36px;
+      font-weight: 900;
+      margin: 0;
+      letter-spacing: 0.03em;
+    }
 
-  .tagline {
-    font-size: 13px;
-    color: #4e6d65;
-  }
+    .tagline {
+      font-size: 13px;
+      color: #4e6d65;
+    }
 
-  /* HERO */
-  .hero {
-    max-width: 950px;
-    margin: 10px auto 25px;
-    padding: 38px 38px;
-    background: #ffffff;
-    border-radius: 20px;
-    box-shadow: 0px 12px 35px rgba(0,0,0,0.07);
-  }
+    /* HERO */
+    .hero {
+      max-width: 950px;
+      margin: 8px auto 25px;
+      padding: 38px 38px;
+      background: #ffffff;
+      border-radius: 20px;
+      box-shadow: 0px 12px 35px rgba(0,0,0,0.07);
+    }
 
-  .hero h2 {
-    font-size: 32px;
-    font-weight: 800;
-    margin-bottom: 12px;
-  }
+    .hero h2 {
+      font-size: 32px;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
 
-  .hero p {
-    font-size: 17px;
-    color: #4e6d65;
-    margin-bottom: 22px;
-    line-height: 1.6;
-  }
+    .hero p {
+      font-size: 17px;
+      color: #4e6d65;
+      margin-bottom: 22px;
+      line-height: 1.6;
+    }
 
-  .hero-buttons a {
-    display: inline-block;
-    margin-right: 15px;
-    padding: 12px 24px;
-    border-radius: 999px;
-    font-size: 16px;
-    font-weight: 600;
-    color: white;
-  }
+    .hero-buttons a {
+      display: inline-block;
+      margin-right: 15px;
+      padding: 12px 24px;
+      border-radius: 999px;
+      font-size: 16px;
+      font-weight: 600;
+      color: white;
+    }
 
-  .call-btn { background: #003f2f; }
-  .wa-btn { background: #25d366; }
+    .call-btn { background: #003f2f; }
+    .wa-btn { background: #25d366; }
 
-  .hero-badges {
-    margin-top: 18px;
-  }
+    .hero-badges {
+      margin-top: 18px;
+    }
 
-  .hero-badges span {
-    margin-right: 16px;
-    color: #1ead7e;
-    font-weight: 600;
-    font-size: 14px;
-  }
+    .hero-badges span {
+      margin-right: 16px;
+      color: #1ead7e;
+      font-weight: 600;
+      font-size: 14px;
+    }
 
-  /* WHY CHOOSE */
-  .section {
-    max-width: 950px;
-    margin: 25px auto;
-    padding: 26px 30px;
-    background: white;
-    border-radius: 16px;
-    box-shadow: 0px 10px 25px rgba(0,0,0,0.05);
-  }
+    /* GENERIC SECTION */
+    .section {
+      max-width: 950px;
+      margin: 25px auto;
+      padding: 26px 30px;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0px 10px 25px rgba(0,0,0,0.05);
+    }
 
-  .section-why {
-    text-align: center;
-  }
+    /* WHY CHOOSE */
+    .section-why {
+      text-align: center;
+    }
 
-  .why-intro {
-    font-size: 14px;
-    color: #4e6d65;
-    margin-bottom: 22px;
-  }
+    .why-intro {
+      font-size: 14px;
+      color: #4e6d65;
+      margin-bottom: 22px;
+    }
 
-  .why-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 18px;
-  }
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
 
-  .why-item {
-    background: #f7fffc;
-    border: 1px solid #d4efe4;
-    border-radius: 14px;
-    padding: 16px 14px;
-  }
+    .why-item {
+      background: #f7fffc;
+      border: 1px solid #d4efe4;
+      border-radius: 14px;
+      padding: 16px 14px;
+    }
 
-  .why-icon {
-    width: 32px;
-    height: 32px;
-    background: #e2fbf1;
-    border-radius: 999px;
-    font-size: 16px;
-    color: #1ead7e;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 8px;
-  }
+    .why-icon {
+      width: 32px;
+      height: 32px;
+      background: #e2fbf1;
+      border-radius: 999px;
+      font-size: 16px;
+      color: #1ead7e;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 8px;
+    }
 
-  .why-item h4 {
-    margin: 0 0 6px;
-    font-size: 15px;
-    font-weight: 700;
-  }
+    .why-item h4 {
+      margin: 0 0 6px;
+      font-size: 15px;
+      font-weight: 700;
+    }
 
-  .why-item p {
-    margin: 0;
-    font-size: 13px;
-    color: #4e6d65;
-  }
+    .why-item p {
+      margin: 0;
+      font-size: 13px;
+      color: #4e6d65;
+    }
 
-  /* SERVICES */
-  .services-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 18px;
-  }
+    /* SERVICES */
+    .services-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
 
-  .service-card {
-    background: #f7fffc;
-    border: 1px solid #d4efe4;
-    border-radius: 14px;
-    padding: 14px 16px;
-    cursor: pointer;
-    transition: 0.2s;
-  }
+    .service-card {
+      background: #f7fffc;
+      border: 1px solid #d4efe4;
+      border-radius: 14px;
+      padding: 14px 16px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
 
-  .service-card:hover {
-    transform: translateY(-4px);
-    border-color: #1ead7e;
-    box-shadow: 0 10px 24px rgba(0,0,0,0.08);
-  }
+    .service-card:hover {
+      transform: translateY(-4px);
+      border-color: #1ead7e;
+      box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+    }
 
-  .service-main {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
+    .service-main {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
 
-  .service-icon {
-    width: 34px;
-    height: 34px;
-    background: #e2fbf1;
-    color: #003f2f;
-    font-weight: 700;
-    font-size: 14px;
-    border-radius: 11px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
+    .service-icon {
+      width: 34px;
+      height: 34px;
+      background: #e2fbf1;
+      color: #003f2f;
+      font-weight: 700;
+      font-size: 14px;
+      border-radius: 11px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
 
-  .service-text h4 {
-    margin: 0;
-    font-size: 16px;
-    font-weight: 700;
-  }
+    .service-text h4 {
+      margin: 0;
+      font-size: 16px;
+      font-weight: 700;
+    }
 
-  .service-tagline {
-    margin: 2px 0 0;
-    font-size: 13px;
-    color: #56736b;
-  }
+    .service-tagline {
+      margin: 2px 0 0;
+      font-size: 13px;
+      color: #56736b;
+    }
 
-  .service-arrow {
-    margin-left: auto;
-    font-size: 18px;
-    font-weight: 700;
-    color: #7ea298;
-  }
+    .service-arrow {
+      margin-left: auto;
+      font-size: 18px;
+      font-weight: 700;
+      color: #7ea298;
+    }
 
-  .service-card.open .service-arrow {
-    color: #1ead7e;
-  }
+    .service-card.open .service-arrow {
+      color: #1ead7e;
+    }
 
-  .service-details {
-    margin-top: 8px;
-    padding-top: 6px;
-    border-top: 1px dashed #cde6dd;
-    display: none;
-  }
+    .service-details {
+      margin-top: 8px;
+      padding-top: 6px;
+      border-top: 1px dashed #cde6dd;
+      display: none;
+    }
 
-  .service-card.open .service-details {
-    display: block;
-  }
+    .service-card.open .service-details {
+      display: block;
+    }
 
-  .service-details ul {
-    margin: 6px 0 4px;
-    padding-left: 18px;
-    font-size: 13px;
-    line-height: 1.7;
-    color: #335048;
-  }
+    .service-details ul {
+      margin: 6px 0 4px;
+      padding-left: 18px;
+      font-size: 13px;
+      line-height: 1.7;
+      color: #335048;
+    }
 
-  .service-summary {
-    margin: 6px 2px 4px;
-    font-size: 13px;
-    font-weight: 600;
-    color: #1a3e35;
-  }
+    .service-summary {
+      margin: 6px 2px 4px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #1a3e35;
+    }
 
-  /* TESTIMONIALS */
-  .review-box {
-    background: #f8fffd;
-    padding: 14px 16px;
-    border-left: 4px solid #1ead7e;
-    border-radius: 12px;
-    margin-bottom: 10px;
-    font-size: 14px;
-  }
+    /* TESTIMONIALS */
+    .review-box {
+      background: #f8fffd;
+      padding: 14px 16px;
+      border-left: 4px solid #1ead7e;
+      border-radius: 12px;
+      margin-bottom: 10px;
+      font-size: 14px;
+    }
 
-  .review-name {
-    font-weight: 700;
-    margin-bottom: 4px;
-  }
+    .review-name {
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
 
-  /* FOOTER */
-  footer {
-    text-align: center;
-    padding: 28px 15px;
-    background: #003f2f;
-    color: white;
-    font-size: 13px;
-    margin-top: 45px;
-  }
+    /* FOOTER */
+    footer {
+      text-align: center;
+      padding: 28px 15px;
+      background: #003f2f;
+      color: white;
+      font-size: 13px;
+      margin-top: 45px;
+    }
 
-  /* WhatsApp Float Btn */
-  .wa-float {
-    position: fixed;
-    bottom: 22px;
-    right: 22px;
-    background: #25d366;
-    color: white;
-    padding: 13px 20px;
-    border-radius: 999px;
-    font-weight: 700;
-    font-size: 16px;
-    box-shadow: 0px 8px 22px rgba(0,0,0,0.25);
-    z-index: 999;
-  }
+    /* WhatsApp Float Btn */
+    .wa-float {
+      position: fixed;
+      bottom: 22px;
+      right: 22px;
+      background: #25d366;
+      color: white;
+      padding: 13px 20px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 16px;
+      box-shadow: 0px 8px 22px rgba(0,0,0,0.25);
+      z-index: 999;
+    }
 
-  /* RESPONSIVE */
-  @media (max-width: 900px) {
-    .hero h2 { font-size: 26px; }
-    .services-grid, .why-grid { grid-template-columns: 1fr; }
-    .hero, .section { padding: 20px 18px; }
-  }
-</style>
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .hero h2 { font-size: 26px; }
+      .services-grid, .why-grid { grid-template-columns: 1fr; }
+      .hero, .section { padding: 20px 18px; }
+      .header { padding: 20px 20px 8px; }
+      .logo { font-size: 30px; }
+    }
+  </style>
 </head>
 
 <body>
 <div class="page-wrapper">
 
-<!-- HEADER -->
-<header class="header" id="top">
-  <div class="logo-link">
-    <h1 class="logo">Daily Fix Hub</h1>
-    <span class="tagline">Dubai’s Trusted Maintenance Hub</span>
-  </div>
-</header>
-
-<!-- HERO -->
-<section class="hero">
-  <h2>Maintenance Services in Dubai – 24/7 Professional Technicians</h2>
-  <p>
-    AC repair, plumbing, electrical, handyman, appliance repair and complete home services across Dubai.
-    Certified technicians. Same-day service. No hidden charges.
-  </p>
-
-  <div class="hero-buttons">
-    <a href="tel:0527546880" class="call-btn">Call Us: 052 754 6880</a>
-    <a href="https://wa.me/971527546880" class="wa-btn">WhatsApp Us</a>
-  </div>
-
-  <div class="hero-badges">
-    <span>✔ Same-day service</span>
-    <span>✔ Certified technicians</span>
-    <span>✔ Transparent pricing</span>
-  </div>
-</section>
-
-<!-- WHY CHOOSE -->
-<section class="section section-why">
-  <h3>Why Homeowners Choose Daily Fix Hub</h3>
-  <p class="why-intro">Fast, clean and reliable home maintenance anywhere in Dubai.</p>
-
-  <div class="why-grid">
-    <div class="why-item">
-      <div class="why-icon">✓</div>
-      <h4>Verified Technicians</h4>
-      <p>Trained, background-checked and experienced with Dubai buildings.</p>
+  <!-- HEADER -->
+  <header class="header" id="top">
+    <div class="logo-link">
+      <h1 class="logo">Daily Fix Hub</h1>
+      <span class="tagline">Dubai’s Trusted Maintenance Hub</span>
     </div>
-    <div class="why-item">
-      <div class="why-icon">⚡</div>
-      <h4>Same-Day Response</h4>
-      <p>Fast arrival for urgent AC, leaks and electrical issues.</p>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <h2>Maintenance Services in Dubai – 24/7 Professional Technicians</h2>
+    <p>
+      AC repair, plumbing, electrical, handyman, appliance repair and complete home services across Dubai.
+      Same-day service. No hidden charges.
+    </p>
+
+    <div class="hero-buttons">
+      <a href="tel:0527546880" class="call-btn">Call Us: 052 754 6880</a>
+      <a href="https://wa.me/971527546880" class="wa-btn">WhatsApp Us</a>
     </div>
-    <div class="why-item">
-      <div class="why-icon">💰</div>
-      <h4>Transparent Pricing</h4>
-      <p>No surprises. Clear explanation before work starts.</p>
+
+    <div class="hero-badges">
+      <span>✔ Same-day service</span>
+      <span>✔ Trusted technicians</span>
+      <span>✔ Transparent pricing</span>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- SERVICES -->
-<section class="section">
-  <h3>Our Services</h3>
+  <!-- SERVICES -->
+  <section class="section">
+    <h3>Our Services</h3>
 
-  <div class="services-grid">
+    <div class="services-grid">
 
-    <!-- AC -->
-    <div class="service-card">
-      <div class="service-main">
-        <div class="service-icon">AC</div>
-        <div class="service-text">
-          <h4>AC Repair & Service</h4>
-          <p class="service-tagline">Not cooling • leakage • gas issues</p>
+      <!-- AC -->
+      <div class="service-card">
+        <div class="service-main">
+          <div class="service-icon">AC</div>
+          <div class="service-text">
+            <h4>AC Repair & Service</h4>
+            <p class="service-tagline">Not cooling • leakage • gas issues</p>
+          </div>
+          <div class="service-arrow">+</div>
         </div>
-        <div class="service-arrow">+</div>
-      </div>
 
-      <div class="service-details">
-        <ul>
-          <li>AC not cooling</li>
-          <li>Gas top-up</li>
-          <li>Water leakage</li>
-          <li>Bad smell</li>
-          <li>Thermostat faults</li>
-        </ul>
-        <p class="service-summary">We fix everything related to AC systems in Dubai.</p>
-      </div>
-    </div>
-
-    <!-- Plumbing -->
-    <div class="service-card">
-      <div class="service-main">
-        <div class="service-icon">PL</div>
-        <div class="service-text">
-          <h4>Plumbing Services</h4>
-          <p class="service-tagline">Leaks • blockages • heaters</p>
+        <div class="service-details">
+          <ul>
+            <li>AC not cooling</li>
+            <li>Gas top-up</li>
+            <li>Water leakage</li>
+            <li>Bad smell</li>
+            <li>Thermostat faults</li>
+          </ul>
+          <p class="service-summary">We fix everything related to AC systems in Dubai.</p>
         </div>
-        <div class="service-arrow">+</div>
       </div>
 
-      <div class="service-details">
-        <ul>
-          <li>Water leakage</li>
-          <li>Clogged drains</li>
-          <li>Water heater installation & repair</li>
-          <li>Low water pressure</li>
-          <li>New mixer/tap installation</li>
-        </ul>
-        <p class="service-summary">
-          We fix all plumbing issues including complete water heater solutions.
-        </p>
-      </div>
-    </div>
-
-    <!-- Electrical -->
-    <div class="service-card">
-      <div class="service-main">
-        <div class="service-icon">EL</div>
-        <div class="service-text">
-          <h4>Electrical Services</h4>
-          <p class="service-tagline">Sockets • lights • wiring faults</p>
+      <!-- Plumbing -->
+      <div class="service-card">
+        <div class="service-main">
+          <div class="service-icon">PL</div>
+          <div class="service-text">
+            <h4>Plumbing Services</h4>
+            <p class="service-tagline">Leaks • blockages • heaters</p>
+          </div>
+          <div class="service-arrow">+</div>
         </div>
-        <div class="service-arrow">+</div>
-      </div>
 
-      <div class="service-details">
-        <ul>
-          <li>Tripping issues</li>
-          <li>Socket & switch repair</li>
-          <li>Lighting installation</li>
-          <li>Exhaust fan installation</li>
-          <li>Burning smell troubleshooting</li>
-        </ul>
-        <p class="service-summary">
-          We solve all electrical issues safely and professionally.
-        </p>
-      </div>
-    </div>
-
-    <!-- Handyman -->
-    <div class="service-card">
-      <div class="service-main">
-        <div class="service-icon">HM</div>
-        <div class="service-text">
-          <h4>Handyman Services</h4>
-          <p class="service-tagline">TVs • curtains • shelves</p>
+        <div class="service-details">
+          <ul>
+            <li>Water leakage</li>
+            <li>Clogged drains</li>
+            <li>Water heater installation & repair</li>
+            <li>Low water pressure</li>
+            <li>New mixer/tap installation</li>
+          </ul>
+          <p class="service-summary">
+            We fix all plumbing issues including complete water heater solutions.
+          </p>
         </div>
-        <div class="service-arrow">+</div>
       </div>
 
-      <div class="service-details">
-        <ul>
-          <li>TV mounting</li>
-          <li>Curtain fixing</li>
-          <li>Shelves & frames</li>
-          <li>Locks & handles repair</li>
-          <li>General fixing</li>
-        </ul>
-        <p class="service-summary">
-          We take care of all home fixing and small jobs.
-        </p>
-      </div>
-    </div>
-
-    <!-- Appliances -->
-    <div class="service-card">
-      <div class="service-main">
-        <div class="service-icon">AP</div>
-        <div class="service-text">
-          <h4>Appliance Repair</h4>
-          <p class="service-tagline">Fridge • washer • cooker</p>
+      <!-- Electrical -->
+      <div class="service-card">
+        <div class="service-main">
+          <div class="service-icon">EL</div>
+          <div class="service-text">
+            <h4>Electrical Services</h4>
+            <p class="service-tagline">Sockets • lights • wiring faults</p>
+          </div>
+          <div class="service-arrow">+</div>
         </div>
-        <div class="service-arrow">+</div>
-      </div>
 
-      <div class="service-details">
-        <ul>
-          <li>Fridge not cooling</li>
-          <li>Washer not spinning</li>
-          <li>Dryer not heating</li>
-          <li>Oven not igniting</li>
-          <li>Dishwasher leaks</li>
-        </ul>
-        <p class="service-summary">We repair all major household appliances.</p>
-      </div>
-    </div>
-
-    <!-- AMC -->
-    <div class="service-card">
-      <div class="service-main">
-        <div class="service-icon">MC</div>
-        <div class="service-text">
-          <h4>Maintenance Contracts</h4>
-          <p class="service-tagline">Yearly coverage</p>
+        <div class="service-details">
+          <ul>
+            <li>Tripping issues</li>
+            <li>Socket & switch repair</li>
+            <li>Lighting installation</li>
+            <li>Exhaust fan installation</li>
+            <li>Burning smell troubleshooting</li>
+          </ul>
+          <p class="service-summary">
+            We solve all electrical issues safely and professionally.
+          </p>
         </div>
-        <div class="service-arrow">+</div>
       </div>
 
-      <div class="service-details">
-        <ul>
-          <li>AC yearly checkups</li>
-          <li>Plumbing inspection</li>
-          <li>Electrical inspection</li>
-          <li>Emergency support</li>
-          <li>Discounted labour rates</li>
-        </ul>
-        <p class="service-summary">We maintain your home all year long.</p>
-      </div>
-    </div>
-
-    <!-- Mason Work -->
-    <div class="service-card">
-      <div class="service-main">
-        <div class="service-icon">MS</div>
-        <div class="service-text">
-          <h4>Mason Work</h4>
-          <p class="service-tagline">Tiles • blocks • repairs</p>
+      <!-- Handyman -->
+      <div class="service-card">
+        <div class="service-main">
+          <div class="service-icon">HM</div>
+          <div class="service-text">
+            <h4>Handyman Services</h4>
+            <p class="service-tagline">TVs • curtains • shelves</p>
+          </div>
+          <div class="service-arrow">+</div>
         </div>
-        <div class="service-arrow">+</div>
-      </div>
 
-      <div class="service-details">
-        <ul>
-          <li>Tile fixing</li>
-          <li>Re-grouting</li>
-          <li>Block work</li>
-          <li>Wall crack repair</li>
-          <li>Bathroom waterproofing</li>
-        </ul>
-        <p class="service-summary">We cover all masonry repair and installation.</p>
-      </div>
-    </div>
-
-    <!-- Painting Work -->
-    <div class="service-card">
-      <div class="service-main">
-        <div class="service-icon">PT</div>
-        <div class="service-text">
-          <h4>Painting Work</h4>
-          <p class="service-tagline">Villas • apartments</p>
+        <div class="service-details">
+          <ul>
+            <li>TV mounting</li>
+            <li>Curtain fixing</li>
+            <li>Shelves & frames</li>
+            <li>Locks & handles repair</li>
+            <li>General fixing</li>
+          </ul>
+          <p class="service-summary">
+            We take care of all home fixing and small jobs.
+          </p>
         </div>
-        <div class="service-arrow">+</div>
       </div>
 
-      <div class="service-details">
-        <ul>
-          <li>Room painting</li>
-          <li>Full house painting</li>
-          <li>Patchwork repair</li>
-          <li>Wall touch-ups</li>
-          <li>Feature wall designs</li>
-        </ul>
-        <p class="service-summary">We provide clean and professional painting services.</p>
-      </div>
-    </div>
-
-    <!-- Aluminum Work -->
-    <div class="service-card">
-      <div class="service-main">
-        <div class="service-icon">AL</div>
-        <div class="service-text">
-          <h4>Aluminum Work</h4>
-          <p class="service-tagline">Doors • frames • partitions</p>
+      <!-- Appliances -->
+      <div class="service-card">
+        <div class="service-main">
+          <div class="service-icon">AP</div>
+          <div class="service-text">
+            <h4>Appliance Repair</h4>
+            <p class="service-tagline">Fridge • washer • cooker</p>
+          </div>
+          <div class="service-arrow">+</div>
         </div>
-        <div class="service-arrow">+</div>
-      </div>
 
-      <div class="service-details">
-        <ul>
-          <li>Aluminum door installation</li>
-          <li>Sliding door repair</li>
-          <li>Window frame fixing</li>
-          <li>Office partitions</li>
-          <li>Glass+aluminum combos</li>
-        </ul>
-        <p class="service-summary">We handle all aluminum fabrication and repair work.</p>
-      </div>
-    </div>
-
-    <!-- Door Work (Updated includes Glass Door) -->
-    <div class="service-card">
-      <div class="service-main">
-        <div class="service-icon">DR</div>
-        <div class="service-text">
-          <h4>Door Work</h4>
-          <p class="service-tagline">Wooden • aluminum • glass doors</p>
+        <div class="service-details">
+          <ul>
+            <li>Fridge not cooling</li>
+            <li>Washer not spinning</li>
+            <li>Dryer not heating</li>
+            <li>Oven not igniting</li>
+            <li>Dishwasher leaks</li>
+          </ul>
+          <p class="service-summary">We repair all major household appliances.</p>
         </div>
-        <div class="service-arrow">+</div>
       </div>
 
-      <div class="service-details">
-        <ul>
-          <li>Wooden door installation & repair</li>
-          <li>Glass door installation (home & office)</li>
-          <li>Aluminum door fixing & installation</li>
-          <li>Hinges, locks, handles replacement</li>
-          <li>Door alignment & noise fixing</li>
-        </ul>
-        <p class="service-summary">
-          We install and repair all types of doors for homes, offices and shops.
-        </p>
+      <!-- AMC -->
+      <div class="service-card">
+        <div class="service-main">
+          <div class="service-icon">MC</div>
+          <div class="service-text">
+            <h4>Maintenance Contracts</h4>
+            <p class="service-tagline">Yearly coverage</p>
+          </div>
+          <div class="service-arrow">+</div>
+        </div>
+
+        <div class="service-details">
+          <ul>
+            <li>AC yearly checkups</li>
+            <li>Plumbing inspection</li>
+            <li>Electrical inspection</li>
+            <li>Emergency support</li>
+            <li>Discounted labour rates</li>
+          </ul>
+          <p class="service-summary">We maintain your home all year long.</p>
+        </div>
+      </div>
+
+      <!-- Mason Work -->
+      <div class="service-card">
+        <div class="service-main">
+          <div class="service-icon">MS</div>
+          <div class="service-text">
+            <h4>Mason Work</h4>
+            <p class="service-tagline">Tiles • blocks • repairs</p>
+          </div>
+          <div class="service-arrow">+</div>
+        </div>
+
+        <div class="service-details">
+          <ul>
+            <li>Tile fixing</li>
+            <li>Re-grouting</li>
+            <li>Block work</li>
+            <li>Wall crack repair</li>
+            <li>Bathroom waterproofing</li>
+          </ul>
+          <p class="service-summary">We cover all masonry repair and installation.</p>
+        </div>
+      </div>
+
+      <!-- Painting Work -->
+      <div class="service-card">
+        <div class="service-main">
+          <div class="service-icon">PT</div>
+          <div class="service-text">
+            <h4>Painting Work</h4>
+            <p class="service-tagline">Villas • apartments</p>
+          </div>
+          <div class="service-arrow">+</div>
+        </div>
+
+        <div class="service-details">
+          <ul>
+            <li>Room painting</li>
+            <li>Full house painting</li>
+            <li>Patchwork repair</li>
+            <li>Wall touch-ups</li>
+            <li>Feature wall designs</li>
+          </ul>
+          <p class="service-summary">We provide clean and professional painting services.</p>
+        </div>
+      </div>
+
+      <!-- Aluminum Work -->
+      <div class="service-card">
+        <div class="service-main">
+          <div class="service-icon">AL</div>
+          <div class="service-text">
+            <h4>Aluminum Work</h4>
+            <p class="service-tagline">Doors • frames • partitions</p>
+          </div>
+          <div class="service-arrow">+</div>
+        </div>
+
+        <div class="service-details">
+          <ul>
+            <li>Aluminum door installation</li>
+            <li>Sliding door repair</li>
+            <li>Window frame fixing</li>
+            <li>Office partitions</li>
+            <li>Glass+aluminum combos</li>
+          </ul>
+          <p class="service-summary">We handle all aluminum fabrication and repair work.</p>
+        </div>
+      </div>
+
+      <!-- Door Work (includes glass doors) -->
+      <div class="service-card">
+        <div class="service-main">
+          <div class="service-icon">DR</div>
+          <div class="service-text">
+            <h4>Door Work</h4>
+            <p class="service-tagline">Wooden • aluminum • glass doors</p>
+          </div>
+          <div class="service-arrow">+</div>
+        </div>
+
+        <div class="service-details">
+          <ul>
+            <li>Wooden door installation & repair</li>
+            <li>Glass door installation (home & office)</li>
+            <li>Aluminum door fixing & installation</li>
+            <li>Hinges, locks, handles replacement</li>
+            <li>Door alignment & noise fixing</li>
+          </ul>
+          <p class="service-summary">
+            We install and repair all types of doors for homes, offices and shops.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE (MOVED BELOW SERVICES) -->
+  <section class="section section-why">
+    <h3>Why Homeowners Choose Daily Fix Hub</h3>
+    <p class="why-intro">Fast, clean and reliable home maintenance anywhere in Dubai.</p>
+
+    <div class="why-grid">
+      <div class="why-item">
+        <div class="why-icon">✓</div>
+        <h4>Verified Technicians</h4>
+        <p>Trained, background-checked and experienced with Dubai buildings.</p>
+      </div>
+      <div class="why-item">
+        <div class="why-icon">⚡</div>
+        <h4>Same-Day Response</h4>
+        <p>Fast arrival for urgent AC, leaks and electrical issues.</p>
+      </div>
+      <div class="why-item">
+        <div class="why-icon">💰</div>
+        <h4>Transparent Pricing</h4>
+        <p>No surprises. Clear explanation before work starts.</p>
       </div>
     </div>
+  </section>
 
-  </div>
-</section>
+  <!-- TESTIMONIALS -->
+  <section class="section">
+    <h3>What Customers Say</h3>
 
-<!-- TESTIMONIALS -->
-<section class="section">
-  <h3>What Customers Say</h3>
+    <div class="review-box">
+      <div class="review-name">Imran – JVC</div>
+      “AC stopped working at night. They came quickly and fixed it in one visit.”
+    </div>
 
-  <div class="review-box">
-    <div class="review-name">Imran – JVC</div>
-    “AC stopped working at night. They came quickly and fixed it in one visit.”
-  </div>
+    <div class="review-box">
+      <div class="review-name">Sarah – Dubai Marina</div>
+      “Professional plumber, solved my kitchen leakage without any mess.”
+    </div>
 
-  <div class="review-box">
-    <div class="review-name">Sarah – Dubai Marina</div>
-    “Professional plumber, solved my kitchen leakage without any mess.”
-  </div>
+    <div class="review-box">
+      <div class="review-name">Ahmed – Business Bay</div>
+      “Good service, polite technicians and clear communication.”
+    </div>
+  </section>
 
-  <div class="review-box">
-    <div class="review-name">Ahmed – Business Bay</div>
-    “Good service, polite technicians and clear communication.”
-  </div>
-</section>
-
-<!-- FOOTER -->
-<footer>
-  Daily Fix Hub – Dubai’s Trusted Maintenance Hub<br>
-  24/7 Support • Call / WhatsApp: 052 754 6880
-</footer>
+  <!-- FOOTER -->
+  <footer>
+    Daily Fix Hub – Dubai’s Trusted Maintenance Hub<br>
+    24/7 Support • Call / WhatsApp: 052 754 6880
+  </footer>
 
 </div>
 
@@ -627,7 +631,7 @@
 <a href="https://wa.me/971527546880" class="wa-float">WhatsApp</a>
 
 <script>
-  // Logo scroll-to-top
+  // Click logo to scroll to top
   document.querySelector('.logo-link').onclick = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
@@ -636,14 +640,19 @@
   document.querySelectorAll('.service-card').forEach(card => {
     card.addEventListener('click', () => {
       const isOpen = card.classList.contains('open');
+
+      // Close other cards
       document.querySelectorAll('.service-card.open').forEach(c => {
         if (c !== card) {
           c.classList.remove('open');
-          c.querySelector('.service-arrow').textContent = '+';
+          const arrow = c.querySelector('.service-arrow');
+          if (arrow) arrow.textContent = '+';
         }
       });
+
       card.classList.toggle('open');
-      card.querySelector('.service-arrow').textContent = isOpen ? '+' : '−';
+      const arrow = card.querySelector('.service-arrow');
+      if (arrow) arrow.textContent = isOpen ? '+' : '−';
     });
   });
 </script>
