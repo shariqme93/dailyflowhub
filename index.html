@@ -59,11 +59,6 @@
         color: #0b5e44;
     }
 
-    .activity-line {
-        font-size: 11px;
-        color: #0b5e44;
-    }
-
     /* HERO */
     .hero {
         background: var(--card-bg);
@@ -75,10 +70,16 @@
 
     .hero h1 {
         font-size: 20px;
+        margin: 0 0 6px 0;
+    }
+
+    .hero-activity {
+        font-size: 11px;
+        color: #0b5e44;
         margin: 0 0 8px 0;
     }
 
-    .hero p {
+    .hero-description {
         font-size: 13px;
         margin: 0 0 10px 0;
         line-height: 1.4;
@@ -212,8 +213,7 @@
         .logo-title {
             font-size: 20px;
         }
-        .logo-sub,
-        .activity-line {
+        .logo-sub {
             font-size: 10px;
         }
         .hero {
@@ -222,7 +222,10 @@
         .hero h1 {
             font-size: 18px;
         }
-        .hero p {
+        .hero-activity {
+            font-size: 10px;
+        }
+        .hero-description {
             font-size: 12px;
         }
         .btn {
@@ -254,17 +257,17 @@
             <div class="logo-title">Daily Fix Hub</div>
             <div class="logo-sub">Your Trusted Home Maintenance Hub</div>
         </div>
-        <div class="activity-line">
-            AC · Plumbing · Electrical · Handyman · Appliances · Mason · Painting · Aluminium · Doors
-        </div>
     </header>
 
     <!-- HERO -->
     <section class="hero">
         <h1>Maintenance Services in Dubai – 24/7 Professional Technicians</h1>
-        <p>
-            Professional home and shop maintenance across Dubai. Fast response, clear communication and
-            clean, reliable work.
+        <p class="hero-activity">
+            AC · Plumbing · Electrical · Handyman · Appliances · Mason · Painting · Aluminium · Doors
+        </p>
+        <p class="hero-description">
+            Professional home and shop maintenance across Dubai. Fast response, clear communication
+            and clean, reliable work.
         </p>
 
         <div class="btn-row">
@@ -477,7 +480,6 @@ function toggleDropdown(id) {
     const current     = document.getElementById(id);
     const arrow       = document.getElementById(id + '-arrow');
 
-    // If current is already open, close everything
     const isOpen = current.style.display === 'block';
 
     allContents.forEach(c => c.style.display = 'none');
