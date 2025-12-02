@@ -27,25 +27,30 @@
         font-size: 15px;
     }
 
-    .page-shell {
-        width: 92%;
+    a {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    /* ===== STICKY HEADER ===== */
+    .site-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background: rgba(232,246,241,0.97);
+        border-bottom: 1px solid #c8e3d7;
+        z-index: 999;
+        backdrop-filter: blur(6px);
+    }
+
+    .header-inner {
         max-width: 960px;
         margin: 0 auto;
-        padding-bottom: 40px;
-    }
-
-    /* HEADER */
-    .top-bar {
+        padding: 10px 4%;
         display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 14px 0 6px;
-        gap: 4px;
-    }
-
-    .logo-row {
-        display: flex;
-        align-items: baseline;
+        align-items: center;
+        justify-content: space-between;
         gap: 10px;
     }
 
@@ -53,14 +58,56 @@
         font-size: 24px;
         font-weight: 700;
         cursor: pointer;
+        white-space: nowrap;
     }
 
     .logo-sub {
         font-size: 11px;
         color: #0b5e44;
+        margin-top: 2px;
     }
 
-    /* HERO */
+    .logo-block {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .header-contact {
+        font-size: 12px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        color: #0b5e44;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+        text-align: right;
+    }
+
+    .header-contact a {
+        font-weight: 600;
+    }
+
+    .header-contact span.sep {
+        opacity: 0.5;
+    }
+
+    /* Hide contact text on very small screens to keep header clean */
+    @media (max-width: 420px) {
+        .header-contact {
+            display: none;
+        }
+    }
+
+    /* ===== PAGE WRAPPER (PADDING TOP FOR STICKY HEADER) ===== */
+    .page-shell {
+        width: 92%;
+        max-width: 960px;
+        margin: 0 auto;
+        padding-bottom: 40px;
+        padding-top: 80px; /* space for header */
+    }
+
+    /* ===== HERO ===== */
     .hero {
         background: var(--card-bg);
         padding: 20px 20px 16px;
@@ -119,14 +166,14 @@
         white-space: nowrap;
     }
 
-    /* SECTION TITLES */
+    /* ===== SECTION TITLES ===== */
     .section-title {
         font-size: 18px;
         font-weight: 700;
         margin: 26px 0 10px;
     }
 
-    /* SERVICE CARDS */
+    /* ===== SERVICE CARDS ===== */
     .service-card {
         background: var(--card-bg);
         border-radius: 10px;
@@ -184,7 +231,7 @@
         font-size: 13px;
     }
 
-    /* WHY CHOOSE US */
+    /* ===== WHY CHOOSE US ===== */
     .why-box {
         background: var(--card-bg);
         padding: 16px 18px;
@@ -199,7 +246,7 @@
         margin-bottom: 6px;
     }
 
-    /* FOOTER */
+    /* ===== FOOTER ===== */
     footer {
         text-align: center;
         font-size: 11px;
@@ -210,7 +257,7 @@
         line-height: 1.6;
     }
 
-    /* FLOATING WHATSAPP */
+    /* ===== FLOATING WHATSAPP ===== */
     .wa-float {
         position: fixed;
         right: 12px;
@@ -222,16 +269,25 @@
         font-size: 13px;
         text-decoration: none;
         box-shadow: 0 3px 12px rgba(0,0,0,0.25);
+        z-index: 998;
     }
 
-    /* MOBILE TUNING */
+    /* ===== MOBILE TUNING ===== */
     @media (max-width: 600px) {
         body {
             font-size: 14px;
         }
 
+        .header-inner {
+            padding: 10px 4%;
+        }
+
         .logo-title {
             font-size: 20px;
+        }
+
+        .logo-sub {
+            font-size: 10px;
         }
 
         .hero {
@@ -279,17 +335,26 @@
 </head>
 
 <body>
-<div class="page-shell">
 
-    <!-- HEADER -->
-    <header class="top-bar">
-        <div class="logo-row">
-            <div class="logo-title" onclick="window.scrollTo({top:0, behavior:'smooth'})">
+<!-- STICKY HEADER -->
+<header class="site-header">
+    <div class="header-inner">
+        <div class="logo-block">
+            <div class="logo-title" onclick="window.location.href='/'">
                 Daily Fix Hub
             </div>
             <div class="logo-sub">Your Trusted Home Maintenance Hub</div>
         </div>
-    </header>
+
+        <div class="header-contact">
+            <a href="tel:0527546880">Call: 052 754 6880</a>
+            <span class="sep">|</span>
+            <a href="https://wa.me/971527546880">WhatsApp</a>
+        </div>
+    </div>
+</header>
+
+<div class="page-shell">
 
     <!-- HERO -->
     <section class="hero">
