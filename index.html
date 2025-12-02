@@ -6,285 +6,430 @@
 <title>Daily Fix Hub – Dubai Maintenance Services</title>
 
 <style>
+    :root {
+        --green-dark: #063f2e;
+        --green-main: #0b5e44;
+        --green-light: #e8f6f1;
+        --card-bg: #ffffff;
+        --accent: #25d366;
+        --border-soft: #c9e4d8;
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
     body {
         margin: 0;
         font-family: Arial, sans-serif;
-        background: #e8f6f1;
-        color: #063f2e;
+        background: var(--green-light);
+        color: var(--green-dark);
     }
 
-    /* MAIN CONTAINER */
-    .container {
-        width: 90%;
-        max-width: 1100px;
-        margin: auto;
-        padding-top: 20px;
+    /* TOP HEADER */
+    .page-shell {
+        width: 92%;
+        max-width: 960px;
+        margin: 0 auto;
+        padding-bottom: 32px;
     }
 
-    /* HEADER */
-    .site-title {
-        text-align: center;
-        font-size: 32px;
-        font-weight: bold;
+    .top-bar {
+        display: flex;
+        align-items: baseline;
+        justify-content: flex-start;
+        padding: 12px 0 4px;
     }
 
-    .site-subtitle {
-        text-align: center;
-        font-size: 12px;
-        margin-top: -5px;
+    .logo-title {
+        font-size: 24px;
+        font-weight: 700;
+    }
+
+    .logo-sub {
+        font-size: 11px;
         color: #0b5e44;
+        margin-left: 10px;
     }
 
-    /* HERO BOX */
+    /* HERO */
     .hero {
-        background: white;
-        padding: 25px;
-        margin-top: 20px;
+        background: var(--card-bg);
+        padding: 18px 18px 16px;
         border-radius: 10px;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+        box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+        margin-top: 8px;
     }
 
-    .hero h2 {
-        margin-top: 0;
-        font-size: 22px;
+    .hero h1 {
+        font-size: 20px;
+        margin: 0 0 8px 0;
+    }
+
+    .hero p {
+        font-size: 13px;
+        margin: 0 0 10px 0;
+        line-height: 1.4;
     }
 
     .btn-row {
-        margin-top: 15px;
+        margin-top: 6px;
     }
 
     .btn {
-        padding: 10px 18px;
+        padding: 9px 16px;
         border-radius: 6px;
         border: none;
         cursor: pointer;
-        color: white;
-        font-size: 14px;
-        margin-right: 10px;
+        color: #ffffff;
+        font-size: 13px;
+        margin-right: 8px;
     }
 
-    .call-btn { background: #0b5e44; }
-    .wa-btn { background: #25d366; }
+    .btn.call-btn { background: var(--green-main); }
+    .btn.wa-btn   { background: var(--accent); }
 
-    /* SERVICES SECTION */
+    .hero-tags {
+        font-size: 11px;
+        margin-top: 10px;
+        color: #0b5e44;
+    }
+
+    /* SECTION TITLES */
     .section-title {
-        font-size: 20px;
-        margin: 30px 0 10px 0;
-        font-weight: bold;
+        font-size: 17px;
+        font-weight: 700;
+        margin: 22px 0 8px;
     }
 
+    /* SERVICE CARDS */
     .service-card {
-        background: white;
-        padding: 12px 15px;
-        border-radius: 10px;
-        box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-        margin-bottom: 12px;
+        background: var(--card-bg);
+        border-radius: 8px;
+        border: 1px solid var(--border-soft);
+        box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+        padding: 10px 12px;
+        margin-bottom: 8px;
         cursor: pointer;
+        position: relative;
+    }
+
+    .service-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
     }
 
     .service-title {
-        font-weight: bold;
-        font-size: 15px;
+        font-weight: 600;
+        font-size: 14px;
     }
 
     .service-sub {
-        font-size: 12px;
+        font-size: 11px;
         color: #0b5e44;
         margin-top: 3px;
     }
 
-    /* DROPDOWN */
+    .service-arrow {
+        font-size: 16px;
+        color: var(--green-main);
+    }
+
+    /* DROPDOWN CONTENT */
     .dropdown-content {
         display: none;
-        background: #f7fefb;
-        padding: 15px;
         margin-top: 8px;
-        border-left: 3px solid #0b5e44;
+        padding: 10px 11px;
+        background: #f7fefb;
         border-radius: 6px;
-        font-size: 14px;
-        line-height: 22px;
+        border-left: 3px solid var(--green-main);
+        font-size: 13px;
+        line-height: 1.5;
+    }
+
+    .dropdown-content b {
+        font-size: 13px;
     }
 
     /* WHY CHOOSE US */
     .why-box {
-        background: white;
-        padding: 20px;
-        margin-top: 20px;
+        background: var(--card-bg);
+        padding: 14px 16px;
         border-radius: 10px;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+        box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+        border: 1px solid var(--border-soft);
+        margin-top: 10px;
     }
 
     .why-item {
-        margin-bottom: 8px;
-        font-size: 14px;
+        font-size: 13px;
+        margin-bottom: 4px;
     }
 
     /* FOOTER */
     footer {
         text-align: center;
-        font-size: 11px;
-        padding: 15px;
-        background: #063f2e;
-        color: white;
-        margin-top: 40px;
+        font-size: 10px;
+        padding: 10px;
+        background: var(--green-dark);
+        color: #ffffff;
+        margin-top: 26px;
     }
 
+    /* FLOATING WHATSAPP */
     .wa-float {
         position: fixed;
-        bottom: 12px;
         right: 12px;
-        background: #25d366;
-        color: white;
-        padding: 12px 18px;
-        border-radius: 40px;
-        font-size: 14px;
+        bottom: 12px;
+        background: var(--accent);
+        color: #ffffff;
+        padding: 9px 14px;
+        border-radius: 999px;
+        font-size: 13px;
         text-decoration: none;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.25);
     }
 
+    /* MOBILE TUNING */
+    @media (max-width: 600px) {
+        .logo-title {
+            font-size: 20px;
+        }
+        .logo-sub {
+            font-size: 10px;
+        }
+        .hero {
+            padding: 14px 14px 12px;
+        }
+        .hero h1 {
+            font-size: 18px;
+        }
+        .hero p {
+            font-size: 12px;
+        }
+        .btn {
+            font-size: 12px;
+            padding: 8px 14px;
+        }
+        .section-title {
+            font-size: 16px;
+        }
+        .service-title {
+            font-size: 13px;
+        }
+        .service-sub {
+            font-size: 10px;
+        }
+        .dropdown-content {
+            font-size: 12px;
+        }
+    }
 </style>
-
 </head>
+
 <body>
+<div class="page-shell">
 
-<div class="container">
+    <!-- HEADER -->
+    <header class="top-bar">
+        <div class="logo-title">Daily Fix Hub</div>
+        <div class="logo-sub">Your Trusted Home Maintenance Hub</div>
+    </header>
 
-    <div class="site-title">Daily Fix Hub</div>
-    <div class="site-subtitle">Your Trusted Home Maintenance Hub</div>
-
-    <div class="hero">
-        <h2>Maintenance Services in Dubai – 24/7 Professional Technicians</h2>
+    <!-- HERO -->
+    <section class="hero">
+        <h1>Maintenance Services in Dubai – 24/7 Professional Technicians</h1>
         <p>
-            AC, plumbing, electrical, handyman, appliance repair and complete home maintenance services across Dubai. 
+            AC, plumbing, electrical, handyman, appliance repair and complete home maintenance services across Dubai.
             Same-day service. No hidden charges.
         </p>
 
         <div class="btn-row">
-            <a href="tel:0527546880"><button class="btn call-btn">Call Us: 052 754 6880</button></a>
-            <a href="https://wa.me/971527546880"><button class="btn wa-btn">WhatsApp Us</button></a>
+            <a href="tel:0527546880">
+                <button class="btn call-btn">Call Us: 052 754 6880</button>
+            </a>
+            <a href="https://wa.me/971527546880">
+                <button class="btn wa-btn">WhatsApp Us</button>
+            </a>
         </div>
 
-        <p style="font-size: 12px; margin-top: 10px;">
+        <div class="hero-tags">
             ✔ Same-day service &nbsp;&nbsp; ✔ Trusted technicians &nbsp;&nbsp; ✔ Transparent pricing
-        </p>
-    </div>
+        </div>
+    </section>
 
     <!-- SERVICES -->
-    <div class="section-title">Our Services</div>
+    <h2 class="section-title">Our Services</h2>
 
-    <!-- SERVICE TEMPLATE (used for all) -->
+    <!-- AC -->
     <div class="service-card" onclick="toggleDropdown('ac')">
-        <div class="service-title">AC Repair & Service</div>
-        <div class="service-sub">Not cooling · Gas issues · Leakage</div>
+        <div class="service-header">
+            <div>
+                <div class="service-title">AC Repair &amp; Service</div>
+                <div class="service-sub">Not cooling · Gas issues · Leakage</div>
+            </div>
+            <div class="service-arrow" id="ac-arrow">+</div>
+        </div>
         <div id="ac" class="dropdown-content">
             • AC not cooling<br>
-            • Gas refilling & leakage<br>
+            • Gas refilling &amp; leakage<br>
             • Weak airflow<br>
             • AC not turning on<br>
-            • Bad smell issues<br>
+            • Bad smell from vents<br>
             • AC tripping / breaker issues<br>
-            • Water leakage from AC<br>
+            • Water leakage from indoor or outdoor unit<br>
             • Thermostat problems<br>
             • Compressor issues<br><br>
             <b>We handle all AC-related works professionally.</b>
         </div>
     </div>
 
+    <!-- PLUMBING -->
     <div class="service-card" onclick="toggleDropdown('plumbing')">
-        <div class="service-title">Plumbing Services</div>
-        <div class="service-sub">Leaks · Blockages · Water heater</div>
+        <div class="service-header">
+            <div>
+                <div class="service-title">Plumbing Services</div>
+                <div class="service-sub">Leaks · Blockages · Water heater</div>
+            </div>
+            <div class="service-arrow" id="plumbing-arrow">+</div>
+        </div>
         <div id="plumbing" class="dropdown-content">
-            • Pipe leaks<br>
-            • Kitchen & washroom blockages<br>
-            • Water heater repair<br>
-            • Low pressure issues<br>
-            • Tap, mixer, valve repair<br><br>
+            • Pipe and fitting leaks<br>
+            • Kitchen &amp; washroom blockages<br>
+            • Water heater repair &amp; replacement<br>
+            • Low water pressure issues<br>
+            • Tap / mixer / valve replacement<br><br>
             <b>We handle all plumbing-related works professionally.</b>
         </div>
     </div>
 
+    <!-- ELECTRICAL -->
     <div class="service-card" onclick="toggleDropdown('electrical')">
-        <div class="service-title">Electrical Services</div>
-        <div class="service-sub">Sockets · Lights · Wiring faults</div>
+        <div class="service-header">
+            <div>
+                <div class="service-title">Electrical Services</div>
+                <div class="service-sub">Sockets · Lights · Wiring faults</div>
+            </div>
+            <div class="service-arrow" id="electrical-arrow">+</div>
+        </div>
         <div id="electrical" class="dropdown-content">
-            • Socket repair<br>
-            • Light installation & fixing<br>
-            • Wiring & short circuit issues<br>
-            • Fuse & DB problems<br><br>
+            • Socket repair &amp; installation<br>
+            • Light fixtures and spotlights<br>
+            • Wiring and short-circuit issues<br>
+            • Fuse &amp; DB problems<br><br>
             <b>We handle all electrical-related works professionally.</b>
         </div>
     </div>
 
+    <!-- HANDYMAN -->
     <div class="service-card" onclick="toggleDropdown('handyman')">
-        <div class="service-title">Handyman Services</div>
-        <div class="service-sub">TVs · Shelves · Curtains</div>
+        <div class="service-header">
+            <div>
+                <div class="service-title">Handyman Services</div>
+                <div class="service-sub">TVs · Shelves · Curtains</div>
+            </div>
+            <div class="service-arrow" id="handyman-arrow">+</div>
+        </div>
         <div id="handyman" class="dropdown-content">
-            • TV mounting<br>
-            • Shelf installation<br>
-            • Curtain fixing<br>
-            • Small home repairs<br><br>
+            • TV wall mounting<br>
+            • Shelf and cabinet installation<br>
+            • Curtain &amp; blind fixing<br>
+            • Small home repair works<br><br>
             <b>We handle all handyman-related works professionally.</b>
         </div>
     </div>
 
+    <!-- APPLIANCE -->
     <div class="service-card" onclick="toggleDropdown('appliance')">
-        <div class="service-title">Appliance Repair</div>
-        <div class="service-sub">Fridge · Washer · Cooker</div>
+        <div class="service-header">
+            <div>
+                <div class="service-title">Appliance Repair</div>
+                <div class="service-sub">Fridge · Washer · Cooker</div>
+            </div>
+            <div class="service-arrow" id="appliance-arrow">+</div>
+        </div>
         <div id="appliance" class="dropdown-content">
             • Fridge not cooling<br>
             • Washing machine repair<br>
             • Dishwasher repair<br>
-            • Cooker & oven repair<br><br>
+            • Cooker &amp; oven repair<br><br>
             <b>We repair all major home appliances professionally.</b>
         </div>
     </div>
 
+    <!-- MASON -->
     <div class="service-card" onclick="toggleDropdown('mason')">
-        <div class="service-title">Mason Work</div>
-        <div class="service-sub">Tiles · Blocks · Repairs</div>
+        <div class="service-header">
+            <div>
+                <div class="service-title">Mason Work</div>
+                <div class="service-sub">Tiles · Blocks · Repairs</div>
+            </div>
+            <div class="service-arrow" id="mason-arrow">+</div>
+        </div>
         <div id="mason" class="dropdown-content">
             • Tile installation<br>
-            • Tile repair<br>
-            • Block work<br><br>
+            • Tile &amp; grout repair<br>
+            • Block work &amp; minor civil repairs<br><br>
             <b>We handle all masonry-related works professionally.</b>
         </div>
     </div>
 
+    <!-- PAINTING -->
     <div class="service-card" onclick="toggleDropdown('paint')">
-        <div class="service-title">Painting Work</div>
-        <div class="service-sub">Villas · Apartments</div>
+        <div class="service-header">
+            <div>
+                <div class="service-title">Painting Work</div>
+                <div class="service-sub">Villas · Apartments</div>
+            </div>
+            <div class="service-arrow" id="paint-arrow">+</div>
+        </div>
         <div id="paint" class="dropdown-content">
-            • Villa painting<br>
-            • Room painting<br>
-            • Touch-ups & repairs<br><br>
+            • Full villa painting<br>
+            • Room and feature-wall painting<br>
+            • Touch-ups and maintenance painting<br><br>
             <b>We handle all painting-related works professionally.</b>
         </div>
     </div>
 
+    <!-- ALUMINUM -->
     <div class="service-card" onclick="toggleDropdown('aluminum')">
-        <div class="service-title">Aluminum Work</div>
-        <div class="service-sub">Doors · Frames · Partitions</div>
+        <div class="service-header">
+            <div>
+                <div class="service-title">Aluminum Work</div>
+                <div class="service-sub">Doors · Frames · Partitions</div>
+            </div>
+            <div class="service-arrow" id="aluminum-arrow">+</div>
+        </div>
         <div id="aluminum" class="dropdown-content">
-            • Aluminum doors<br>
+            • Aluminum doors &amp; frames<br>
             • Aluminum partitions<br>
-            • Aluminum window work<br><br>
+            • Window &amp; slider adjustments<br><br>
             <b>We handle all aluminum-related works professionally.</b>
         </div>
     </div>
 
+    <!-- DOOR -->
     <div class="service-card" onclick="toggleDropdown('door')">
-        <div class="service-title">Door Work</div>
-        <div class="service-sub">Wooden · Aluminum · Glass doors</div>
+        <div class="service-header">
+            <div>
+                <div class="service-title">Door Work</div>
+                <div class="service-sub">Wooden · Aluminum · Glass doors</div>
+            </div>
+            <div class="service-arrow" id="door-arrow">+</div>
+        </div>
         <div id="door" class="dropdown-content">
             • Wooden door repair<br>
             • Aluminum door repair<br>
-            • Glass door repair & installation<br>
-            • Door alignment & lock repair<br><br>
+            • Glass door repair &amp; installation<br>
+            • Door alignment &amp; lock repair<br><br>
             <b>We handle all door-related works professionally.</b>
         </div>
     </div>
 
     <!-- WHY CHOOSE US -->
-    <div class="section-title">Why Homeowners Choose Daily Fix Hub</div>
+    <h2 class="section-title">Why Homeowners Choose Daily Fix Hub</h2>
     <div class="why-box">
         <div class="why-item">✔ Trusted technicians</div>
         <div class="why-item">✔ Same-day response</div>
@@ -293,20 +438,34 @@
         <div class="why-item">✔ Clean and professional work</div>
     </div>
 
+    <!-- FOOTER -->
+    <footer>
+        Daily Fix Hub — Trusted Home Maintenance Services<br>
+        24/7 Support · Call / WhatsApp: 052 754 6880
+    </footer>
+
 </div>
 
-<footer>
-    Daily Fix Hub — Trusted Home Maintenance Services<br>
-    24/7 Support · Call / WhatsApp: 052 754 6880
-</footer>
-
-<!-- FLOATING WHATSAPP -->
+<!-- FLOATING WHATSAPP BUTTON -->
 <a class="wa-float" href="https://wa.me/971527546880">WhatsApp</a>
 
 <script>
 function toggleDropdown(id) {
-    const box = document.getElementById(id);
-    box.style.display = box.style.display === "block" ? "none" : "block";
+    const allContents = document.querySelectorAll('.dropdown-content');
+    const allArrows   = document.querySelectorAll('.service-arrow');
+    const current     = document.getElementById(id);
+    const arrow       = document.getElementById(id + '-arrow');
+
+    // If current is already open, close everything
+    const isOpen = current.style.display === 'block';
+
+    allContents.forEach(c => c.style.display = 'none');
+    allArrows.forEach(a => a.textContent = '+');
+
+    if (!isOpen) {
+        current.style.display = 'block';
+        if (arrow) arrow.textContent = '–';
+    }
 }
 </script>
 
