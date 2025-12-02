@@ -36,7 +36,7 @@
       padding-bottom: 48px;
     }
 
-    /* --- TOP BAR --- */
+    /* TOP BAR */
     .top-bar-wrap {
       background: var(--bg-card);
       border-bottom: 1px solid var(--border-soft);
@@ -51,15 +51,11 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 12px;
     }
 
-    .brand { display: flex; flex-direction: column; gap: 2px; cursor: pointer; }
+    .brand { display: flex; flex-direction: column; cursor: pointer; }
     .brand-name { font-size: 22px; font-weight: 700; color: var(--accent-dark); }
     .brand-sub { font-size: 11px; color: var(--text-muted); }
-
-    .top-cta { display: none; }
-    @media (min-width: 880px) { .top-cta { display: block; } }
 
     .top-cta a {
       font-size: 12px;
@@ -69,10 +65,9 @@
       color: var(--accent-dark);
       font-weight: 600;
       border: 1px solid #c3e7f4;
-      white-space: nowrap;
     }
 
-    /* --- LAYOUT --- */
+    /* LAYOUT */
     .main-layout {
       display: grid;
       grid-template-columns: minmax(0, 2.3fr) minmax(0, 1.4fr);
@@ -80,7 +75,7 @@
       margin-top: 14px;
     }
 
-    /* --- HERO --- */
+    /* HERO */
     .hero {
       background: var(--bg-card);
       border-radius: 16px;
@@ -101,29 +96,81 @@
       margin-bottom: 8px;
     }
 
-    .hero h1 { font-size: 22px; margin: 0 0 6px; color: var(--text-main); }
-    .hero-activity { font-size: 12px; color: var(--accent-dark); margin-bottom: 10px; }
-    .hero-description { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+    .hero h1 { font-size: 24px; margin: 6px 0; }
+    .hero-activity { font-size: 13px; color: var(--accent-dark); margin-top: 4px; }
+    .hero-description { color: #667085; font-size: 14px; line-height: 1.6; margin-top: 12px; }
 
-    .btn-row { margin-top: 12px; }
+    .btn-row { margin-top: 14px; }
     .btn {
-      padding: 10px 18px;
+      padding: 12px 20px;
       border-radius: 999px;
       border: none;
       cursor: pointer;
-      font-size: 14px;
+      font-size: 15px;
       font-weight: 600;
       background: var(--accent-dark);
       color: #fff;
     }
 
-    /* --- SIDE CARD --- */
+    /* SIDE CARD */
     .side-card {
       background: var(--bg-card);
       border-radius: 16px;
-      padding: 18px;
+      padding: 20px;
       box-shadow: 0 10px 30px rgba(15,23,42,0.10);
       border: 1px solid var(--border-soft);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    /* SERVICES */
+    .service-card {
+      background:#fff;
+      border:1px solid #dde3ee;
+      border-radius:12px;
+      padding:14px;
+      cursor:pointer;
+    }
+
+    .service-arrow { transition: transform 0.2s ease; }
+
+    .dropdown-content {
+      display:none;
+      margin-top:10px;
+      background:#f5fbff;
+      padding:10px;
+      border-left:3px solid #026887;
+      border-radius:10px;
+      color:#475467;
+      font-size:14px;
+      line-height:1.6;
+    }
+
+    /* FOOTER */
+    footer {
+      text-align:center;
+      font-size:12px;
+      padding:18px;
+      background:#0b1727;
+      color:#fff;
+      border-radius:12px;
+      margin-top:40px;
+    }
+
+    /* FLOATING WHATSAPP BUTTON */
+    .wa-float {
+      position:fixed;
+      right:16px;
+      bottom:20px;
+      width:52px;
+      height:52px;
+      background:#25D366;
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      box-shadow:0 4px 14px rgba(15,23,42,0.4);
+      z-index:999;
     }
   </style>
 </head>
@@ -156,24 +203,30 @@
 
         <h1>Maintenance Services in Dubai – 24/7 Professional Technicians</h1>
 
-        <p class="hero-activity">AC · Plumbing · Electrical · Handyman · Appliances · Mason · Painting · Aluminium · Doors · Carpentry · Tiles &amp; Marble · Renovation</p>
+        <p class="hero-activity">
+          AC · Plumbing · Electrical · Handyman · Appliances · Mason · Painting · Aluminium · Doors · Carpentry · Tiles &amp; Marble · Renovation
+        </p>
 
-        <p class="hero-description">Professional home and shop maintenance across Dubai. Same-day response for urgent calls, clear communication and clean, reliable work every visit.</p>
+        <p class="hero-description">
+          Professional home and shop maintenance across Dubai. Same-day response for urgent calls, clear communication and clean, reliable work every visit.
+        </p>
 
         <div class="btn-row">
           <a href="tel:0527546880"><button class="btn">📞 Call Us: 052 754 6880</button></a>
         </div>
 
-        <p style="font-size:11px;color:#667085;margin-top:10px;">We cover most Dubai areas including JVC, Marina, Business Bay, JLT, Downtown and more.</p>
+        <p style="font-size:11px;color:#667085;margin-top:10px;">
+          We cover JVC, Marina, Business Bay, JLT, Downtown and more.
+        </p>
       </section>
 
       <!-- SIDE CARD -->
       <aside class="side-card">
-        <div style="font-weight:600;margin-bottom:8px;">Fast help when something breaks</div>
-        <div>• AC not cooling, water leakage or bad smell</div>
-        <div>• Plumbing leaks or blockages</div>
-        <div>• Power tripping &amp; socket issues</div>
-        <div>• Urgent door or lock problems</div>
+        <div style="font-weight:700;margin-bottom:8px;">Fast help when something breaks</div>
+        • AC not cooling, water leakage or smell<br>
+        • Plumbing leaks or blockages<br>
+        • Power tripping & socket problems<br>
+        • Door, lock and hinge issues<br>
 
         <div style="margin-top:12px;background:#e5f6fb;padding:10px;border-radius:10px;color:#026887;">
           Send photos or videos on WhatsApp for quick guidance.
@@ -181,3 +234,122 @@
       </aside>
 
     </div>
+
+    <!-- SERVICES -->
+    <h2 style="margin-top:40px;font-size:20px;font-weight:700;">Our Services</h2>
+
+    <div class="services-wrap" style="display:grid;gap:12px;">
+
+      <!-- AC -->
+      <div class="service-card" onclick="toggleDropdown('ac')">
+        <div style="display:flex;justify-content:space-between;">
+          <div style="display:flex;align-items:center;gap:12px;">
+            <div style="width:36px;height:36px;background:#e5f6fb;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;color:#026887;">❄️</div>
+            <div>
+              <div style="font-weight:600;">AC Repair &amp; Service</div>
+              <div style="font-size:12px;color:#667085;">Cooling · Gas · Leakage</div>
+            </div>
+          </div>
+          <div id="ac-arrow" class="service-arrow">›</div>
+        </div>
+        <div id="ac" class="dropdown-content">
+          • AC not cooling<br>
+          • Gas refill<br>
+          • Water leakage<br>
+          • Breaker tripping<br><br>
+          <b style="color:#026887;">We fix all AC issues.</b>
+        </div>
+      </div>
+
+      <!-- PLUMBING -->
+      <div class="service-card" onclick="toggleDropdown('plumbing')">
+        <div style="display:flex;justify-content:space-between;">
+          <div style="display:flex;align-items:center;gap:12px;">
+            <div style="width:36px;height:36px;background:#e5f6fb;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;color:#026887;">🚿</div>
+            <div>
+              <div style="font-weight:600;">Plumbing Services</div>
+              <div style="font-size:12px;color:#667085;">Leaks · Blockage · Heater</div>
+            </div>
+          </div>
+          <div id="plumbing-arrow" class="service-arrow">›</div>
+        </div>
+        <div id="plumbing" class="dropdown-content">
+          • Pipe leaks<br>
+          • Kitchen/washroom blockage<br>
+          • Water heater repair<br><br>
+          <b style="color:#026887;">Full plumbing support.</b>
+        </div>
+      </div>
+
+      <!-- ELECTRICAL -->
+      <div class="service-card" onclick="toggleDropdown('electrical')">
+        <div style="display:flex;justify-content:space-between;">
+          <div style="display:flex;align-items:center;gap:12px;">
+            <div style="width:36px;height:36px;background:#e5f6fb;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px;color:#026887;">💡</div>
+            <div>
+              <div style="font-weight:600;">Electrical Services</div>
+              <div style="font-size:12px;color:#667085;">Sockets · Lights · Wiring</div>
+            </div>
+          </div>
+          <div id="electrical-arrow" class="service-arrow">›</div>
+        </div>
+        <div id="electrical" class="dropdown-content">
+          • Socket repair<br>
+          • Light fixtures<br>
+          • Short circuit issues<br><br>
+          <b style="color:#026887;">Electrical specialists.</b>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- WHY CHOOSE US -->
+    <h2 style="margin-top:40px;font-size:20px;font-weight:700;">Why People Choose Daily Fix Hub</h2>
+
+    <div style="background:#fff;border:1px solid #dde3ee;padding:18px;border-radius:16px;box-shadow:0 3px 12px rgba(15,23,42,0.08);">
+      <ul style="padding-left:20px;font-size:14px;line-height:1.8;">
+        <li>Experienced technicians</li>
+        <li>Same-day response available</li>
+        <li>Clear explanation before work</li>
+        <li>No hidden charges</li>
+        <li>Clean and reliable service</li>
+      </ul>
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+      Daily Fix Hub — Home &amp; Shop Maintenance in Dubai<br>
+      24/7 Support · Call / WhatsApp: 052 754 6880
+    </footer>
+
+  </div> <!-- END page-shell -->
+
+  <!-- FLOATING WHATSAPP BUTTON -->
+  <a class="wa-float" href="https://wa.me/971527546880">
+    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="#fff" viewBox="0 0 32 32">
+      <path d="M16.027 3C9.4 3 4 8.4 4 15.027c0 2.637.872 5.082 2.348 7.06L4 29l7.113-2.317A11.86 11.86 0 0 0 16.027 27C22.654 27 28 21.6 28 14.973 28 8.4 22.654 3 16.027 3zm6.955 16.79c-.293.82-1.693 1.553-2.33 1.65-.62.093-1.412.133-2.278-.143-.526-.167-1.2-.39-2.06-.763-3.626-1.57-5.984-5.22-6.165-5.47-.18-.247-1.47-1.957-1.47-3.737 0-1.78.93-2.652 1.263-3.01.333-.357.73-.446.973-.446.24 0 .487.007.7.013.226.007.53-.086.83.63.293.713.987 2.457 1.074 2.64.086.183.14.4.027.647-.107.247-.16.4-.313.613-.167.226-.353.507-.5.68-.167.2-.34.417-.147.81.193.393.86 1.422 1.848 2.3 1.267 1.13 2.34 1.48 2.733 1.646.393.167.62.14.853-.086.233-.227.987-1.146 1.253-1.54.267-.393.52-.327.86-.193.34.133 2.147 1.013 2.517 1.2.367.187.607.28.7.44.093.16.093.913-.2 1.733z"/>
+    </svg>
+  </a>
+
+  <script>
+    function toggleDropdown(id) {
+      const all = document.querySelectorAll('.dropdown-content');
+      const arrows = document.querySelectorAll('.service-arrow');
+      all.forEach(el => el.style.display = 'none');
+      arrows.forEach(a => a.style.transform = 'none');
+
+      const box = document.getElementById(id);
+      const arrow = document.getElementById(id + '-arrow');
+
+      if (box.style.display === 'block') {
+        box.style.display = 'none';
+        arrow.style.transform = 'none';
+      } else {
+        box.style.display = 'block';
+        arrow.style.transform = 'rotate(90deg)';
+      }
+    }
+  </script>
+
+</body>
+</html>
