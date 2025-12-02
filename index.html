@@ -8,27 +8,44 @@
 <style>
   body {
     margin: 0;
-    font-family: "Inter", sans-serif;
+    font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
     background: linear-gradient(135deg, #e6f7f1 0%, #ffffff 100%);
     color: #003f2f;
   }
 
   a { text-decoration: none; }
 
+  /* LAYOUT WRAPPER */
+  .page-wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
   /* HEADER */
   .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 28px 50px;
+    padding: 24px 50px;
     max-width: 1250px;
     margin: auto;
+  }
+
+  .header-left {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .logo-link {
+    display: inline-block;
+    color: inherit;
   }
 
   .logo {
     font-size: 28px;
     font-weight: 800;
-    margin: 0;
+    margin: 0 0 2px;
     color: #003f2f;
   }
 
@@ -39,11 +56,11 @@
 
   .header-right a {
     margin-left: 15px;
-    padding: 10px 18px;
+    padding: 9px 18px;
     border-radius: 10px;
     font-weight: 600;
     color: white;
-    font-size: 16px;
+    font-size: 15px;
   }
 
   .top-call-btn {
@@ -59,38 +76,38 @@
     padding: 3px 6px;
     border-radius: 5px;
     margin-right: 6px;
-    font-size: 12px;
+    font-size: 11px;
   }
 
   /* HERO */
   .hero {
     max-width: 950px;
-    margin: 20px auto;
-    padding: 50px 40px;
-    background: white;
+    margin: 10px auto 25px;
+    padding: 40px 40px 45px;
+    background: #ffffff;
     border-radius: 20px;
-    box-shadow: 0px 10px 35px rgba(0,0,0,0.08);
+    box-shadow: 0px 12px 35px rgba(0,0,0,0.07);
   }
 
   .hero h2 {
-    font-size: 36px;
+    font-size: 32px;
     font-weight: 800;
-    margin-bottom: 15px;
+    margin-bottom: 12px;
   }
 
   .hero p {
-    font-size: 18px;
+    font-size: 17px;
     color: #4e6d65;
     line-height: 1.6;
-    margin-bottom: 25px;
+    margin-bottom: 22px;
   }
 
   .hero-buttons a {
     display: inline-block;
     margin-right: 15px;
-    padding: 14px 25px;
-    border-radius: 12px;
-    font-size: 17px;
+    padding: 12px 24px;
+    border-radius: 999px;
+    font-size: 16px;
     font-weight: 600;
     color: white;
   }
@@ -98,25 +115,30 @@
   .call-btn { background: #003f2f; }
   .wa-btn { background: #25d366; }
 
+  .hero-badges {
+    margin-top: 18px;
+  }
+
   .hero-badges span {
-    margin-right: 20px;
+    margin-right: 16px;
     color: #1ead7e;
     font-weight: 600;
+    font-size: 14px;
   }
 
   /* SECTIONS */
   .section {
     max-width: 950px;
-    margin: 40px auto;
-    padding: 30px;
-    background: white;
+    margin: 25px auto;
+    padding: 26px 30px 28px;
+    background: #ffffff;
     border-radius: 16px;
-    box-shadow: 0px 10px 25px rgba(0,0,0,0.06);
+    box-shadow: 0px 10px 28px rgba(0,0,0,0.05);
   }
 
   .section h3 {
-    font-size: 24px;
-    margin-bottom: 15px;
+    font-size: 22px;
+    margin-bottom: 14px;
   }
 
   .section ul {
@@ -124,84 +146,179 @@
     padding-left: 18px;
     line-height: 1.8;
     color: #2e3f3a;
+    font-size: 14px;
   }
 
-  /* SERVICES GRID */
+  /* SERVICES GRID WITH INTERACTION */
   .services-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 20px;
+    gap: 18px;
   }
 
-  .service-box {
+  .service-card {
     background: #f7fffc;
-    padding: 18px 20px;
-    border-radius: 12px;
-    border-left: 5px solid #1ead7e;
+    border-radius: 14px;
+    padding: 14px 16px 10px;
+    border: 1px solid #d4efe4;
+    cursor: pointer;
+    transition: all 0.18s ease-out;
+    box-shadow: 0 0 0 rgba(0,0,0,0);
+    position: relative;
   }
 
-  .service-box h4 {
-    margin: 0 0 5px;
-    font-size: 18px;
+  .service-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0px 10px 26px rgba(0,0,0,0.08);
+    border-color: #1ead7e;
+  }
+
+  .service-card.open {
+    border-color: #1ead7e;
+    box-shadow: 0px 10px 26px rgba(0,0,0,0.10);
+  }
+
+  .service-main {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .service-icon {
+    width: 34px;
+    height: 34px;
+    border-radius: 11px;
+    background: #e2fbf1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #003f2f;
+    font-size: 14px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .service-text h4 {
+    margin: 0;
+    font-size: 16px;
     font-weight: 700;
   }
 
-  .service-box span {
-    font-size: 14px;
-    color: #4e6d65;
+  .service-tagline {
+    margin: 2px 0 0;
+    font-size: 13px;
+    color: #56736b;
+  }
+
+  .service-arrow {
+    margin-left: auto;
+    font-size: 18px;
+    font-weight: 700;
+    color: #7ea298;
+  }
+
+  .service-card.open .service-arrow {
+    color: #1ead7e;
+  }
+
+  .service-details {
+    margin-top: 8px;
+    padding-top: 6px;
+    border-top: 1px dashed #cde6dd;
+    display: none;
+  }
+
+  .service-card.open .service-details {
+    display: block;
+  }
+
+  .service-details ul {
+    padding-left: 18px;
+    margin: 6px 0 4px;
+    font-size: 13px;
+    line-height: 1.7;
+    color: #335048;
   }
 
   /* TESTIMONIALS */
   .review-box {
     background: #f8fffd;
-    padding: 18px 20px;
+    padding: 14px 16px;
     border-radius: 12px;
-    margin-bottom: 12px;
+    margin-bottom: 10px;
     border-left: 4px solid #1ead7e;
+    font-size: 14px;
   }
 
   .review-name {
     font-weight: 700;
     color: #003f2f;
+    margin-bottom: 2px;
   }
 
   /* FOOTER */
   footer {
     text-align: center;
-    padding: 35px 15px;
+    padding: 28px 15px 32px;
     background: #003f2f;
     color: white;
-    margin-top: 50px;
+    margin-top: 45px;
+    font-size: 13px;
   }
 
   /* WHATSAPP FLOAT */
   .wa-float {
     position: fixed;
-    bottom: 28px;
-    right: 25px;
+    bottom: 22px;
+    right: 22px;
     background: #25d366;
     color: white;
-    padding: 15px 20px;
-    border-radius: 50px;
+    padding: 13px 20px;
+    border-radius: 999px;
     font-weight: 700;
-    font-size: 18px;
-    box-shadow: 0px 8px 25px rgba(0,0,0,0.2);
+    font-size: 16px;
+    box-shadow: 0px 8px 22px rgba(0,0,0,0.25);
     z-index: 999;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .header {
+      padding: 18px 18px;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .hero, .section {
+      margin: 14px auto;
+      padding: 22px 18px 24px;
+    }
+    .services-grid {
+      grid-template-columns: 1fr;
+    }
+    .hero h2 {
+      font-size: 26px;
+    }
   }
 </style>
 </head>
 
 <body>
+<div class="page-wrapper">
 
 <!-- HEADER -->
-<header class="header">
-  <div>
-    <h1 class="logo">Daily Fix Hub</h1>
-    <span class="tagline">Dubai’s Trusted Maintenance Hub</span>
+<header class="header" id="top">
+  <div class="header-left">
+    <a href="/" class="logo-link">
+      <h1 class="logo">Daily Fix Hub</h1>
+      <span class="tagline">Dubai’s Trusted Maintenance Hub</span>
+    </a>
   </div>
 
   <div class="header-right">
-    <a href="tel:0527546880" class="top-call-btn"><span class="call-24">24/7</span> 052 754 6880</a>
+    <a href="tel:0527546880" class="top-call-btn">
+      <span class="call-24">24/7</span> 052 754 6880
+    </a>
     <a href="https://wa.me/971527546880" class="top-whatsapp-btn">WhatsApp</a>
   </div>
 </header>
@@ -211,7 +328,7 @@
   <h2>Maintenance Services in Dubai – 24/7 Professional Technicians</h2>
 
   <p>
-    AC repair, plumbing, electrical, handyman, appliance repair and full home services across Dubai. 
+    AC repair, plumbing, electrical, handyman, appliance repair and full home services across Dubai.
     Certified technicians. Same-day service. No hidden charges.
   </p>
 
@@ -228,57 +345,155 @@
 </section>
 
 <!-- WHY CHOOSE -->
-<div class="section">
+<section class="section">
   <h3>Why Choose Daily Fix Hub</h3>
   <ul>
     <li>Trained and verified technicians</li>
     <li>Fast arrival anywhere in Dubai</li>
     <li>Clear explanation of work before starting</li>
-    <li>24/7 emergency support</li>
+    <li>24/7 emergency support when you need it</li>
     <li>Respectful and clean work inside your home</li>
-    <li>No surprises – upfront pricing</li>
+    <li>No surprises – upfront pricing only</li>
   </ul>
-</div>
+</section>
 
 <!-- SERVICES -->
-<div class="section">
+<section class="section">
   <h3>Our Services</h3>
 
   <div class="services-grid">
-    <div class="service-box">
-      <h4>AC Repair & AC Service</h4>
-      <span>Not cooling • leakage • gas issues</span>
+
+    <!-- AC -->
+    <div class="service-card">
+      <div class="service-main">
+        <div class="service-icon">AC</div>
+        <div class="service-text">
+          <h4>AC Repair & AC Service</h4>
+          <p class="service-tagline">Not cooling • leakage • gas issues</p>
+        </div>
+        <div class="service-arrow">+</div>
+      </div>
+      <div class="service-details">
+        <ul>
+          <li>AC not cooling or weak airflow</li>
+          <li>Gas top-up and refrigerant leaks</li>
+          <li>Water leakage from indoor or outdoor units</li>
+          <li>Bad smell or dusty air from vents</li>
+          <li>Compressor and thermostat problems</li>
+        </ul>
+      </div>
     </div>
 
-    <div class="service-box">
-      <h4>Plumbing Services</h4>
-      <span>Leaks • blockages • heater issues</span>
+    <!-- Plumbing -->
+    <div class="service-card">
+      <div class="service-main">
+        <div class="service-icon">PL</div>
+        <div class="service-text">
+          <h4>Plumbing Services</h4>
+          <p class="service-tagline">Leaks • blockages • heater issues</p>
+        </div>
+        <div class="service-arrow">+</div>
+      </div>
+      <div class="service-details">
+        <ul>
+          <li>Water leakage in kitchens and bathrooms</li>
+          <li>Clogged sinks, floor drains and toilets</li>
+          <li>Water heater repair and replacement</li>
+          <li>Low water pressure troubleshooting</li>
+          <li>New tap, mixer and shower installations</li>
+        </ul>
+      </div>
     </div>
 
-    <div class="service-box">
-      <h4>Electrical Services</h4>
-      <span>Sockets • lights • wiring faults</span>
+    <!-- Electrical -->
+    <div class="service-card">
+      <div class="service-main">
+        <div class="service-icon">EL</div>
+        <div class="service-text">
+          <h4>Electrical Services</h4>
+          <p class="service-tagline">Sockets • lights • wiring faults</p>
+        </div>
+        <div class="service-arrow">+</div>
+      </div>
+      <div class="service-details">
+        <ul>
+          <li>Tripping breakers and overloaded circuits</li>
+          <li>Faulty sockets, switches and dimmers</li>
+          <li>Indoor and outdoor lighting installation</li>
+          <li>Ceiling fans and exhaust fans installation</li>
+          <li>Safe troubleshooting for burning smells or sparks</li>
+        </ul>
+      </div>
     </div>
 
-    <div class="service-box">
-      <h4>Handyman Services</h4>
-      <span>TVs • curtains • shelves</span>
+    <!-- Handyman -->
+    <div class="service-card">
+      <div class="service-main">
+        <div class="service-icon">HM</div>
+        <div class="service-text">
+          <h4>Handyman Services</h4>
+          <p class="service-tagline">TVs • curtains • shelves</p>
+        </div>
+        <div class="service-arrow">+</div>
+      </div>
+      <div class="service-details">
+        <ul>
+          <li>TV wall mounting and concealed cabling</li>
+          <li>Curtain rails and blinds installation</li>
+          <li>Picture frames and shelves fixing</li>
+          <li>Door handles, locks and hinges repair</li>
+          <li>General home fixing and touch-ups</li>
+        </ul>
+      </div>
     </div>
 
-    <div class="service-box">
-      <h4>Appliance Repair</h4>
-      <span>Fridge • washer • oven issues</span>
+    <!-- Appliances -->
+    <div class="service-card">
+      <div class="service-main">
+        <div class="service-icon">AP</div>
+        <div class="service-text">
+          <h4>Appliance Repair</h4>
+          <p class="service-tagline">Fridge • washer • oven issues</p>
+        </div>
+        <div class="service-arrow">+</div>
+      </div>
+      <div class="service-details">
+        <ul>
+          <li>Fridge and freezer not cooling</li>
+          <li>Washing machine not spinning or draining</li>
+          <li>Dryer not heating or noisy operation</li>
+          <li>Oven and cooker not heating evenly</li>
+          <li>Dishwasher leaks or poor cleaning</li>
+        </ul>
+      </div>
     </div>
 
-    <div class="service-box">
-      <h4>Maintenance Contracts (AMC)</h4>
-      <span>Yearly coverage for your home</span>
+    <!-- AMC -->
+    <div class="service-card">
+      <div class="service-main">
+        <div class="service-icon">AMC</div>
+        <div class="service-text">
+          <h4>Maintenance Contracts (AMC)</h4>
+          <p class="service-tagline">Yearly coverage for your home</p>
+        </div>
+        <div class="service-arrow">+</div>
+      </div>
+      <div class="service-details">
+        <ul>
+          <li>Scheduled AC, electrical and plumbing check-ups</li>
+          <li>Priority response for emergency issues</li>
+          <li>Reduced call-out and labour rates</li>
+          <li>Preventive maintenance to avoid breakdowns</li>
+          <li>Tailored packages for apartments and villas</li>
+        </ul>
+      </div>
     </div>
+
   </div>
-</div>
+</section>
 
 <!-- TESTIMONIALS -->
-<div class="section">
+<section class="section">
   <h3>What Customers Say</h3>
 
   <div class="review-box">
@@ -295,7 +510,7 @@
     <div class="review-name">Ahmed – Business Bay</div>
     “Good service, polite technicians and clear communication.”
   </div>
-</div>
+</section>
 
 <!-- FOOTER -->
 <footer>
@@ -303,8 +518,40 @@
   24/7 Support • Call / WhatsApp: 052 754 6880
 </footer>
 
+</div> <!-- /page-wrapper -->
+
 <!-- Floating WhatsApp -->
 <a href="https://wa.me/971527546880" class="wa-float">WhatsApp</a>
+
+<!-- INTERACTION SCRIPT -->
+<script>
+  // Make logo scroll to top smoothly
+  document.querySelectorAll('.logo-link').forEach(function(link) {
+    link.addEventListener('click', function(e) {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  });
+
+  // Expand / collapse service cards
+  document.querySelectorAll('.service-card').forEach(function(card) {
+    card.addEventListener('click', function() {
+      const isOpen = card.classList.contains('open');
+      // Close all others
+      document.querySelectorAll('.service-card.open').forEach(function(c) {
+        if (c !== card) {
+          c.classList.remove('open');
+          const arrow = c.querySelector('.service-arrow');
+          if (arrow) arrow.textContent = '+';
+        }
+      });
+      // Toggle current
+      card.classList.toggle('open');
+      const arrow = card.querySelector('.service-arrow');
+      if (arrow) arrow.textContent = card.classList.contains('open') ? '−' : '+';
+    });
+  });
+</script>
 
 </body>
 </html>
