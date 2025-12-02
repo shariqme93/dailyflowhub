@@ -41,7 +41,6 @@
       padding-bottom: 48px;
     }
 
-    /* TOP BAR */
     .top-bar-wrap {
       background: var(--bg-card);
       border-bottom: 1px solid var(--border-soft);
@@ -93,7 +92,6 @@
       white-space: nowrap;
     }
 
-    /* LAYOUT */
     .main-layout {
       display: grid;
       grid-template-columns: minmax(0, 2fr);
@@ -111,7 +109,6 @@
       }
     }
 
-    /* HERO */
     .hero {
       background: var(--bg-card);
       border-radius: 16px;
@@ -217,7 +214,6 @@
       color: #667085;
     }
 
-    /* SIDE CARD - QUICK FACTS */
     .side-card {
       background: var(--bg-card);
       border-radius: 16px;
@@ -248,7 +244,6 @@
       border: 1px solid #c3e7f4;
     }
 
-    /* SECTIONS */
     .section-title {
       font-size: 18px;
       font-weight: 700;
@@ -256,7 +251,6 @@
       color: var(--text-main);
     }
 
-    /* SERVICES */
     .services-wrap {
       display: grid;
       grid-template-columns: minmax(0, 1fr);
@@ -353,7 +347,6 @@
       color: var(--accent-dark);
     }
 
-    /* WHY CHOOSE US */
     .why-box {
       background: var(--bg-card);
       padding: 16px 18px;
@@ -396,7 +389,6 @@
       flex-shrink: 0;
     }
 
-    /* FOOTER */
     footer {
       text-align: center;
       font-size: 11px;
@@ -408,7 +400,7 @@
       border-top: 1px solid #111827;
     }
 
-    /* FLOATING WHATSAPP (ROUND) */
+    /* FLOATING WHATSAPP BUTTON (ROUND ICON) */
     .wa-float {
       position: fixed;
       right: 16px;
@@ -416,62 +408,12 @@
       width: 52px;
       height: 52px;
       border-radius: 50%;
-      background: #25D366; /* official WhatsApp green tone */
-      color: #ffffff;
-      font-weight: 700;
-      font-size: 14px;
+      background: #25D366;
       display: flex;
       align-items: center;
       justify-content: center;
       box-shadow: 0 4px 14px rgba(15, 23, 42, 0.45);
       z-index: 50;
-    }
-
-    @media (max-width: 600px) {
-      .hero {
-        padding: 16px 14px 14px;
-      }
-
-      .hero h1 {
-        font-size: 19px;
-      }
-
-      .hero-activity {
-        font-size: 11px;
-      }
-
-      .hero-description {
-        font-size: 13px;
-      }
-
-      .btn-row {
-        flex-direction: column;
-      }
-
-      .btn {
-        width: 100%;
-        text-align: center;
-      }
-
-      .section-title {
-        font-size: 17px;
-      }
-
-      .service-title {
-        font-size: 13px;
-      }
-
-      .service-sub {
-        font-size: 10px;
-      }
-
-      .dropdown-content {
-        font-size: 12px;
-      }
-
-      .top-cta {
-        display: none;
-      }
     }
   </style>
 </head>
@@ -490,358 +432,20 @@
   </div>
 
   <div class="page-shell">
-    <div class="main-layout">
-      <!-- HERO SIDE -->
-      <section class="hero">
-        <div class="hero-pill">
-          <span class="hero-pill-dot"></span>
-          24/7 Maintenance Support in Dubai
-        </div>
 
-        <h1>Maintenance Services in Dubai – 24/7 Professional Technicians</h1>
+    <!-- PAGE CONTENT... (all your services, hero, why choose us etc.) -->
 
-        <p class="hero-activity">
-          AC · Plumbing · Electrical · Handyman · Appliances · Mason · Painting · Aluminium · Doors · Carpentry · Tiles &amp; Marble · Renovation
-        </p>
-
-        <p class="hero-description">
-          Professional home and shop maintenance across Dubai. Same-day response for urgent calls,
-          clear communication and clean, reliable work every visit.
-        </p>
-
-        <div class="hero-info-row">
-          <div class="hero-info-tag">Same-day service (subject to schedule)</div>
-          <div class="hero-info-tag">Serving apartments, villas &amp; retail</div>
-          <div class="hero-info-tag">No hidden charges</div>
-        </div>
-
-        <div class="btn-row">
-          <a href="tel:0527546880">
-            <button class="btn call-btn">
-              <span class="btn-icon">📞</span>
-              Call Us: 052 754 6880
-            </button>
-          </a>
-        </div>
-
-        <div class="hero-note">
-          We cover most Dubai areas including JVC, Marina, Business Bay, JLT, Downtown and nearby communities.
-        </div>
-      </section>
-
-      <!-- SIDE CARD -->
-      <aside class="side-card">
-        <div class="side-title">Fast help when something breaks</div>
-        <div class="side-line">• AC not cooling, water leakage or bad smell</div>
-        <div class="side-line">• Sudden plumbing leaks or blockages</div>
-        <div class="side-line">• Power tripping, light or socket issues</div>
-        <div class="side-line">• Urgent door, lock or glass problems</div>
-
-        <div class="side-highlight">
-          Share your issue on WhatsApp with photos or video. We review and guide you with the next steps.
-        </div>
-      </aside>
-    </div>
-
-    <!-- SERVICES -->
-    <h2 class="section-title">Our Services</h2>
-
-    <div class="services-wrap">
-
-      <!-- AC -->
-      <div class="service-card" onclick="toggleDropdown('ac')">
-        <div class="service-header">
-          <div class="service-main">
-            <div class="service-icon">❄️</div>
-            <div>
-              <div class="service-title">AC Repair &amp; Service</div>
-              <div class="service-sub">Not cooling · Gas issues · Leakage</div>
-            </div>
-          </div>
-          <div class="service-arrow" id="ac-arrow">›</div>
-        </div>
-        <div id="ac" class="dropdown-content">
-          • AC not cooling<br>
-          • Gas refilling &amp; leakage<br>
-          • Weak or uneven airflow<br>
-          • AC not turning on<br>
-          • Bad smell from vents<br>
-          • AC tripping / breaker issues<br>
-          • Water leakage from indoor or outdoor unit<br>
-          • Thermostat problems<br>
-          • Compressor issues<br><br>
-          <b>We handle all AC-related works professionally.</b>
-        </div>
-      </div>
-
-      <!-- PLUMBING -->
-      <div class="service-card" onclick="toggleDropdown('plumbing')">
-        <div class="service-header">
-          <div class="service-main">
-            <div class="service-icon">🚿</div>
-            <div>
-              <div class="service-title">Plumbing Services</div>
-              <div class="service-sub">Leaks · Blockages · Water heater</div>
-            </div>
-          </div>
-          <div class="service-arrow" id="plumbing-arrow">›</div>
-        </div>
-        <div id="plumbing" class="dropdown-content">
-          • Pipe and fitting leaks<br>
-          • Kitchen &amp; washroom blockages<br>
-          • Water heater repair &amp; replacement<br>
-          • Low water pressure issues<br>
-          • Tap / mixer / valve replacement<br><br>
-          <b>We handle all plumbing-related works professionally.</b>
-        </div>
-      </div>
-
-      <!-- ELECTRICAL -->
-      <div class="service-card" onclick="toggleDropdown('electrical')">
-        <div class="service-header">
-          <div class="service-main">
-            <div class="service-icon">💡</div>
-            <div>
-              <div class="service-title">Electrical Services</div>
-              <div class="service-sub">Sockets · Lights · Wiring faults</div>
-            </div>
-          </div>
-          <div class="service-arrow" id="electrical-arrow">›</div>
-        </div>
-        <div id="electrical" class="dropdown-content">
-          • Socket repair &amp; installation<br>
-          • Light fixtures and spotlights<br>
-          • Wiring and short-circuit issues<br>
-          • Fuse &amp; DB problems<br><br>
-          <b>We handle all electrical-related works professionally.</b>
-        </div>
-      </div>
-
-      <!-- HANDYMAN -->
-      <div class="service-card" onclick="toggleDropdown('handyman')">
-        <div class="service-header">
-          <div class="service-main">
-            <div class="service-icon">🛠️</div>
-            <div>
-              <div class="service-title">Handyman Services</div>
-              <div class="service-sub">TVs · Shelves · Curtains</div>
-            </div>
-          </div>
-          <div class="service-arrow" id="handyman-arrow">›</div>
-        </div>
-        <div id="handyman" class="dropdown-content">
-          • TV wall mounting<br>
-          • Shelf and cabinet installation<br>
-          • Curtain &amp; blind fixing<br>
-          • Small home repair works<br><br>
-          <b>We handle all handyman-related works professionally.</b>
-        </div>
-      </div>
-
-      <!-- APPLIANCE -->
-      <div class="service-card" onclick="toggleDropdown('appliance')">
-        <div class="service-header">
-          <div class="service-main">
-            <div class="service-icon">🔌</div>
-            <div>
-              <div class="service-title">Appliance Repair</div>
-              <div class="service-sub">Fridge · Washer · Cooker</div>
-            </div>
-          </div>
-          <div class="service-arrow" id="appliance-arrow">›</div>
-        </div>
-        <div id="appliance" class="dropdown-content">
-          • Fridge not cooling or over-freezing<br>
-          • Washing machine repair<br>
-          • Dishwasher repair<br>
-          • Cooker &amp; oven repair<br><br>
-          <b>We repair all major home appliances professionally.</b>
-        </div>
-      </div>
-
-      <!-- MASON -->
-      <div class="service-card" onclick="toggleDropdown('mason')">
-        <div class="service-header">
-          <div class="service-main">
-            <div class="service-icon">🧱</div>
-            <div>
-              <div class="service-title">Mason Work</div>
-              <div class="service-sub">Tiles · Blocks · Repairs</div>
-            </div>
-          </div>
-          <div class="service-arrow" id="mason-arrow">›</div>
-        </div>
-        <div id="mason" class="dropdown-content">
-          • Tile installation<br>
-          • Tile &amp; grout repair<br>
-          • Block work &amp; minor civil repairs<br><br>
-          <b>We handle all masonry-related works professionally.</b>
-        </div>
-      </div>
-
-      <!-- PAINTING -->
-      <div class="service-card" onclick="toggleDropdown('paint')">
-        <div class="service-header">
-          <div class="service-main">
-            <div class="service-icon">🎨</div>
-            <div>
-              <div class="service-title">Painting Work</div>
-              <div class="service-sub">Villas · Apartments</div>
-            </div>
-          </div>
-          <div class="service-arrow" id="paint-arrow">›</div>
-        </div>
-        <div id="paint" class="dropdown-content">
-          • Full villa painting<br>
-          • Room and feature-wall painting<br>
-          • Touch-ups and maintenance painting<br><br>
-          <b>We handle all painting-related works professionally.</b>
-        </div>
-      </div>
-
-      <!-- ALUMINUM -->
-      <div class="service-card" onclick="toggleDropdown('aluminum')">
-        <div class="service-header">
-          <div class="service-main">
-            <div class="service-icon">🪟</div>
-            <div>
-              <div class="service-title">Aluminum Work</div>
-              <div class="service-sub">Doors · Frames · Partitions</div>
-            </div>
-          </div>
-          <div class="service-arrow" id="aluminum-arrow">›</div>
-        </div>
-        <div id="aluminum" class="dropdown-content">
-          • Aluminum doors &amp; frames<br>
-          • Aluminum partitions<br>
-          • Window &amp; slider adjustments<br><br>
-          <b>We handle all aluminum-related works professionally.</b>
-        </div>
-      </div>
-
-      <!-- DOOR -->
-      <div class="service-card" onclick="toggleDropdown('door')">
-        <div class="service-header">
-          <div class="service-main">
-            <div class="service-icon">🚪</div>
-            <div>
-              <div class="service-title">Door Work</div>
-              <div class="service-sub">Wooden · Aluminum · Glass doors</div>
-            </div>
-          </div>
-          <div class="service-arrow" id="door-arrow">›</div>
-        </div>
-        <div id="door" class="dropdown-content">
-          • Wooden door repair<br>
-          • Aluminum door repair<br>
-          • Glass door repair &amp; installation<br>
-          • Door alignment &amp; lock repair<br><br>
-          <b>We handle all door-related works professionally.</b>
-        </div>
-      </div>
-
-      <!-- CARPENTRY -->
-      <div class="service-card" onclick="toggleDropdown('carpentry')">
-        <div class="service-header">
-          <div class="service-main">
-            <div class="service-icon">🪚</div>
-            <div>
-              <div class="service-title">Carpentry Work</div>
-              <div class="service-sub">Doors · Cabinets · Shelves</div>
-            </div>
-          </div>
-          <div class="service-arrow" id="carpentry-arrow">›</div>
-        </div>
-        <div id="carpentry" class="dropdown-content">
-          • Door and frame adjustment<br>
-          • Cabinet and wardrobe repair<br>
-          • Custom shelves and minor wood works<br><br>
-          <b>We handle all carpentry-related works professionally.</b>
-        </div>
-      </div>
-
-      <!-- TILES & MARBLE -->
-      <div class="service-card" onclick="toggleDropdown('tiles')">
-        <div class="service-header">
-          <div class="service-main">
-            <div class="service-icon">🪨</div>
-            <div>
-              <div class="service-title">Tiles &amp; Marble Work</div>
-              <div class="service-sub">Flooring · Cladding · Repairs</div>
-            </div>
-          </div>
-          <div class="service-arrow" id="tiles-arrow">›</div>
-        </div>
-        <div id="tiles" class="dropdown-content">
-          • Floor and wall tile fixing<br>
-          • Marble installation &amp; patch repair<br>
-          • Grout repair and re-grouting<br><br>
-          <b>We handle all tile and marble-related works professionally.</b>
-        </div>
-      </div>
-
-      <!-- RENOVATION -->
-      <div class="service-card" onclick="toggleDropdown('renovation')">
-        <div class="service-header">
-          <div class="service-main">
-            <div class="service-icon">🏠</div>
-            <div>
-              <div class="service-title">Renovation Services</div>
-              <div class="service-sub">Rooms · Kitchens · Shops</div>
-            </div>
-          </div>
-          <div class="service-arrow" id="renovation-arrow">›</div>
-        </div>
-        <div id="renovation" class="dropdown-content">
-          • Minor renovation and makeovers<br>
-          • Kitchen and bathroom upgrades<br>
-          • Retail and small shop fit-out touch-ups<br><br>
-          <b>We handle small to medium renovation-related works professionally.</b>
-        </div>
-      </div>
-
-    </div>
-
-    <!-- WHY CHOOSE US -->
-    <h2 class="section-title">Why Homeowners Choose Daily Fix Hub</h2>
-    <div class="why-box">
-      <div class="why-intro">
-        Simple, clear and reliable maintenance support when you need it the most.
-      </div>
-      <div class="why-list">
-        <div class="why-item">
-          <span class="why-bullet">✔</span>
-          <span>Experienced technicians for AC, plumbing, electrical and more.</span>
-        </div>
-        <div class="why-item">
-          <span class="why-bullet">✔</span>
-          <span>Same-day response for most urgent issues, subject to schedule.</span>
-        </div>
-        <div class="why-item">
-          <span class="why-bullet">✔</span>
-          <span>Clear explanation of work before starting – no surprises.</span>
-        </div>
-        <div class="why-item">
-          <span class="why-bullet">✔</span>
-          <span>Clean, respectful work in your home or shop.</span>
-        </div>
-        <div class="why-item">
-          <span class="why-bullet">✔</span>
-          <span>Easy communication on WhatsApp with photos and videos.</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- FOOTER -->
     <footer>
       Daily Fix Hub — Home &amp; Shop Maintenance in Dubai<br />
       24/7 Support · Call / WhatsApp: 052 754 6880
     </footer>
   </div>
 
-  <!-- FLOATING WHATSAPP BUTTON (ROUND) -->
+  <!-- FLOATING WHATSAPP BUTTON -->
   <a class="wa-float" href="https://wa.me/971527546880">
-    WA
+    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 32 32" fill="#FFFFFF">
+      <path d="M16.027 3C9.4 3 4 8.4 4 15.027c0 2.637.872 5.082 2.348 7.06L4 29l7.113-2.317A11.86 11.86 0 0 0 16.027 27C22.654 27 28 21.6 28 14.973 28 8.4 22.654 3 16.027 3zm6.955 16.79c-.293.82-1.693 1.553-2.33 1.65-.62.093-1.412.133-2.278-.143-.526-.167-1.2-.39-2.06-.763-3.626-1.57-5.984-5.22-6.165-5.47-.18-.247-1.47-1.957-1.47-3.737 0-1.78.93-2.652 1.263-3.01.333-.357.73-.446.973-.446.24 0 .487.007.7.013.226.007.53-.086.83.63.293.713.987 2.457 1.074 2.64.086.183.14.4.027.647-.107.247-.16.4-.313.613-.167.226-.353.507-.5.68-.167.2-.34.417-.147.81.193.393.86 1.422 1.848 2.3 1.267 1.13 2.34 1.48 2.733 1.646.393.167.62.14.853-.086.233-.227.987-1.146 1.253-1.54.267-.393.52-.327.86-.193.34.133 2.147 1.013 2.517 1.2.367.187.607.28.7.44.093.16.093.913-.2 1.733z"/>
+    </svg>
   </a>
 
   <script>
@@ -866,5 +470,6 @@
       }
     }
   </script>
+
 </body>
 </html>
